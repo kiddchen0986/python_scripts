@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BlackListHwId xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SensorHwId>
+    <HardwareId>0x0611</HardwareId>
+  </SensorHwId>
+</BlackListHwId>

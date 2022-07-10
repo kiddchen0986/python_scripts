@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+  <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+    <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+  </Test>
+  <Test Name="Manual Capture" Class="TestsModule.Tests.TestManualCapture">
+    <Parameter Class="TestsModule.Data.ManualCaptureSettings">ManualCaptureSettings.xml</Parameter>
+  </Test>
+  <Test Name="CTL Defective Pixels" Class="TestsModule.Tests.TestCtlDefectivePixels">
+    <Parameter Class="TestsModule.Data.CtlDefectivePixelsSettings">CtlDefectivePixelsSettings_1511-S.xml</Parameter>
+  </Test>
+</Sequence>

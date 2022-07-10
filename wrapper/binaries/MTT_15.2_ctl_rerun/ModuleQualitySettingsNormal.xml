@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModuleQualitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Timeout for finger detect in ms-->
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+  <!-- Time to stabilize finger after finger detect in ms -->
+  <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+
+  <!-- ============================= TEST CRITERIA ============================= -->
+  <!-- Settings below are test criteria. Default criteria will automatically
+     be applied based on selected product type. To override any of the default
+     settings, un-comment and update the setting below -->
+
+  <!-- How much of the image should be cropped. There are three different ways to define this:
+  i.   top, bottom, left, right
+  ii.  top/bottom, left/right
+  iii. all sides -->
+  <!--<AnalysisCrop>0</AnalysisCrop>-->
+
+  <!--<SnrLimit>0</SnrLimit>-->
+
+  <!-- 0 is default value, other values are used in specific cases -->
+  <!--<LimitsPreset>0</LimitsPreset>-->
+
+  <!-- Default value is false except for For FPC1265, FPC1266, FPC1268 sensors -->
+  <!--<DoApns>false</DoApns>-->
+
+  <!-- How much of the image should be cropped during capture. There are three different ways to define this:
+  i.   top, bottom, left, right
+  ii.  top/bottom, left/right
+  iii. all sides -->
+  <!--<CalibrationCrop>0</CalibrationCrop>-->
+</ModuleQualitySettings>

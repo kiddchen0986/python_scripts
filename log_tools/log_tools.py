@@ -7,7 +7,6 @@ Created on Wed Oct 18 16:05:38 2017
 """
 
 import os
-import json
 from fnmatch import fnmatch
 import numpy as np
 import re
@@ -15,216 +14,55 @@ import struct
 
 enc_types = ['utf8', 'cp1252']
 
-# Extract values from "UdrTestValues"
-def hexstring2values(x):
-     uf = struct.unpack('>f',struct.pack('I',int(x[0:8],16)))[0]
-     ss = struct.unpack('>f',struct.pack('I',int(x[8:16],16)))[0]
-     rms = struct.unpack('>f',struct.pack('I',int(x[16:24],16)))[0]
-     #print('run')
-     return uf, ss, rms
-
-class Optical:
-
-    def __init__(self):
-        self.root_dir = None
-        self.data = {}
-
-    def __call__(self, root_dir):
-        self.root_dir = root_dir
-
-        filelist = []
-        for path, subdirs, files in os.walk(root_dir):
-            for name in files:
-                if fnmatch(name, '*.json'):
-                    filelist.append(os.path.join(path, name))
-        filelist.sort()
-
-        # Regular expressions to extract values
-        reg_dict = {'hwid': '("BridgeHwId": ")(\d+)',
-                    'fpga_fw': '("BridgeFwRev": ")(\d+)',
-                    'fpga_rev': '("BridgeRtlRev": ")(\d+)',
-                    'sensor_id': '("SensorProdId": ")(\d+)',
-                    'current': '(MeasuredCurrentMilliAmperes": )(\d+)'
-                    }
-
-        for file in filelist:
-            for enc in enc_types:
-                with open(file, encoding=enc, errors='replace') as f:
-                    buffer = f.read()
-
-            self.data[file] = []
-
-            try:
-                for key, values in reg_dict.items():
-                    val = re.search(values, buffer).group(2)
-                    #print(val)
-                    self.data[file].append(float(val))
-            except:
-                pass
-
-        return self.data
-
-
-class MQT2ReRun:
-
-    def __init__(self):
-        self.root_dir = None
-        self.data = {}
-
-    def __call__(self, root_dir):
-        self.root_dir = root_dir
-
-        filelist = []
-        for path, subdirs, files in os.walk(root_dir):
-            for name in files:
-                if fnmatch(name, '*.json'):
-                    filelist.append(os.path.join(path, name))
-        filelist.sort()
-
-        # Regular expressions, comment out if not present
-        #reg_sensorid = '("Sensor ID": ")(\w*)'
-        reg_dict = {'snr': '("snr_db": )(\d+\.\d+)',
-                    'blobs': '("number_of_blobs": )(\d+)',
-                    'udr': '("udr": )(\d+\.\d+)',
-                    'fp_pxl': '("fixed_pattern_pixels": )(\d+)',
-                    'rms_us': '("rms_us": )(\d+.\d+|d+)',
-                    'signal_power': '("value0": )(\d+.\d+|d+)',
-#                    'value1': '("value1": )(\d+.\d+|d+)',
-                    'noise_fp': '("value2": )(\d+.\d+|d+)',
-                    'noise_thermal': '("value3": )(\d+.\d+|d+)'
-#                    'value4': '("value4": )(\d+.\d+|d+)',
-#                    'value5': '("value5": )(\d+.\d+|d+)',
-#                    'value6': '("value6": )(\d+.\d+|d+)',
-#                    'value7': '("value7": )(\d+.\d+|d+)',
-#                    'value8': '("value8": )(\d+.\d+|d+)',
-#                    'value9': '("value9": )(\d+.\d+|d+)',
-#                    'value10': '("value10": )(\d+.\d+|d+)',
-#                    'value11': '("value11": )(\d+.\d+|d+)',
-#                    'value12': '("value12": )(\d+.\d+|d+)',
-#                    'value13': '("value13": )(\d+.\d+|d+)',
-#                    'value14': '("value14": )(\d+.\d+|d+)',
-#                    'value15': '("value15": )(\d+.\d+|d+)'
-                    }
-
-        for file in filelist:
-            for enc in enc_types:
-                with open(file, encoding=enc, errors='replace') as f:
-                    buffer = f.read()
-
-            self.data[file] = []
-            try:
-                for key, values in reg_dict.items():
-                    if key == 'value0':
-                        val = re.findall(values, buffer).group(2)
-                    val = re.search(values, buffer).group(2)
-                    #print(val)
-                    self.data[file].append(float(val))
-            except:
-                pass
-
-        return self.data
-
-
 class MTTLogsVaduz:
 
     def __init__(self):
         self.root_dir = None
         self.data = {}
 
-    def static_mqt2(self, file, t):
-        print(file)
-        test_con = t['TestMethodConclusion']
-        #print(test_con)
-        if test_con == "Exception" or test_con == "NotRun":
-            print('Exception or NotRun','\n')
-            #self.data[file] = "exception_or_not_run"
-        else:
-            res = t['TestLog']['Steps']['analysis']['Items']['result']
-            self.data[file] = []
-            for p in res['ModuleQualityAnalysis']:
-                #if p['Status'] == "OK":
+    def __call__(self, root_dir):
+        self.root_dir = root_dir
+
+        filelist = []
+        for path, subdirs, files in os.walk(root_dir):
+            for name in files:
+                if fnmatch(name, '*.json'):
+                    filelist.append(os.path.join(path, name))
+        #filelist.sort()
+        #print(filelist)
+
+        reg = {"profile_1": '(1)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_2": '(2)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_3": '(3)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_4": '(4)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_5": '(5)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_6": '(6)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_7": '(7)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)',
+               "profile_8": '(8)(",\W+.+\W+.+\W+"snr_db": )(\d+.\d\d)(.+\W+.+\W+.+\W+"number_of_blobs": )(\d+)(,\W+.+\W+.+\W+.+\W+"udr": )(\d.\d\d\d\d)'}
+
+        for file in filelist:
+            for enc in enc_types:
+                with open(file, encoding=enc, errors='replace') as f:
+                    buffer = f.read()
+
+
+
+            for key in reg.keys():
+                self.data[file] = []
+                print(key)
                 try:
-                    snr = float(p['Snr']['SnrDb'])
-                    blob = float(p['Blob']['BlobCount'])
-                    udr = float(p['Udr']['Udr'])
-                    uf, ss, rms = hexstring2values(p['Udr']['UdrTestValues'])
-                    #print([snr, blob, udr, uf, ss, rms], '\n')
-                    self.data[file].append([snr, blob, udr, uf, ss, rms])
+                    search = re.search(reg[key], buffer)
+                    #
+                    snr = float(search.group(3))
+                    blobs = float(search.group(5))
+                    udr = float(search.group(7))
+                    print(snr, blobs, udr)
+                    #self.data[file][key].append([snr, blobs, udr])
                 except:
-                    self.data[file].append([-1000, -1000, -1000, -1000, -1000, -1000])
+                    #self.data[file][key] = [-1000, -1000, -1000]
+                    print([-1000, -1000, -1000])
 
-    def __call__(self, root_dir):
-        self.root_dir = root_dir
-
-        filelist = []
-        for path, subdirs, files in os.walk(root_dir):
-            for name in files:
-                if fnmatch(name, '*.json'):
-                    filelist.append(os.path.join(path, name))
-
-        for file in filelist:
-            for enc in enc_types:
-                with open(file, encoding=enc, errors='replace') as f:
-                    filedata = json.load(f)
-
-            for item in filedata['TestReportItems']:
-                if item['Name'] == 'Static Capture Module Quality':
-                    self.static_mqt2(file, item['Result'])
-
-        return self.data
-
-class MTTLogsVaduzWrapper:
-
-    def __init__(self):
-        self.root_dir = None
-        self.data = {}
-
-    def static_mqt2(self, file, t):
-        #print(file)
-        #test_con = t['conclusion']
-        #print(test_con)
-        #if test_con == "Exception" or test_con == "NotRun":
-            #print('Exception or NotRun','\n')
-            #self.data[file] = "exception_or_not_run"
-        if t['conclusion'] == "pass":
-            res = 1
-        else:
-            res = 0
-        self.data[file] = []
-        # Check total stamp yield.
-        for p in t['analysis']['result']['model_quality_analysis']:
-            #if p['Status'] == "OK":
-            try:
-                snr = float(p['snr']['snr_db'])
-                blob = float(p['blob']['number_of_blobs'])
-                udr = float(p['udr']['udr'])
-                uf, ss, rms = hexstring2values(p['udr']['udr_test_values'])
-                #print([snr, blob, udr, uf, ss, rms], '\n')
-                self.data[file].append([snr, blob, udr, uf, ss, rms, res])
-            except:
-                self.data[file].append([-1000, -1000, -1000, -1000, -1000, -1000, -1000])
-
-    def __call__(self, root_dir):
-        self.root_dir = root_dir
-
-        filelist = []
-        for path, subdirs, files in os.walk(root_dir):
-            for name in files:
-                if fnmatch(name, '*.json'):
-                    filelist.append(os.path.join(path, name))
-
-        print("Number of json files = ", len(filelist))
-
-        for file in filelist:
-            for enc in enc_types:
-                with open(file, encoding=enc, errors='replace') as f:
-                    filedata = json.load(f)
-
-            for item in filedata['sequence']:
-                if item['name'] == 'static_capture_module_quality':
-                    self.static_mqt2(file, item)
-
-        return self.data
+        print(self.data)
 
 
 class MTTLogsMQT2:
@@ -250,7 +88,7 @@ class MTTLogsMQT2:
                 if fnmatch(name, '*.json'):
                     filelist.append(os.path.join(path, name))
         filelist.sort()
-        print(len(filelist), "log files")
+        #print(len(filelist), "log files")
 
         # Regular expressions, comment out if not present
         #reg_sensorid = '("Sensor ID": ")(\w*)'
@@ -260,11 +98,8 @@ class MTTLogsMQT2:
                     'udr': '("Udr": )(\d+\.\d+)',
                     'udr_string': '("UdrTestValues": ")(\w+)',
                     'afd': '("TestAfdCal",\s*"TestMethodConclusion": ")(\w*)',
-# BM lite                    'afd': '("TestResetPixels",\s*"TestMethodConclusion": ")(\w*)',
                     'def': '("TestCtlDefectivePixels",\s*"TestMethodConclusion": ")(\w*)',
-# BM lite                    'def': '("TestCtlDeadPixels",\s*"TestMethodConclusion": ")(\w*)',
-                    'otp': '("TestReadOtp",\s*"TestMethodConclusion": ")(\w*)',
-                    'fp': '(FixedPatternPixels": )(\d+)'}
+                    'otp': '("TestReadOtp",\s*"TestMethodConclusion": ")(\w*)'}
 
         for file in filelist:
             for enc in enc_types:
@@ -272,15 +107,14 @@ class MTTLogsMQT2:
                     buffer = f.read()
 
             if sensor_id == False: # Use filename as "sensor id"
-                sens_id = file[-30:].rstrip('.json')
-                #reg_sensorid = '("OtpData": ")([\w+\s+]+)'
+                #sens_id = file[-30:].rstrip('.json')
+                reg_sensorid = '("OtpData": ")([\w+\s+]+)'
                 try:
                     sens_id = re.search(reg_sensorid, buffer).group(2)
                     no_id = 0
                 except:
                     no_id = 1
             elif sensor_id == True: #
-#                reg_sensorid = '("UniqueTestId": ")(\w+-\w+-\w+)'
                 reg_sensorid = '("SensorId": ")(\w+)'
                 try:
                     sens_id = re.search(reg_sensorid, buffer).group(2)
@@ -292,7 +126,7 @@ class MTTLogsMQT2:
                 if sens_id not in self.data:
                      self.data[sens_id] = {'snr': [], 'blobs': [], 'udr': [],\
                               'uf': [], 'ss': [], 'rms': [], 'afd': [],\
-                              'def': [], 'otp':[], 'mqt2':[], 'fp':[]}
+                              'def': [], 'otp':[], 'mqt2':[]}
                      #print(sens_id)
 
                 try:
@@ -361,7 +195,6 @@ class MTTLogsMQT2:
                            self.data[sens_id]['def'].append(1)
                         elif val == "Fail":
                             self.data[sens_id]['def'].append(0)
-                            print(file)
                 except:
                     pass
                 try:
@@ -372,13 +205,6 @@ class MTTLogsMQT2:
                             self.data[sens_id]['otp'].append(0)
                 except:
                     pass
-                try:
-                    for _,val in re.findall(reg_dict['fp'], buffer):
-                        self.data[sens_id]['fp'].append(float(val))
-                        if float(val) > 30:
-                            print(file)
-                except:
-                    pass
 
     def get_data(self):
         return self.data
@@ -386,9 +212,9 @@ class MTTLogsMQT2:
     # Shape of array (sensor_ids) x (tests) x (min,max,mean,no)
     def get_min_max_mean_array(self):
         no_of_sens = len(self.data)
-        test_strings = ['snr', 'blobs', 'udr', 'uf', 'ss', 'rms', 'afd', 'def', 'otp', 'mqt2', 'fp']
+        test_strings = ['snr', 'blobs', 'udr', 'uf', 'ss', 'rms', 'afd', 'def', 'otp', 'mqt2']
         ii = 0
-        result = np.zeros((no_of_sens, 11, 4), np.float)
+        result = np.zeros((no_of_sens, 10, 4), np.float)
         for keys, values in self.data.items():
             for index, test in enumerate(test_strings):
                 test_array = values[test]
@@ -440,8 +266,8 @@ class MTTLogsJson:
                              'snr': [], 'afd': [], 'dead': [], 'otp':[]}
 
             elif sensor_id == True: # Use Sensor Id in json file
-                reg_sensorid = '("SensorId": ")(\w*)'
-                #reg_sensorid = '("OtpMemoryMainData": ")([\w+\s+]+)'
+#                reg_sensorid = '("SensorId": ")(\w*)'
+                reg_sensorid = '("OtpMemoryMainData": ")([\w+\s+]+)'
                 try:
                     sens_id = re.search(reg_sensorid, buffer).group(2)
                     if sens_id not in self.data:
@@ -472,8 +298,6 @@ class MTTLogsJson:
                 snr = re.findall(reg_dict['snr'], buffer)
                 for _, val in snr:
                     self.data[sens_id]['snr'].append(float(val))
-                    if float(val) < 9:
-                        print(file)
             except:
                 pass
             try:
@@ -525,134 +349,6 @@ class MTTLogsJson:
         return result
 
 
-class MTTLogsHtml2:
-
-    def __init__(self):
-        self.root_dir = None
-        self.data = {}
-
-    def __call__(self, root_dir, sensor_id = True):
-
-        filelist = []
-        for path, subdirs, files in os.walk(root_dir):
-            for name in files:
-                if fnmatch(name, '*.html'):
-                    filelist.append(os.path.join(path, name))
-        filelist.sort()
-        print(len(filelist), "log files")
-
-        reg_exp = {'udr': '(UDR: )(\d*\.\d*)',
-                   'udr_string': '(Udr test value: )(\w+)',
-                   'blobs': '(Blob count: )(\d*)',
-                   'snr':  '(SNR\(dB\): )(\d*\.\d*)',
-                   'afd':  '(Test Afd Cal: <b>)([A-Z][a-z]*)',
-                   'def':  '(Test Ctl Defective Pixels: <b>)([A-Z][a-z]*)',
-                   'otp':  '(Test OTP Read: <b>)([A-Z][a-z]*)',
-                   'total': '(Sensor Result: <b>)(\w+)'}
-
-        for file in filelist:
-            for enc in enc_types:
-                with open(file, encoding=enc, errors='replace') as f:
-                    buffer = f.read()
-
-            if sensor_id == False: # Use filename as "sensor id"
-                sens_id = file.rstrip('.html')
-                if sens_id not in self.data:
-                    self.data[sens_id] = {'uf': [], 'ss': [], 'blobs': [],\
-                             'snr': [], 'afd': [], 'def': [], 'otp': [],\
-                             'udr': [], 'rms': [], 'tot': []}
-
-            elif sensor_id == True: # Use Sensor Id in html file
-                reg_sensorid = '(Sensor ID: </b>)(.+)'
-#                reg_sensorid = '(OTP ChipID:)(\w*)'
-                try:
-                    sens_id = re.search(reg_sensorid, buffer).group(2)
-                    #print(sens_id)
-                    if sens_id not in self.data:
-                        self.data[sens_id] = {'uf': [], 'ss': [], 'blobs': [],\
-                                 'snr': [], 'afd': [], 'def': [], 'otp':[],
-                                 'udr': [], 'rms': [], 'tot': []}
-                except:
-                    pass
-
-
-                try:
-                    # Add uniformity value
-                    udr = re.search(reg_exp['udr'], buffer).group(2)
-                    self.data[sens_id]['udr'].append(float(udr))
-                    # Add signal strength
-                    udr_string = re.search(reg_exp['udr_string'], buffer).group(2)
-                    #print(udr_string)
-                    uf, ss, rms = hexstring2values(udr_string)
-                    #print(uf, ss, rms)
-                    self.data[sens_id]['uf'].append(float(uf))
-                    self.data[sens_id]['ss'].append(float(ss))
-                    self.data[sens_id]['rms'].append(float(rms))
-                except:
-                    pass
-                try:
-                    # Add number of blobs
-                    blobs = re.search(reg_exp['blobs'], buffer).group(2)
-                    self.data[sens_id]['blobs'].append(int(blobs))
-                    if int(blobs) > 7:
-                        print(file)
-                except:
-                    pass
-                try:
-                    # Add snr
-                    snr = re.search(reg_exp['snr'], buffer).group(2)
-                    self.data[sens_id]['snr'].append(float(snr))
-                except:
-                    pass
-                try:
-                    # Add defective pixels
-                    de = re.search(reg_exp['def'], buffer).group(2)
-                    if de ==  'Pass':
-                        self.data[sens_id]['def'].append(1)
-                    else:
-                        self.data[sens_id]['def'].append(0)
-                except:
-                    pass
-                try:
-                    # Add AFD
-                    afd = re.search(reg_exp['afd'], buffer).group(2)
-                    if afd ==  'Pass':
-                        self.data[sens_id]['afd'].append(1)
-                    else:
-                        self.data[sens_id]['afd'].append(0)
-                except:
-                    pass
-                try:
-                    # Total
-                    tot = re.search(reg_exp['total'], buffer).group(2)
-                    if tot ==  'Pass':
-                        self.data[sens_id]['tot'].append(1)
-                    else:
-                        self.data[sens_id]['tot'].append(0)
-                except:
-                    pass
-
-    def get_data(self):
-        return self.data
-
-    # Shape of array (sensor_ids) x (tests) x (min,max,mean,no)
-    def get_min_max_mean_array(self):
-        no_of_sens = len(self.data)
-        test_strings = ['uf', 'ss', 'blobs', 'snr', 'afd', 'def', 'otp', 'udr', 'rms', 'tot']
-        ii = 0
-        result = np.zeros((no_of_sens, 10, 4), np.float)
-        for keys, values in self.data.items():
-            for index, test in enumerate(test_strings):
-                test_array = values[test]
-                if test_array == []:
-                    test_array.append(-1000)
-                result[ii, index, 0] = np.min(test_array)
-                result[ii, index, 1] = np.max(test_array)
-                result[ii, index, 2] = np.mean(test_array)
-                result[ii, index, 3] = len(test_array)
-
-            ii += 1
-        return result
 
 
 class MTTLogsHtml:

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ReadOtpSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- For boolean values (true/false) you have to use lower case letter -->
+    <DisableModulePresentCheck>true</DisableModulePresentCheck>
+
+    <!-- Accept bit errors in OTP memory without failing -->
+    <AcceptBitErrors>false</AcceptBitErrors>
+
+    <!-- Enable check of OTP package section -->
+    <EnablePackageSectionCheck>false</EnablePackageSectionCheck>
+</ReadOtpSettings>

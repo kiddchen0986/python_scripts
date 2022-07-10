@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcCurrentMeasurementsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Copyright (c) 2017 Fingerprint Cards AB <tech@fingerprints.com> -->
+    <!-- This is the settings file for the MTC current measurements. -->
+    <!-- For more information regarding the settings below, please check the confluence page -->
+    <!-- https://fpc-confluence.fingerprint.local/confluence/pages/viewpage.action?pageId=47620460 -->
+
+    <CurrentToMeasure Current="IDDD"  MeasurementMode="Active" AdditionIndex="2" />
+    <CurrentToMeasure Current="IDDIO" MeasurementMode="Active" AdditionIndex="2" OverrideMeasurementRange="Low"/>
+
+    <CurrentToMeasure Current="IDDD"  MeasurementMode="DeepSleep" UseAverage="true" NumberOfSamples="300" AdditionIndex="1" />
+    <CurrentToMeasure Current="IDDIO" MeasurementMode="DeepSleep" UseAverage="true" NumberOfSamples="300" AdditionIndex="1" />
+
+    <AdditiveCurrentLimit AdditionIndex="1" UpperLimit="0.0055"></AdditiveCurrentLimit>
+    <AdditiveCurrentLimit AdditionIndex="2" LowerLimit="3.6" UpperLimit="7.0"></AdditiveCurrentLimit>
+
+    <StoreSamplesToFile>false</StoreSamplesToFile>
+    <SamplePathAndFile>C:\FpcDebug\MTT_MTC\MeasResult</SamplePathAndFile>
+
+</MtcCurrentMeasurementsSettings>

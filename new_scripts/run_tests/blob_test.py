@@ -9,11 +9,13 @@ from util import read_image
 
 def blob_detect(testLib, image, width, height, blob_threshold = 3.5e-6, save = False):
     raw = read_image(image)
-    #print(raw)
 
     blob_config = fpc_blob_config_t()
     status = testLib.init_blob_test(c.byref(blob_config))
     blob_config.blob_threshold = blob_threshold
+
+    #print("--------------fpc_blob_config_t---------------")
+    #print(blob_config)
 
     dead_pixels_list = dead_pixels_info_t()
     dead_pixels_list.list_max_size = 100
@@ -28,7 +30,8 @@ def blob_detect(testLib, image, width, height, blob_threshold = 3.5e-6, save = F
     result.detection_image = (c.c_float * pixel_count)(0)
 
     status = testLib.calculate_blob(raw, width, height, c.byref(blob_config), c.byref(result), c.byref(dead_pixels_list))
-    print("\tblob threshold", blob_threshold, ", \tnumber_of_blob_pixels", result.number_of_blob_pixels)
+    #print("--------------Run calculate_blob---------------")
+    #print("\tblob threshold", blob_threshold, ", \tnumber_of_blob_pixels", result.number_of_blob_pixels)
 
     blob_image = bytes(c.cast(result.blob_image, c.POINTER(c.c_uint8))[0:pixel_count])
     detection_image = array('f', c.cast(result.detection_image, c.POINTER(c.c_float))[0:pixel_count])
@@ -56,9 +59,9 @@ if __name__ == "__main__":
     testLib = TestLib("Blob")
 
     result = []
-    thresholds = [3.5e-6, 3.0e-6]#3.25e-6, 3.0e-6, 2.75e-6, 2.5e-6, 2.25e-6, 2.0e-6, 1.5e-6, 0.5e-6]
+    thresholds = [3.5e-6, 3.25e-6, 3.0e-6, 2.75e-6, 2.5e-6, 2.25e-6, 2.0e-6, 1.5e-6, 0.5e-6]
     for file in os.listdir(args.path):
-        if file.endswith('64_80_4.raw'):
+        if file.endswith('_4.raw'):
             print('Run', file)
             blob_result = [file]
             for threshold in thresholds:
@@ -69,5 +72,6 @@ if __name__ == "__main__":
 
     thresholds.insert(0, 'raw')
     df = pd.DataFrame(result, columns=thresholds)
+    print(df)
     df.to_csv(args.csv, encoding='utf-8', index=True)
     print('Finish')

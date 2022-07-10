@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ClkBistSettingsWQ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the ClkBist test. -->
+    <!-- The idea is to run a number of test steps and then execute one or many analyze steps -->
+    <!-- Please note that since the analyze part compiles each equation this is not very fast. However -->
+    <!-- this test was never intended for production, but merely for Wafer Qualification. -->
+
+    <!-- ************ TEST STEPS ************ -->
+    <!-- The test steps are called TestRoute and contains a friendly name, the number of bulk bytes to send and -->
+    <!-- then the trim data to be set to the oscillator -->
+    <!-- Each TestRoute can have one or more TestRouteStep. This is basically a variable holder with a TagName -->
+    <!-- and a parameter type. The parameter type could be one of the following values: -->
+    <!-- DoneSPI, ResultSPI, DoneClkSys or ResultClkSys-->
+
+    <!-- ************ ANALYZE STEPS ************ -->
+    <!-- The analyze part are called AnalysisRoute and contains a friendly name, a variable name and an equation. -->
+    <!-- The equation should be the right hand side of an expression, i.e. "12 * 34" in the expression "x = 12 * 34" -->
+    <!-- It also can use variables from either the TestRoutes or previous AnalysisRoutes. However it is important -->
+    <!-- that the variable has been previously executed so the order of the analyze steps could make a difference. -->
+    <!-- In the equation, it is important that all variables are prefixed and suffixed with #, for example #fOscLo88# -->
+    <!-- There is one predefined variable, #SPICLKfrequency# which is defined as the SPI frequency in Hz. -->
+    <!-- Example of an valid equation would be: -->
+    <!-- (#fOscLo_47# * #resultOscHi_1# + 123) / #SPICLKfrequency# -->
+    <!-- (In tis example fOscLo_47 is defined in a TestRoute and resultOscHi_1 is calculated in a previous AnalyzeRoute, -->
+    <!-- but it really does not matter as long as the variable names are known prior to running this equation. -->
+
+    <!-- === TEST EXECUTION === -->
+
+    <TestRoute FriendlyName="Test config #1" NbrOfBulkBytesToSend="255" OscTrimData="0x0F 0x2F">
+        <TestRouteStep TagName="doneSPI_1" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_1" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_1" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_1" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <TestRoute FriendlyName="Test config #2" NbrOfBulkBytesToSend="325" OscTrimData="0x0E 0x2E">
+        <TestRouteStep TagName="doneSPI_2" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_2" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_2" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_2" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <TestRoute FriendlyName="Test config #3" NbrOfBulkBytesToSend="450" OscTrimData="0x0C 0x2C">
+        <TestRouteStep TagName="doneSPI_3" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_3" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_3" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_3" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <TestRoute FriendlyName="Test config #4" NbrOfBulkBytesToSend="700" OscTrimData="0x08 0x28">
+        <TestRouteStep TagName="doneSPI_4" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_4" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_4" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_4" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <TestRoute FriendlyName="Test config #5" NbrOfBulkBytesToSend="1180" OscTrimData="0x00 0x00">
+        <TestRouteStep TagName="doneSPI_5" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_5" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_5" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_5" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <TestRoute FriendlyName="Test config #6" NbrOfBulkBytesToSend="1955" OscTrimData="0x10 0x10">
+        <TestRouteStep TagName="doneSPI_6" ClkBistParameterType="DoneSPI" />
+        <TestRouteStep TagName="doneOscHi_6" ClkBistParameterType="DoneClkSys" />
+        <TestRouteStep TagName="resultSPI_6" ClkBistParameterType="ResultSPI" />
+        <TestRouteStep TagName="resultOscHi_6" ClkBistParameterType="ResultClkSys" />
+    </TestRoute>
+
+    <!-- === ANALYZE SECTION === -->
+    <!-- For reference see document \R-D_Core\Projects\JDV_10021%20Braga\ASIC\Production%20Test\Amarante\Documents\Amarante\460-Amarante_2_PA25_TestProgramAndTestVectorSpecification.docx-->
+    <!-- and look under section T_PT_029 CLKBIST Extended -->
+
+    <AnalysisRoute FriendlyName="Analyze item a"  TagName="doneOscLo_47" Equation="#doneSPI_1#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item b"  TagName="doneOscLo_46" Equation="#doneSPI_2#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item c"  TagName="doneOscLo_44" Equation="#doneSPI_3#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item d"  TagName="doneOscLo_40" Equation="#doneSPI_4#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item e"  TagName="doneOscLo_0" Equation="#doneSPI_5#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item f"  TagName="doneOscLo_16" Equation="#doneSPI_6#" LowerLimit="1" UpperLimit="1" />
+
+    <AnalysisRoute FriendlyName="Analyze item g"  TagName="doneClkSys_15" Equation="#doneOscHi_1#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item h"  TagName="doneClkSys_14" Equation="#doneOscHi_2#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item i"  TagName="doneClkSys_12" Equation="#doneOscHi_3#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item j"  TagName="doneClkSys_8" Equation="#doneOscHi_4#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item k"  TagName="doneClkSys_0" Equation="#doneOscHi_5#" LowerLimit="1" UpperLimit="1" />
+    <AnalysisRoute FriendlyName="Analyze item l"  TagName="doneClkSys_16" Equation="#doneOscHi_6#" LowerLimit="1" UpperLimit="1" />
+
+    <AnalysisRoute FriendlyName="Analyze item m"  TagName="fOscLo_47" Equation="#SPICLKfrequency# / #resultSPI_1#" LowerLimit="0" UpperLimit="30e3" />
+    <AnalysisRoute FriendlyName="Analyze item n"  TagName="fOscLo_46" Equation="#SPICLKfrequency# / #resultSPI_2#" LowerLimit="0" UpperLimit="20e3" />
+    <AnalysisRoute FriendlyName="Analyze item o"  TagName="fOscLo_44" Equation="#SPICLKfrequency# / #resultSPI_3#" LowerLimit="0" UpperLimit="20e3" />
+    <AnalysisRoute FriendlyName="Analyze item p"  TagName="fOscLo_40" Equation="#SPICLKfrequency# / #resultSPI_4#" LowerLimit="0" UpperLimit="20e3" />
+    <AnalysisRoute FriendlyName="Analyze item q"  TagName="fOscLo_0" Equation="#SPICLKfrequency# / #resultSPI_5#" LowerLimit="0" UpperLimit="20e3" />
+    <AnalysisRoute FriendlyName="Analyze item r"  TagName="fOscLo_16" Equation="#SPICLKfrequency# / #resultSPI_6#" LowerLimit="0" UpperLimit="20e3" />
+
+    <AnalysisRoute FriendlyName="Analyze item s"  TagName="fClkSys_15" Equation="#fOscLo_47# * #resultOscHi_1#" LowerLimit="0" UpperLimit="3e7" />
+    <AnalysisRoute FriendlyName="Analyze item t"  TagName="fClkSys_14" Equation="#fOscLo_46# * #resultOscHi_2#" LowerLimit="0" UpperLimit="3e7" />
+    <AnalysisRoute FriendlyName="Analyze item u"  TagName="fClkSys_12" Equation="#fOscLo_44# * #resultOscHi_3#" LowerLimit="0" UpperLimit="3e7" />
+    <AnalysisRoute FriendlyName="Analyze item v"  TagName="fClkSys_8" Equation="#fOscLo_40# * #resultOscHi_4#" LowerLimit="0" UpperLimit="3e7" />
+    <AnalysisRoute FriendlyName="Analyze item w"  TagName="fClkSys_0" Equation="#fOscLo_0# * #resultOscHi_5#" LowerLimit="0" UpperLimit="3e7" />
+    <AnalysisRoute FriendlyName="Analyze item x"  TagName="fClkSys_16" Equation="#fOscLo_16# * #resultOscHi_6#" LowerLimit="0" UpperLimit="3e7" />
+
+    <AnalysisRoute FriendlyName="Analyze item y"  TagName="fOscLoSwitch_12" Equation="#fOscLo_47# / #fOscLo_46#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item z"  TagName="fOscLoSwitch_23" Equation="#fOscLo_46# / #fOscLo_44#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item aa" TagName="fOscLoSwitch_34" Equation="#fOscLo_44# / #fOscLo_40#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item bb" TagName="fOscLoSwitch_45" Equation="#fOscLo_40# / #fOscLo_0#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item cc" TagName="fOscLoSwitch_56" Equation="#fOscLo_0# / #fOscLo_16#" LowerLimit="0" UpperLimit="2" />
+
+    <AnalysisRoute FriendlyName="Analyze item dd" TagName="fClkSysSwitch_12" Equation="#fClkSys_15# / #fClkSys_14#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item ee" TagName="fClkSysSwitch_23" Equation="#fClkSys_14# / #fClkSys_12#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item ff" TagName="fClkSysSwitch_34" Equation="#fClkSys_12# / #fClkSys_8#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item gg" TagName="fClkSysSwitch_45" Equation="#fClkSys_8# / #fClkSys_0#" LowerLimit="0" UpperLimit="2" />
+    <AnalysisRoute FriendlyName="Analyze item hh" TagName="fClkSysSwitch_56" Equation="#fClkSys_0# / #fClkSys_16#" LowerLimit="0" UpperLimit="5" />
+    <AnalysisRoute FriendlyName="Analyze item ii" TagName="fOscLoDelta_12" Equation="#fOscLo_47# - #fOscLo_46#" LowerLimit="0" UpperLimit="10e3" />
+    <AnalysisRoute FriendlyName="Analyze item jj" TagName="fOscLoDelta_23" Equation="#fOscLo_46# - #fOscLo_44#" LowerLimit="0" UpperLimit="10e3" />
+    <AnalysisRoute FriendlyName="Analyze item kk" TagName="fOscLoDelta_34" Equation="#fOscLo_44# - #fOscLo_40#" LowerLimit="0" UpperLimit="10e3" />
+    <AnalysisRoute FriendlyName="Analyze item ll" TagName="fOscLoDelta_45" Equation="#fOscLo_40# - #fOscLo_0#" LowerLimit="-5e3" UpperLimit="0" />
+    <AnalysisRoute FriendlyName="Analyze item mm" TagName="fOscLoDelta_56" Equation="#fOscLo_0# - #fOscLo_16#" LowerLimit="0" UpperLimit="10e3" />
+    <AnalysisRoute FriendlyName="Analyze item nn" TagName="fClkSysDelta_12" Equation="#fClkSys_15# - #fClkSys_14#" LowerLimit="-5e6" UpperLimit="5e6" />
+    <AnalysisRoute FriendlyName="Analyze item oo" TagName="fClkSysDelta_23" Equation="#fClkSys_14# - #fClkSys_12#" LowerLimit="-5e6" UpperLimit="5e6" />
+    <AnalysisRoute FriendlyName="Analyze item pp" TagName="fClkSysDelta_34" Equation="#fClkSys_12# - #fClkSys_8#" LowerLimit="-5e6" UpperLimit="5e6" />
+    <AnalysisRoute FriendlyName="Analyze item qq" TagName="fClkSysDelta_45" Equation="#fClkSys_8# - #fClkSys_0#" LowerLimit="0" UpperLimit="5e6" />
+    <AnalysisRoute FriendlyName="Analyze item rr" TagName="fClkSysDelta_56" Equation="#fClkSys_0# - #fClkSys_16#" LowerLimit="0" UpperLimit="10e6" />
+</ClkBistSettingsWQ>

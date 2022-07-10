@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sequence>
+  <Test Name="Defective Pixel" Class="TestsModule.Tests.TestDefectivePixel">
+    <Parameter Class="TestsModule.Data.DefectivePixelSettings">DefectivePixelSettings.xml</Parameter>
+  </Test>
+</Sequence>

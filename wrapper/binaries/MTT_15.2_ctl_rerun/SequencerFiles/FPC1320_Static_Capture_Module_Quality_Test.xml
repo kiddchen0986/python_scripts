@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+  <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+    <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+  </Test>
+  <Test Name="Static Capture Module Quality" Class="TestsModule.Tests.TestStaticCaptureModuleQuality">
+    <Parameter Class="TestsModule.Data.StaticCaptureModuleQualitySettings">StaticCaptureModuleQualitySettings_1320.xml</Parameter>
+  </Test>
+</Sequence>

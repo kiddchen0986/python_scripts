@@ -131,6 +131,7 @@ class ReRunMqt2:
 
         if internal == False:
             mqt2_analysis = self.ctl_dll.ctl_mqt2_analysis
+            print("inside false")
             mqt2_analysis.argtypes = [c.c_int, c.c_uint16, Mqt2TestSettings,\
                                       c.c_char_p, c.c_char_p]
             return mqt2_analysis(c.c_int(product_type), c.c_uint16(hw_id),\
@@ -138,6 +139,7 @@ class ReRunMqt2:
 
         elif internal == True:
             mqt2_analysis = self.ctl_dll.ctl_mqt2_analysis_extended
+            print("inside true")
             mqt2_analysis.argtypes = [c.c_int, c.c_uint16, Mqt2TestSettings,\
                                       c.c_char_p, c.c_char_p, c.c_uint32]
 

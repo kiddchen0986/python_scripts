@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+  <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+    <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+  </Test>
+  <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLibGradient">
+    <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+  </Test>
+  <Test Name="Analog Finger Detect calibration" Class="TestsModule.Tests.TestAfdCalibration">
+    <Parameter Class="TestsModule.Data.AfdCalibrationSettings">AfdCalibrationSettingsRev2.xml</Parameter>
+  </Test>
+  <Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+    <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings.xml</Parameter>
+  </Test>
+  <Test Name="CTL Capacitance Test 2" Class="TestsModule.Tests.TestCtlCapacitance2">
+    <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings.xml</Parameter>
+  </Test>
+  <Test Name="Analog Finger Detect calibration with rubberstamp" Class="TestsModule.Tests.TestAfdCalibrationWithRubberstamp">
+    <Parameter Class="TestsModule.Data.AfdCalibrationWithRubberstampSettings">AfdCalibrationWithRubberstampSettings.xml</Parameter>
+  </Test>
+</Sequence>

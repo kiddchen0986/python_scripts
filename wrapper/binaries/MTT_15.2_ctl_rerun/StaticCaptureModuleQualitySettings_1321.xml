@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StaticCaptureModuleQualitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ModuleQualitySettings>
+    <!-- Timeout for finger detect in ms-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+    <!-- Time to stabilize finger after finger detect in ms -->
+    <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+
+    <!--
+        Specifies how much to crop the image for analysis.
+    -->
+    <AnalysisCrop>3,3,3,3</AnalysisCrop>
+    <SnrLimit>10</SnrLimit>
+    <!-- 0 is default value, other values are used in specific cases -->
+    <LimitsPreset>5</LimitsPreset>
+
+    <DoApns>false</DoApns>
+    <Blob>
+      <IsEnabled>true</IsEnabled>
+      <BlobDetectThreshold>1.1e-6</BlobDetectThreshold>
+      <BlobLimit>7</BlobLimit>
+    </Blob>
+    <Uniformity>
+      <IsEnabled>true</IsEnabled>
+      <UdrLimit>0.25</UdrLimit>
+    </Uniformity>
+  </ModuleQualitySettings>
+  <RegisterProfileReferences>
+    <RegisterProfileReference>
+      <Tag>Profile_0</Tag>
+      <FilePath>static_capture_mqt_settings0.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_1</Tag>
+      <FilePath>static_capture_mqt_settings1.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_2</Tag>
+      <FilePath>static_capture_mqt_settings2.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_3</Tag>
+      <FilePath>static_capture_mqt_settings3.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_4</Tag>
+      <FilePath>static_capture_mqt_settings4.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_5</Tag>
+      <FilePath>static_capture_mqt_settings5.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_6</Tag>
+      <FilePath>static_capture_mqt_settings6.txt</FilePath>
+    </RegisterProfileReference>
+    <RegisterProfileReference>
+      <Tag>Profile_7</Tag>
+      <FilePath>static_capture_mqt_settings7.txt</FilePath>
+    </RegisterProfileReference>
+  </RegisterProfileReferences>
+</StaticCaptureModuleQualitySettings>

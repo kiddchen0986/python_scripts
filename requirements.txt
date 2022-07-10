@@ -1,0 +1,10 @@
+pandas
+xlutils
+xlwt
+xlrd
+pygal
+bs4
+pypiwin32
+matplotlib
+pyplot
+numpy

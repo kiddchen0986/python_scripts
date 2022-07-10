@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestStationConfigurationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Identification>
+        <!-- There are 2 options available for the UniqueModuleIdSetting, UmiFromSensorId or UmiFromUserInput -->
+        <!-- The UmiFromSensorId option sets the unique module id to the sensor id read from OTP memory. -->
+        <!-- The UmiFromUserInput option specifies that the unique module id must be set with user input. -->
+        <UniqueModuleIdSetting>UmiFromSensorId</UniqueModuleIdSetting>
+            <!-- The allowed characters of an Unique Module ID are A-Z, a-z, 0-9, _ and . This could be narrowed down further by modifying the UserInputFilter -->
+        <!-- The value of the UserInputFilter is a C# RegEx string. -->
+        <!-- Example 1: a or f is not allowed: UserInputFilter: ^[^af]+$ -->
+        <!-- Example 2: The id must be prefixed with ABC and then followed by digits UserInputFilter: ^ABC[0-9]+$ -->
+        <!-- Example 3: No restrictions UserInputFilter: .* -->
+        <UserInputFilter>.*</UserInputFilter>
+    </Identification>
+    <LogFileConfiguration>
+        <!-- There are 3 options available for the SaveLogFileSetting, Full, FullArchived or LimitedArchived -->
+        <!-- The Full option will save all the log files in a folder. -->
+        <!-- The FullArchived option will save all the log files in a archived file when the test is finish. -->
+        <!-- The LimitedArchived option will save basic log files such as log.txt and _result.json file for the passed test case, but will save more log files if the test is falied. -->
+        <LogFileSavingSetting>Full</LogFileSavingSetting>
+        <LogFileSavingSetting>FullArchived</LogFileSavingSetting>
+        <LogFileSavingSetting>LimitedArchived</LogFileSavingSetting>
+    </LogFileConfiguration>
+    <!-- Sets the folder for the test report output -->
+    <!-- The following variables could be used -->
+    <!-- $(ProgramDir) - MTT base directory -->
+    <!-- $(DeviceUniqueId) - The device unique id (usually the serial number of the FTDI-card) -->
+    <!-- $(Date) - ISO date when the test is started (YYYY-MM-DD) -->
+    <!-- $(UniqueModuleId) - The Unique Module Id -->
+    <TestReportFolder>$(ProgramDir)\$(DeviceUniqueId)</TestReportFolder>
+    <!-- There are 2 options available for the TestLevel: FPC_TEST_LEVEL_MTS, and FPC_TEST_LEVEL_IQC. Default option is FPC_TEST_LEVEL_MTS. -->
+    <TestLevel>FPC_TEST_LEVEL_MTS</TestLevel>
+    <!-- Write OTP Settings -->
+    <GpioConfiguration>
+        <Gpio0>
+            <!-- For FPC5832, this GPIO corresponds to ACBUS0 / Green LED -->
+            <Enabled>false</Enabled> <!-- Default value: false -->
+            <Direction>output</Direction> <!-- Default value: output -->
+        </Gpio0>
+        <Gpio1>
+            <!-- For FPC5832, this GPIO corresponds to ACBUS1 / Red LED -->
+            <Enabled>false</Enabled> <!-- Default value: false -->
+            <Direction>output</Direction> <!-- Default value: output -->
+        </Gpio1>
+        <Gpio2>
+            <!-- For FPC5832, if enabled this GPIO is reserved for enabling Write OTP (ACBUS2 / Yellow LED) -->
+            <Enabled>false</Enabled> <!-- Default value: true -->
+            <Direction>output</Direction> <!-- Default value: output -->
+        </Gpio2>
+        <Gpio3>
+            <!-- For FPC5832, this GPIO corresponds to ACBUS3 -->
+            <Enabled>false</Enabled> <!-- Default value: false -->
+            <Direction>output</Direction> <!-- Default value: output -->
+        </Gpio3>
+        <Gpio4>
+            <!-- For FPC5832, this GPIO corresponds to ACBUS4 -->
+            <Enabled>false</Enabled> <!-- Default value: false -->
+            <Direction>input</Direction> <!-- Default value: output -->
+        </Gpio4>
+        <Gpio5>
+            <!-- For FPC5832, this GPIO corresponds to ACBUS7 -->
+            <Enabled>false</Enabled> <!-- Default value: false -->
+            <Direction>input</Direction> <!-- Default value: input -->
+        </Gpio5>
+    </GpioConfiguration>
+
+    <ControlSequences SelectedSequence="Manual">
+        <ControlSequence Name="Manual" Path="ControlSequenceFiles\SequenceControlDefault.xml" />
+        <ControlSequence Name="Automation" Path="ControlSequenceFiles\SequenceControlAutomation.xml" FixtureControlDllPath="" />
+    </ControlSequences>
+  <LastUsedSequence></LastUsedSequence>
+  <LastUsedProduct>PRODUCT_TYPE_FPC1291_G175</LastUsedProduct>
+  <LastUsedDevices>
+    <LastUsedDevice>
+    </LastUsedDevice>
+  </LastUsedDevices>
+  <ShowStationConfigurationOnStartup>true</ShowStationConfigurationOnStartup>
+  <LogViewMode>Normal</LogViewMode>
+</TestStationConfigurationSettings>

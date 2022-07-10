@@ -1,0 +1,193 @@
+{
+  "TestReportItems": [
+    {
+      "Name": "Irq",
+      "Result": {
+        "TestName": "TestIrq",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 15,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-11-19T12:26:42.0028781+01:00",
+              "Items": {
+                "irqPin": "0x00"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Hardware Id",
+      "Result": {
+        "TestName": "TestHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 5,
+        "Warning": true,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-11-19T12:26:42.0191463+01:00",
+              "Items": {
+                "hwid": "0x0321"
+              }
+            },
+            "analysis": {
+              "DateTime": "2016-11-19T12:26:42.0241451+01:00",
+              "Items": {
+                "product_approval_status": "NotApproved",
+                "matches_connected_sensor": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Companion Hardware Id",
+      "Result": {
+        "TestName": "TestCompanionHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 1,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-11-19T12:26:42.0281488+01:00",
+              "Items": {
+                "companion_hwid": 1042
+              }
+            },
+            "analysis": {
+              "DateTime": "2016-11-19T12:26:42.0281488+01:00",
+              "Items": {
+                "is_unknown": 0,
+                "product_approval_status": "Approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Read OTP",
+      "Result": {
+        "TestName": "TestReadOtp",
+        "TestMethodConclusion": "Fail",
+        "TestTimeMilliseconds": 49,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-11-19T12:26:42.0581185+01:00",
+              "Items": {
+                "sensorOtpData": {
+                  "$type": "SensorApiNet.Structs.SensorOtpData, SensorApiNet",
+                  "WaferSection": {
+                    "$type": "SensorApiNet.Structs.SensorOtpWaferSection, SensorApiNet",
+                    "ModuleSectionAvailable": false,
+                    "SipPackageSectionAvailable": false,
+                    "WaferLayoutFormatVersion": 1,
+                    "LotId": "D9M057",
+                    "XCoordinate": 18,
+                    "YCoordinate": 27,
+                    "WaferId": 15,
+                    "ClockTrimOscHi": 28,
+                    "ClockTrimOscLo": 8,
+                    "WaferProductionDate": "20160529"
+                  },
+                  "SipPackageSection": {
+                    "$type": "SensorApiNet.Structs.SensorOtpSipPackageSection, SensorApiNet",
+                    "SipPackageLayoutFormatVersion": 1,
+                    "LotIdCompanionChip": ")ÔÜ451",
+                    "ClockTrimOscCompanionChip": 0,
+                    "ConfigurationPackageNumber": 11
+                  },
+                  "ModuleSection": {
+                    "$type": "SensorApiNet.Structs.SensorOtpModuleSection, SensorApiNet",
+                    "ModuleLayoutFormatVersion": 1,
+                    "ModuleHouse": 18,
+                    "TestResult": true,
+                    "FpcModuleDesignVersion": 0,
+                    "ModuleProductionDate": "20160925"
+                  },
+                  "VendorSection": {
+                    "$type": "SensorApiNet.Structs.SensorOtpVendorSection, SensorApiNet",
+                    "VendorData": {
+                      "$type": "System.Byte[], mscorlib",
+                      "$value": "AAAAAAAAAA=="
+                    }
+                  }
+                },
+                "maxBitErrorsInOneByte": 0,
+                "totalBitErrors": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Module Quality",
+      "Result": {
+        "TestName": "TestModuleQuality",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 2154,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-11-19T12:26:42.0861389+01:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.ModuleQualitySettings, TestsModule",
+                  "CalibrationCrop": "3,0,3,3",
+                  "CaptureSettings": {
+                    "$type": "Integration.Sensor.Data.CaptureSettings, Integration.Sensor",
+                    "AdcShift": 17,
+                    "AdcGain": 0,
+                    "PixelGain": 0,
+                    "DacOffset": 20
+                  },
+                  "TimeOutWaitForFingerDetect": 10000,
+                  "StabilizeAfterForFingerDetect": 500,
+                  "AnalysisCrop": "10,10,10,10",
+                  "SnrLimit": 0.0
+                },
+                "results": {
+                  "$type": "TestsModule.Tests.TestModuleQuality+MeasurementResults, TestsModule",
+                  "MeasurementStatus": "Success",
+                  "FirstImage": "20161119-122641-951_FirstImage.png",
+                  "SecondImage": "20161119-122641-951_SecondImage.png",
+                  "AdcShift": 0,
+                  "AdcGain": 0,
+                  "PixelGain": 0,
+                  "DacOffset": 0,
+                  "Registers": "0C 00 00 00 00;10 00 00 00 00 00;14 00 1E;18 00;38 00;44 00 00;48 40 10 10 00;4C 04 FF FF 13;50 00 00;54 00 B0 00 40;5C 04;60 00;64 1E;68 01 27 27 09 09 3B 3B 1D 1D;6C 00;78 00 00;7C 00 00 00 00 00 00 00 00;80 83 2A 2A 0C 0C 20 20 00 00;84 40;88 00 00 00 00;8C 01 12;90 3C 28 28 0A 0A 1E 1E 00 00;94 1C 08;98 03 EB 3F B8 0A 07 11 22 6A 5D;9C 00 55 40 00 2D 00;A0 10 01;A4 00;A8 BE 8F 61;AC 00 00 50;B0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00;C8 00 00 56 74 FF FF;CC 00 0A 05 FA F5;D0 00 0C;D4 00 00 00 00;D8 0A 0A 0A 0A 00 AA 20 14 20 20;DC 08 12 01 19 01 01 32;E0 0F 70 22;E4 0F 88 70;E8 0C 88;EC 01 40 60 0F FF;F4 00 00 00 00;FC 03 21;"
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2016-11-19T12:26:44.2410006+01:00",
+              "Items": {
+                "snr_db": 5.3237771987915039,
+                "error": {
+                  "s": "SNR_SUCCESS",
+                  "t": [
+                    "SNR_SUCCESS"
+                  ],
+                  "op": "Equal"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "TotalTestTimeMilliseconds": 2244,
+  "ContainWarnings": true,
+  "Success": "Fail"
+}

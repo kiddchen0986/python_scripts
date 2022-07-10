@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings for 1021 and 1025 -->
+<fpc_imagequality_config_t xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <image_quality_settings>
+    <mHorEdgeDisToCenter>38</mHorEdgeDisToCenter>
+    <mVerEdgeDisToCenter>38</mVerEdgeDisToCenter>
+    <mBlackAreaWidth>22</mBlackAreaWidth>
+    <mNWindow>30</mNWindow>
+    <mNWindowCrop>12</mNWindowCrop>
+    <mNLines>10</mNLines>
+    <mRefVerEdge>-28</mRefVerEdge>
+    <mRefHorEdge>-28</mRefHorEdge>
+    <mAddPixelsSearchRange>2</mAddPixelsSearchRange>
+    <mThreshold>0.8</mThreshold>
+    <mLRRThreshold>-0.016</mLRRThreshold>
+    <mAlignmentThreshold>0.85</mAlignmentThreshold>
+    <mEnableAlignmentEst>1</mEnableAlignmentEst>
+    <mNGroups>8</mNGroups>
+  </image_quality_settings>
+  <template_height>40</template_height>
+  <template_width>40</template_width>
+</fpc_imagequality_config_t>

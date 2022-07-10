@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModuleQualitySettings2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Timeout for finger detect in ms-->
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+  <!-- Time to stabilize finger after finger detect in ms -->
+  <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+
+  <!-- How much of the image should be cropped. There are three different ways to define this:
+  i.   top, bottom, left, right
+  ii.  top/bottom, left/right
+  iii. all sides -->
+  <Crop>4</Crop>
+
+  <DoApns>false</DoApns>
+
+  <SnrPreset>5</SnrPreset>
+
+  <SnrLimitDb>12</SnrLimitDb>
+
+  <BlobTestEnabled>true</BlobTestEnabled>
+  <BlobDetectThreshold>1.1e-6</BlobDetectThreshold>
+  <BlobLimit>7</BlobLimit>
+
+  <UdrLimit>0.25</UdrLimit>
+
+</ModuleQualitySettings2>

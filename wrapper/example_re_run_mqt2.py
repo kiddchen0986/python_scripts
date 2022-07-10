@@ -10,6 +10,7 @@
 from ctl import mqt2
 from fnmatch import fnmatch
 import os
+import time
 
 # FPC Product type information
 """
@@ -50,6 +51,7 @@ FPC_PRODUCT_TYPE1261_S      40
 FPC_PRODUCT_TYPE1229_G175   41
 FPC_PRODUCT_TYPE1511_S      42
 FPC_PRODUCT_TYPE1024        43
+FPC_PRODUCT_TYPE1229_G175_SS   44
 """
 
 # Settings parameters to be included in settings_list
@@ -71,21 +73,30 @@ is_static (Boolean)
 
 # Example of how to use the mqt2 wrapper #####################################
 
-# Path to DLL. Example below
-dll_path = 'C:\\python_scripts2\\python_scripts\\wrapper\\binaries\\MTT_16.0\\ctl_rerun_test_analysis.dll'
+# Path to DLL. This dll needs to be built inside MTT.
+dll_path = "C:\\tools\\python_scripts\\python_scripts\\wrapper\\binaries\\MTT_16.0\\ctl_rerun_test_analysis.dll"
 
 # Function parameters
-hw_id = 0x0E11
-product_type = 31
+hw_id = 0x0612
+product_type = 41
 
 # Test settings
-settings_list = [4, 4, 4, 4, 1.1e-6, 8, 5, 8.0, 0.25, True, 0.8, 40, False]
+settings_list = [4, 4, 4, 4, 1.1e-6, 8, 1, 8.0, 0.25, True, 0.5, 15, False]
 
-#output_dir = b'name_or_path_to_otuput_dir', exmaple below
-output_dir = b'C:\jira\cet-97\out_algo_visual'
+#output_dir = b'name_or_path_to_otuput_dir'
+#output_dir = b'C:\\project\\bd121\\20180702\\purple\\test\\output'
 
-# root_dir = r'fmi input dir', example below
-root_dir = r'C:\jira\cet-97\logs_20180504_algo_visual'
+#Black Xiaomi E11
+#root_dir = r'C:\jira\cet-97\MTT15_2_log\1007-152_black'
+# Black 20180509
+#root_dir = r'C:\jira\cet-97\20180509\1007\black'
+#root_dir = r'C:\jira\cet-97\20180509\1007\white'
+#root_dir = r'C:\jira\cet-97\logs_20180504_algo_visual'
+#root_dir = r'C:\jira\cet-101\20180511\E1 MTT15_2log-0511\1007-00-V2-black'
+root_dir = r'C:\project\bd121\20180702\purple\oppo_BD121_40083_purple_795pcs_MQT_logs\40083'
+output_dir = bytes(os.path.join(root_dir, 'output'), 'utf-8')
+print(output_dir)
+
 
 filelist = []
 for path, subdirs, files in os.walk(root_dir):
@@ -106,5 +117,6 @@ test_mqt2 = mqt2.ReRunMqt2(dll_path)
 # Run tests
 for file in filelist:
     byte_string = file.encode()
-    print("tools status: ",
-          test_mqt2(product_type, hw_id, settings_list, byte_string, output_dir, True))
+    # Delay can be removed when ms info is added to fmi output
+    time.sleep(1) # Only seconds time stamp in dll...overwriting effects
+    print(test_mqt2(product_type, hw_id, settings_list, byte_string, output_dir, True))

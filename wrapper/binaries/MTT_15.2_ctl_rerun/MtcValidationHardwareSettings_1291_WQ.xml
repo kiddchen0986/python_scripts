@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcValidationHardwareSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the hardware validation test. -->
+    <!-- The test can be executed with all currently known controllers and it will validate if the attached hardware -->
+    <!-- can deliver the requested resources according to the settings below -->
+
+    <HardwareMustSupplyOTPVoltage>true</HardwareMustSupplyOTPVoltage>
+    <HardwareMustBeAbleToMeasureCurrents>true</HardwareMustBeAbleToMeasureCurrents>
+    <HardwareMustBeAbleToMeasureContinuity>true</HardwareMustBeAbleToMeasureContinuity>
+
+    <!-- If the attached HW is an MTC 2 card (Mtc5837) this minimum requirements on -->
+    <!-- on firmware and hardware version have to be met. -->
+    <!-- The minimum version numbers can be given in decimal or hexadecimal -->
+    <!-- values (if given in hex then a prefix of 0x is expected). -->
+    <!-- If the MinFwVersion contains dots (.) the version will be translated to an actual version, -->
+    <!-- but the format has to be detoned as "major.minor.rev-rc" -->
+    <MinFwVersion>1.0.6-1</MinFwVersion>
+    <MinHwVersion>0x0202</MinHwVersion>
+
+</MtcValidationHardwareSettings>

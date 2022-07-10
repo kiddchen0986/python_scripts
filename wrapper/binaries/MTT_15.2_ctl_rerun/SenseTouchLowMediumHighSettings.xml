@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SenseTouchLowMediumHighSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Value should be stable around selected value (+-10) -->
+    <LowPressureThreshold>0</LowPressureThreshold>
+    <!-- Value should be stable around selected value (+-10) -->
+    <MediumPressureThreshold>128</MediumPressureThreshold>
+    <!-- Value should be stable around selected value (+-10) -->
+    <HighPressureThreshold>255</HighPressureThreshold>
+    <!-- Should be stable in intervall for below number of reads in a row -->
+    <StabilizerIndex>10</StabilizerIndex>
+    <!-- Input to read force value from (0 = Anatest1, 1 = Anatest2) -->
+    <InputIndex>0</InputIndex>
+</SenseTouchLowMediumHighSettings>

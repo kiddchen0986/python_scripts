@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+      <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings.xml</Parameter>
+    </Test>
+</Sequence>

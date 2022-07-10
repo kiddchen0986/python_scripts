@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CtlDefectivePixelsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--If you want to override any or all the settings mentioned below,
+  please uncomment the specific line and set the desired value.
+  Some more comments/info is written above some settings-->
+
+  <!--The upper limit of the number of defective pixels that are allowed -->
+  <!--<MaxDefectivePixels>11</MaxDefectivePixels>-->
+
+  <!--<MaxLoggedDefectivePixelsLocations>15</MaxLoggedDefectivePixelsLocations>-->
+
+  <!--Select which variant of Defective Pixels Test you want to run. Available variants:
+      1. Default
+      2. Extended-->
+  <!--<DefectivePixelsTestVariant>Extended</DefectivePixelsTestVariant>-->
+
+  <!--<DeadPixelErrorUpperLimit>11</DeadPixelErrorUpperLimit>-->
+  <!--<DeadPixelMaxDeviation>15</DeadPixelMaxDeviation>-->
+
+  <!--<ImageConstantMaxPixelErrors>11</ImageConstantMaxPixelErrors>-->
+  <!--<ImageConstantMinMedian>128</ImageConstantMinMedian>-->
+  <!--<ImageConstantMaxMedian>185</ImageConstantMaxMedian>-->
+  <!--<ImageConstantMaxMedianDeviation>15</ImageConstantMaxMedianDeviation>-->
+
+  <!--<ImageDrivePixelErrorsLimit>11</ImageDrivePixelErrorsLimit>-->
+  <!--<ImageDriveMaxMedianDeviation>15</ImageDriveMaxMedianDeviation>-->
+
+  <!--<ResetPixelLowerLimitMedian>55</ResetPixelLowerLimitMedian>-->
+  <!--<ResetPixelHigherLimitMedian>55</ResetPixelHigherLimitMedian>-->
+  <!--<ResetErrorUpperLimit>5</ResetErrorUpperLimit>-->
+</CtlDefectivePixelsSettings>

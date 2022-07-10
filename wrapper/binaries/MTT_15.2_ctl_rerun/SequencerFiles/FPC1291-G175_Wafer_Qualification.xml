@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+
+    <!-- Wafer Qualification for FPC1291 and LGA 1291 -->
+
+    <Test Name="Validate attached Mtc" Class="TestsModule.Tests.TestMtcValidateHardware" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.MtcValidationHardwareSettings">MtcValidationHardwareSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.1-->
+    <Test Name="Continuity" Class="TestsModule.Tests.TestMtcContinuity">
+        <Parameter Class="TestsModule.Data.MtcContinuitySettings">MtcContinuitySettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.2-->
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+
+
+    <!--3.3-->
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+        <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+    </Test>
+
+
+    <!--3.4-->
+    <Test Name="Verify OTP BEFORE vendor write" Class="TestsModule.Tests.TestReadOtp">
+        <Parameter Class="TestsModule.Data.ReadOtpSettings">VerifyOtpSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.5-->
+    <Test Name="Write Otp Vendor" Class="TestsModule.Tests.TestWriteOtpVendor">
+        <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.4-->
+    <Test Name="Verify OTP AFTER vendor write" Class="TestsModule.Tests.TestReadOtp">
+        <Parameter Class="TestsModule.Data.ReadOtpSettings">VerifyOtpSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.6-->
+    <!--3.7-->
+    <Test Name="Current consumption" Class="TestsModule.Tests.TestMtcCurrentMeasurements">
+        <Parameter Class="TestsModule.Data.MtcCurrentMeasurementsSettings">MtcCurrentMeasurementSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.8-->
+    <Test Name="Defective Pixel" Class="TestsModule.Tests.TestDefectivePixel">
+        <Parameter Class="TestsModule.Data.DefectivePixelSettings">DefectivePixelSettings.xml</Parameter>
+    </Test>
+
+
+    <!--3.9-->
+    <Test Name="Afd Cal" Class="TestsModule.Tests.TestAfdCal" />
+
+
+    <!--3.10-->
+    <Test Name="AnaTest 1" Class="TestsModule.Tests.TestAna">
+        <Parameter Class="TestsModule.Data.SenseTouchSettings">SenseTouchSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+    <Test Name="AnaTest 2" Class="TestsModule.Tests.TestAna">
+        <Parameter Class="TestsModule.Data.SenseTouchSettings">SenseTouchSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+    <Test Name="AnaTest 3" Class="TestsModule.Tests.TestAna">
+        <Parameter Class="TestsModule.Data.SenseTouchSettings">SenseTouchSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.11-->
+    <Test Name="Sidebutton test 1" Class="TestsModule.Tests.TestSideButtonCalibration">
+        <Parameter Class="TestsModule.Data.SideButtonSettings">SideButtonsSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+    <Test Name="Sidebutton test 2" Class="TestsModule.Tests.TestSideButtonCalibration">
+        <Parameter Class="TestsModule.Data.SideButtonSettings">SideButtonsSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+    <Test Name="Sidebutton test 3" Class="TestsModule.Tests.TestSideButtonCalibration">
+        <Parameter Class="TestsModule.Data.SideButtonSettings">SideButtonsSettings_1291_WQ.xml</Parameter>
+    </Test>
+
+
+    <!--3.12-->
+    <Test Name="TestClkBist" Class="TestsModule.Tests.TestClkBistWQ">
+        <Parameter Class="TestsModule.Data.ClkBistSettingsWQ">ClkBistSettings_1291_WQ.xml</Parameter>
+    </Test>
+</Sequence>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SideButtonSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the side button test / calibration. -->
+
+    <!-- The Xml element Route describes one side buttons to handle and there could be one or multiple routes defined -->
+    <!-- FriendlyName            - An optional friendly name  -->
+    <!-- SideButton              - The side button to be used. Valid value is Left, Right, Shield -->
+    <!-- LowerLimit              - The lower calibration limit-->
+    <!-- UpperLimit              - The upper calibration limit -->
+
+    <Route FriendlyName ="My left side button" SideButton="Left" LowerLimit="500" UpperLimit="3700"/>
+    <Route FriendlyName ="My right side button" SideButton="Right" LowerLimit="500" UpperLimit="3700"/>
+    <Route FriendlyName ="My shield" SideButton="Shield" LowerLimit="500" UpperLimit="3700"/>
+
+</SideButtonSettings>

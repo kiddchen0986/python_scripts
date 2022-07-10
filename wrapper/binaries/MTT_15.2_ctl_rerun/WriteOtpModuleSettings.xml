@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<WriteOtpModuleSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!--  Below are the different module settings available. Since different products
+        have different versions, it is essential that the correct parameters are
+        set for that specific module.
+
+
+        **** Sensor vs version of OTP ****
+                1268 sensor uses Version 1.
+               129x sensors uses Version 3.
+           All other sensors use Version 2.
+
+  -->
+
+
+
+  <!-- ModuleVendor is a non-zero value representing the module vendor -->
+  <!-- Version 1: value 1 - 127 (bits 7:1 in byte 1) -->
+  <!-- Version 2: value 1 - 127 (bits 7:1 in byte 1) -->
+  <!-- Version 3: value 1 - 127 (bits 7:1 in byte 1) -->
+  <ModuleVendor>0</ModuleVendor>
+
+
+  <!-- FpcModuleDesignVersion -->
+  <!-- Version 1: value 0 - 127 (bits 6:0 in byte 2) -->
+  <!-- Version 2: value 0 - 31  (bits 2:0 in byte 2, bits 7:6 in byte 3) -->
+  <!-- Version 3: Not applicable -->
+  <FpcModuleDesignVersion>0</FpcModuleDesignVersion>
+
+
+  <!-- FPC Product variant -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: value 0 - 31 (bits 7:3 in byte 2) -->
+  <!-- Version 3: Not applicable -->
+  <FpcProductVariant>0</FpcProductVariant>
+
+
+  <!-- Fpc product -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: Not applicable -->
+  <!-- Version 3: value 0 - 15 (bits 7:4 in byte 2). FPC129<value> where value=0..4 -->
+  <FpcProduct>1</FpcProduct>
+
+
+  <!-- External sensor available (SenseTouch ®™) -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: value true/false (bit 5 in byte 2) -->
+  <!-- Version 3: value true/false (bit 5 in byte 5) -->
+  <ExternalSensorAvailable>false</ExternalSensorAvailable>
+
+
+  <!--The coating type used. Valid values are Spray, Glass or Zirconia -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: Not applicable -->
+  <!-- Version 3: value 'Spray' (0x01), 'Glass' (0x02) or 'Zirconia' (0x03) -->
+  <CoatingType>Spray</CoatingType>
+
+
+  <!--The coating thickness used. Values are specified in 5µm steps. 1 = 5µm, 2 = 10µm etc. 127 = 635µm -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: Not applicable -->
+  <!-- Version 3: value 0 - 127 (bits 7:2 in byte 3, bit 0 in byte 2) -->
+  <CoatingThickness>2</CoatingThickness>
+
+
+  <!-- If there are side buttons available. A value of true means that there are side buttons availble -->
+  <!-- Version 1: Not applicable -->
+  <!-- Version 2: Not applicable -->
+  <!-- Version 3: value true/false (bit 6 in byte 5) -->
+  <SideButtonsAvailable>false</SideButtonsAvailable>
+
+  <!-- If set to true, WriteOtpModule() will fail if the Module section of the OTP is already written -->
+  <!-- If set to false, WriteOtpModule() will pass if the Module section of the OTP is already written -->
+  <!-- Default value is false -->
+  <FailAtRetest>false</FailAtRetest>
+
+
+  <!-- If set to true, WriteOtpModule() will fail if the SIP/Package section of the OTP isn't written (empty)-->
+  <!-- Default value is false -->
+  <FailIfSipPackageSectionIsEmpty>false</FailIfSipPackageSectionIsEmpty>
+
+</WriteOtpModuleSettings>
+

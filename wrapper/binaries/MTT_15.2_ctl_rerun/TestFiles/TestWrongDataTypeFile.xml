@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configs>
+    <Verifications>
+        <Verification>
+            <Angle>0</Angle>
+            <NbrOfImgs>2</NbrOfImgs>
+        </Verification>
+        <Verification>
+            <Angle>90</Angle>
+            <NbrOfImgs>Hello</NbrOfImgs>
+        </Verification>
+        <Verification>
+            <Angle>180</Angle>
+            <NbrOfImgs>2</NbrOfImgs>
+        </Verification>
+        <Verification>
+            <Angle>270</Angle>
+            <NbrOfImgs>2</NbrOfImgs>
+        </Verification>
+    </Verifications>
+</Configs>

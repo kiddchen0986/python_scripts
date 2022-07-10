@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+        <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+    </Test>
+    <Test Name="Afd Cal" Class="TestsModule.Tests.TestAfdCal" />
+    <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+        <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+    </Test>
+    <Test Name="CTL Defective Pixels" Class="TestsModule.Tests.TestCtlDefectivePixels">
+    <Parameter Class="TestsModule.Data.CtlDefectivePixelsSettings">CtlDefectivePixelsSettings_1291.xml</Parameter>
+    </Test>
+    <Test Name="Module Quality Test 2" Class="TestsModule.Tests.TestModuleQuality2">
+        <Parameter Class="TestsModule.Data.ModuleQualitySettings2">ModuleQualitySettings2_1291-Z120.xml</Parameter>
+    </Test>
+</Sequence>

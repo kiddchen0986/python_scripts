@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcSetupSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Copyright (c) 2017 Fingerprint Cards AB <tech@fingerprints.com> -->
+    <!-- This is the settings file for the MTC card. -->
+    <!-- For more information regarding the settings below, please check the confluence page -->
+    <!-- https://fpc-confluence.fingerprint.local/confluence/pages/viewpage.action?pageId=47620579 -->
+
+    <ConfigurationPowerSupply Current="IDDA" Enabled="false" />
+
+</MtcSetupSettings>

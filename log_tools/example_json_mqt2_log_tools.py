@@ -15,12 +15,9 @@ import matplotlib.pyplot as plt
 #path = r'C:\jira\neo-29\F0138 LOG 1-24'
 #path = r'C:\jira\prodp-321\DVT1Alog\FT1ME83Q'
 #path = r'C:\jira\prodp-324\20180205'
-path = r'C:\jira\prodp-324\20180208\20180201'
+#path = r'C:\jira\prodp-324\20180208'
 #path = r'C:\jira\neo-49\61642'
-#path = r'C:\jira\tools-4573\1291-Z120-Ref'
-#path = r'C:\Logs\FPC1291-S_hwid=0x0E12_stage1_mtt15_1\1291-S-E12'
-#path = r'C:\Logs\FPC1291-Z120_hwid=0x012_stage1_mtt15_1\1291-Z120-080405'
-
+path = r'C:\jira\tools-4573\1291-Z120-Ref'
 
 logs = lt.MTTLogsMQT2() # Init logs object
 logs(path, True) # Call function, arguments: rootdirector, sensor id
@@ -38,7 +35,7 @@ print("Number of unique modules = ", number_of_modules )
 
 
 
-snr_pass  = len([x for x in test_results[:,0,1] if x > 8.0])
+snr_pass  = len([x for x in test_results[:,0,1] if x > 5.0])
 snr_total = len([x for x in test_results[:,0,1] if x != -1000])
 snr_yield = snr_pass/snr_total
 print("SNR yield = {0:0.4f}, ({1}/{2})".format(snr_yield, snr_pass, snr_total))
@@ -83,7 +80,7 @@ print("MQT2 yield = {0:0.4f}, ({1}/{2})".format(mqt2_yield, mqt2_pass, mqt2_tota
 # Values for plotting
 snr_values = test_results[:,0,1]  # Max
 blob_values = test_results[:,1,0] # Min
-udr_values = test_results[:,2,1] # Maxq
+udr_values = test_results[:,2,1] # Max
 uf_values = test_results[:,3,0] # Min
 ss_values = test_results[:,4,1] # Max
 rms_values = test_results[:,5,1] # Max
@@ -91,10 +88,10 @@ rms_values = test_results[:,5,1] # Max
 
 print(len(snr_values))
 
-title = ", FPC1291-Z120, hwid=0x0E12"
+title = ", FPC1291-G175, Lens Huawei, hwid=0x0E12"
 
-y_max = 5
-n, bins, patches = plt.hist(snr_values, 100, range=(8,30))
+y_max = 65
+n, bins, patches = plt.hist(snr_values, 100, range=(4,20))
 plt.title("SNR" + title)
 axis = plt.gca()
 axis.set_ylim([0, y_max])
@@ -103,7 +100,7 @@ plt.ylabel("Number of modules")
 plt.xlabel("SNR")
 plt.show()
 
-y_max = 10
+y_max = 65
 n, bins, patches = plt.hist(udr_values, 100, range=(0,1))
 plt.title("UDR" + title)
 axis = plt.gca()
@@ -113,8 +110,8 @@ plt.ylabel("Number of modules")
 plt.xlabel("UDR")
 plt.show()
 
-y_max = 5
-n, bins, patches = plt.hist(rms_values, 100, range=(0,50))
+y_max = 45
+n, bins, patches = plt.hist(rms_values, 100, range=(0,25))
 plt.title("RMS" + title)
 axis = plt.gca()
 axis.set_ylim([0, y_max])
@@ -122,7 +119,7 @@ plt.ylabel("Number of modules")
 plt.xlabel("RMS")
 plt.show()
 
-y_max = 5
+y_max = 60
 n, bins, patches = plt.hist(uf_values, 100, range=(0,0.15))
 plt.title("Uniformity" + title)
 axis = plt.gca()
@@ -131,8 +128,8 @@ plt.ylabel("Number of modules")
 plt.xlabel("Uniformity")
 plt.show()
 
-y_max = 5
-n, bins, patches = plt.hist(ss_values, 100, range=(0.2,1.3))
+y_max = 80
+n, bins, patches = plt.hist(ss_values, 100, range=(0.2,0.9))
 plt.title("Signal strength" + title)
 axis = plt.gca()
 axis.set_ylim([0, y_max])
@@ -143,7 +140,7 @@ plt.show()
 fig, ax = plt.subplots()
 ax.plot(ss_values, snr_values, '.')
 ax.set_title("SNR vs Signal strength" + title)
-ax.set_ylim([8, 30])
+ax.set_ylim([0, 18])
 ax.set_xlim([0.2, 0.9])
 ax.set_ylabel("SNR (dB)")
 ax.set_xlabel("Signal strength (fF)")
@@ -152,7 +149,7 @@ plt.show()
 fig, ax = plt.subplots()
 ax.plot(uf_values, udr_values, '.')
 ax.set_title("UDR vs Uniformity" + title)
-ax.set_ylim([0.6, 1.0])
+ax.set_ylim([0, 1.0])
 ax.set_xlim([0.01, 0.15])
 ax.set_ylabel("UDR")
 ax.set_xlabel("Uniformity")

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<WriteOtpWaferSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Below are some default values that could be used. -->
+    <!-- NB! This is NOT intended for production use, but merely for
+         verification. Keep in mind that the same values will be written
+         to each sensor. Rewriting the file (from an external tool) will
+         not help since MTT does not reload the file without restarting.
+         This file is not set to be copied to the output folder. -->
+
+    <!-- Select the Wafer version to use. -->
+    <WaferVersion>Version1</WaferVersion>
+
+    <!--Select the LotID write to the wafer section.-->
+    <LotId>DP6409</LotId>
+
+    <!--Select the XCoordinate to write to the wafer section.-->
+    <XCoordinate>12</XCoordinate>
+
+    <!--Select the YCoordinate to write to the wafer section.-->
+    <YCoordinate>34</YCoordinate>
+
+    <!--Select the ID to write to the wafer section.-->
+    <Id>22</Id>
+
+    <!--Select the Oscillator Clock Trim High value to the wafer section.-->
+    <ClockTrimOscHigh>0</ClockTrimOscHigh>
+
+    <!--Select the Oscillator Clock Trim High value to the wafer section.-->
+    <ClockTrimOscLow>0</ClockTrimOscLow>
+
+    <!--Select the production year to write to the wafer section.-->
+    <Year>2017</Year>
+
+    <!--Select the production month to write to the wafer section.-->
+    <Month>7</Month>
+
+    <!--Select the production day to write to the wafer section.-->
+    <Day>1</Day>
+
+</WriteOtpWaferSettings>

@@ -6,23 +6,21 @@ from util import read_image
 
 
 def image_constant(testLib, image, sensor):
+    print("\n--------------------fpc_image_constant_config_t--------------------------\n")
     config = fpc_image_constant_config_t()
     status = testLib.init_image_constant_test(c.byref(config), sensor)
     if status != 0:
         print("init_image_constant_test fail")
         return status
 
+    print(config)
+
     dead_pixels_list = dead_pixels_info_t()
     dead_pixels_list.list_max_size = config.area_height * config.area_width
     dead_pixels_list.is_initialized = 1
     pixel = config.area_height * config.area_width
     dead_pixels_list.dead_pixels_index_list = (c.c_uint16 * pixel)(0)
-
-    #print("pixel_errors_upper_limit:", config.pixel_errors_upper_limit)
-    #print("median_lower_limit:", config)
-    #print("median_upper_limit:", config)
-    #print("max_median_deviation:", config)
-
+    print("\n--------------------Running Image Constant test--------------------------\n")
     result = fpc_image_constant_result_t()
     status = testLib.image_constant_test(image, c.byref(config), c.byref(result), c.byref(dead_pixels_list))
 

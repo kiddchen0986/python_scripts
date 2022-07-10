@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CapacitanceSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Setting timeout to 0 = infinite-->
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+
+  <TimeoutSeconds>20.2</TimeoutSeconds>
+  <FailOnTimeout>true</FailOnTimeout>
+  <PostDelaySeconds>0.5</PostDelaySeconds>
+
+  <!-- Set LiftRubberstamp to false to run Capacitance Test
+  without having to lift the rubbestamp at the beginning of the test. By default true-->
+  <LiftRubberstamp>true</LiftRubberstamp>
+
+  <!-- Setting this to true will enable pixel bias calibration if product supports it -->
+  <UsePixelCalibration>true</UsePixelCalibration>
+
+  <!-- ============================= TEST CRITERIA ============================= -->
+  <!-- Settings below are test criteria. Default criteria will automatically
+     be applied based on selected product type. To override any of the default
+     settings, un-comment and update the setting below -->
+
+  <!-- Enable validation of signal strength -->
+  <SuppressSignalStrengthTestResult>false</SuppressSignalStrengthTestResult>
+
+  <!-- Minimum signal strength accepted by test -->
+  <MinSignalStrength>0.3</MinSignalStrength>
+
+  <!-- Maximum signal strength accepted by test -->
+  <!--<MaxSignalStrength>0.0</MaxSignalStrength>-->
+
+  <!-- Maximum uniformity level accepted by test -->
+  <MaxUniformityLevel>0.1</MaxUniformityLevel>
+
+  <!-- -1 = will use default sampling level (1260 can not change multi sample level) -->
+  <!--<MultiSamplingLevel>-1</MultiSamplingLevel>-->
+
+  <!-- Setting this to true, will not fail test based on blob test outcome -->
+  <SuppressBlobTestResult>false</SuppressBlobTestResult>
+
+  <!-- Set this to true if you want to overwrite the default BlobConfig. Please change the BlobConfig below-->
+  <BlobConfig>
+    <blob_threshold>4.5e-6</blob_threshold>
+    <max_number_of_blob_pixels>7</max_number_of_blob_pixels>
+  </BlobConfig>
+
+  <!-- How much of the image should be cropped for analysis. There are three different ways to define this:
+  i.   top, bottom, left, right
+  ii.  top/bottom, left/right
+  iii. all sides -->
+  <!--<AnalysisCropMargin>0</AnalysisCropMargin>-->
+
+  <!-- How much of the image should be cropped during capture. There are three different ways to define this:
+  i.   top, bottom, left, right
+  ii.  top/bottom, left/right
+  iii. all sides -->
+  <!--<CalibrationCrop>0</CalibrationCrop>-->
+</CapacitanceSettings>

@@ -1,0 +1,25 @@
+;Input;;;;Expected Result;;;;
+Description;Checkerboard Image Name;Inverted Checkerboard Image Name;Test Level;Product;Cb Pixel Errors;Cb Sub Area  Errors;Icb Pixel Errors;Icb Sub Area Errors;MethodConclusion
+10 dead pixels OK;10_DP_0_FD_CheckerboardImage_OK.png;10_DP_0_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;10;0;10;0;Success
+11 dead pixels FAILED;11_DP_0_FD_CheckerboardImage_FAILED.png;11_DP_0_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;11;0;11;0;Fail
+0 dead pixels for ITS OK;11_DP_0_FD_MTS_OK_ITS_CheckerboardImage_FAILED.png;11_DP_0_FD_MTS_OK_ITS_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_ITS;PRODUCT_TYPE_FPC1035;0;0;0;0;Success
+11 dead pixels for MTS OK;11_DP_0_FD_MTS_OK_ITS_CheckerboardImage_FAILED.png;11_DP_0_FD_MTS_OK_ITS_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;11;0;11;0;Fail
+AC-55 1 dead pixels for FD 1;AC-55_1_DP_1_FD_CheckerboardImage_FAILED.png;AC-55_1_DP_1_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;1;1;0;0;Fail
+Checkerboard OK sanity check;CheckerboardImage_OK.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;0;0;0;0;Success
+SLOP-2 1 dead pixels for FD 1;SLOP-2_1_DP_1_FD_CheckerboardImage_FAILED.png;SLOP-2_1_DP_1_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;1;1;0;0;Fail
+CB All dead Around DFD;432_DP_0_FD_CheckerboardImage_FAILED.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;432;0;0;0;Fail
+CB All dead Around DFD - one pixel on each side in each DFD dead ;480_DP_48_FD_CheckerboardImage_FAILED.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;480;48;0;0;Fail
+ICB All dead Around DFD;CheckerboardImage_OK.png;432_DP_0_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;0;0;432;0;Fail
+ICB All dead Around DFD - one pixel on each side in each DFD dead ;CheckerboardImage_OK.png;480_DP_48_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;0;0;480;48;Fail
+CB & ICB All dead Around DFD - one pixel on each side in each DFD dead ;480_DP_48_FD_CheckerboardImage_FAILED.png;480_DP_48_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1035;480;48;480;48;Fail
+10 dead pixels OK;10_DP_0_FD_CheckerboardImage_OK.png;10_DP_0_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;10;0;10;0;Success
+11 dead pixels FAILED;11_DP_0_FD_CheckerboardImage_FAILED.png;11_DP_0_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;11;0;11;0;Fail
+0 dead pixels for ITS OK;11_DP_0_FD_MTS_OK_ITS_CheckerboardImage_FAILED.png;11_DP_0_FD_MTS_OK_ITS_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_ITS;PRODUCT_TYPE_FPC1235;0;0;0;0;Success
+11 dead pixels for MTS OK;11_DP_0_FD_MTS_OK_ITS_CheckerboardImage_FAILED.png;11_DP_0_FD_MTS_OK_ITS_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;11;0;11;0;Fail
+AC-55 1 dead pixels for FD 1;AC-55_1_DP_1_FD_CheckerboardImage_FAILED.png;AC-55_1_DP_1_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;1;1;0;0;Fail
+Checkerboard OK sanity check;CheckerboardImage_OK.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;0;0;0;0;Success
+SLOP-2 1 dead pixels for FD 1;SLOP-2_1_DP_1_FD_CheckerboardImage_FAILED.png;SLOP-2_1_DP_1_FD_InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;1;1;0;0;Fail
+CB All dead Around DFD;432_DP_0_FD_CheckerboardImage_FAILED.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;432;0;0;0;Fail
+CB All dead Around DFD - one pixel on each side in each DFD dead ;480_DP_48_FD_CheckerboardImage_FAILED.png;InvertedCheckerboardImage_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;480;48;0;0;Fail
+ICB All dead Around DFD;CheckerboardImage_OK.png;432_DP_0_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;0;0;432;0;Fail
+ICB All dead Around DFD - one pixel on each side in each DFD dead ;CheckerboardImage_OK.png;480_DP_48_FD_InvertedCheckerboardImage_FAILED.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1235;0;0;480;48;Fail

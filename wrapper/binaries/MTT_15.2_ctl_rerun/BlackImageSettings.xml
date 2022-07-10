@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BlackImageSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <AdcShift>12</AdcShift>
+    <AdcGain>2</AdcGain>
+    <PixelGain>6</PixelGain>
+    <DacOffset>60</DacOffset>
+    <!--EnableDacOffsetCompression = true for FPC1268 -->
+    <EnableDacOffsetCompression>true</EnableDacOffsetCompression>
+    <BlackPixelThreshold>0</BlackPixelThreshold>
+    <MaxBlackPixelPercentage>80</MaxBlackPixelPercentage>
+    <!-- Timeout for finger detect in ms-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+</BlackImageSettings>

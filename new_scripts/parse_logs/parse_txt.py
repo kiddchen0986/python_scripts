@@ -2,7 +2,7 @@ import sys
 import re
 import pandas as pd
 import time
-from util import gen_find
+from LogParser import gen_find
 
 test_result_dict = {}
 
@@ -61,7 +61,7 @@ def execute(path, csv_path):
     mtt_yield["Result"] = [0, 0]
 
     logs = extract_logs(path)
-    print("{} files processed to csv...".format(logs))
+    print("{} files processed to report...".format(logs))
 
     mtt_yield['Result'][0] = logs
 
@@ -71,7 +71,7 @@ def execute(path, csv_path):
     csv_data.insert(0, yields)
 
     df = pd.DataFrame(csv_data, columns=csv_cols)
-    df.to_csv(csv_path, encoding='utf-8', index=False)
+    df.to_excel(csv_path, encoding='utf-8', index=False)
 
     print("Finish {}s".format(time.time() - begin))
 
@@ -79,6 +79,6 @@ if __name__ == "__main__":
     try:
         execute(sys.argv[1], sys.argv[2])
     except IndexError as e:
-        print("python parse_txt.py <log_path> <csv_file_name>")
+        print("python parse_txt.py <log_path> <report_file_name>")
     except Exception as e:
         print("Error {} caught in script".format(e))

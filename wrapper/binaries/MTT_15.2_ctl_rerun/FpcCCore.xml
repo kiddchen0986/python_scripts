@@ -1,0 +1,2338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FpcCCore</name>
+    </assembly>
+    <members>
+        <member name="T:FpcCCore.FpcFrameFormat">
+            <summary>
+            Describes the format of an image frame.
+            </summary>
+            <remarks>
+            Interop structure matching FpcFrameFormat in fpc_image.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.width">
+            <summary>
+            Image width. -1 indicates unknown value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.height">
+            <summary>
+            Image height. -1 indicates unknown value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.ppi">
+            <summary>
+            Sampling intensity. -1 indicates unknown value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.bits_per_pixels">
+            <summary>
+            Grayscale bit depth. -1 indicates unknown value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.channels">
+            <summary>
+            Number of channels.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.greyscale_polarity">
+            <summary>
+            Polarity of the grayscale data. -1 indicates unknown value.
+            </summary>
+            <remarks>
+            0 indicates that ridges are black, valleys are white.
+            1 indicates that ridges are white, valleys are black.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.FpcFrameFormat.rotation">
+            <summary>
+            Orientation change since the image was captured, in degrees.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.FpcImage">
+            <summary>
+            A simple image.
+            </summary>
+            <remarks>
+            Interop structure matching FpcFrameFormat in fpc_image.h.
+            <para>
+            For general use, prefer <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.FpcImage.format">
+            <summary>
+            Describes the format of each frame.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcImage.frame_count">
+            <summary>
+            The number of frames in <see cref="F:FpcCCore.FpcImage.buffer"/>.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcImage.buffer">
+            <summary>
+            The pixel data.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcImage.capacity">
+            <summary>
+            Capacity of <see cref="F:FpcCCore.FpcImage.buffer"/>.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.FpcImage.dead_pixel_info">
+            <summary>
+            Information about dead pixels on the sensor this image was captured with.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.CompanionHardwareId">
+            <summary>
+            Companion hardware identifier and its components.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.CompanionHardwareId.#ctor(FpcCCore.fpc_companion_chip_type_t,System.Byte,System.Byte)">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.CompanionHardwareId"/> using a companion type, fab
+            and revision.
+            </summary>
+            <param name="companionType">Companion type.</param>
+            <param name="companionFab">Companion fab.</param>
+            <param name="companionRevision">Companion revision.</param>
+        </member>
+        <member name="M:FpcCCore.Hardware.CompanionHardwareId.#ctor(System.UInt16)">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.CompanionHardwareId"/> using a 16-bit raw value.
+            </summary>
+            <param name="hardwareId">Raw hardware ID.</param>
+        </member>
+        <member name="F:FpcCCore.Hardware.CompanionHardwareId.HardwareId">
+            <summary>
+            Hardware ID.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.CompanionHardwareId.CompanionType">
+            <summary>
+            Companion type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.CompanionHardwareId.CompanionFab">
+            <summary>
+            Companion fab.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.CompanionHardwareId.CompanionRevision">
+            <summary>
+            Companion revision.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.FindHardwareResult">
+            <summary>
+            Result in a hardware search.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.FindHardwareResult.Descriptor">
+            <summary>
+            A <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> that identifies this variety of hardware uniquely.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.FindHardwareResult.Details">
+            <summary>
+            Details about the product.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.FindHardwareResult.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:FpcCCore.Hardware.FindHardwareOption">
+            <summary>
+            Options for finding products.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.FindHardwareOption.Descriptor">
+            <summary>
+            Include <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> in results.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.FindHardwareOption.Details">
+            <summary>
+            Include <see cref="T:FpcCCore.Hardware.HardwareDetails"/> in results.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.Interface.ICompanionDetails">
+            <summary>
+            Companion details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ICompanionDetails.CompanionHardwareId">
+            <summary>
+            Companion hardware ID, if <see cref="P:FpcCCore.Hardware.Interface.ICompanionDetails.CompanionChipType"/> is
+            <see cref="F:FpcCCore.fpc_companion_chip_type_t.FPC2060"/>.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ICompanionDetails.CompanionChipType">
+            <summary>
+            Companion chip type.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.Interface.IHardwareDetails">
+            <summary>
+            Hardware details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IHardwareDetails.Name">
+            <summary>
+            Friendly name of the hardware.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IHardwareDetails.ProductType">
+            <summary>
+            Type of product.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IHardwareDetails.Sensor">
+            <summary>
+            Sensor details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IHardwareDetails.Companion">
+            <summary>
+            Companion details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IHardwareDetails.Module">
+            <summary>
+            Module details.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.Interface.IKnownHardware">
+            <summary>
+            Finds information about products.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.Interface.IKnownHardware.Find(FpcCCore.Hardware.HardwareDescriptor,FpcCCore.Hardware.FindHardwareOption)">
+            <summary>
+            Find one or more products matching a <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/>.
+            </summary>
+            <param name="hardwareDescriptor">
+            The hardware descriptor to use in the search.
+            </param>
+            <param name="options">
+            Find options.
+            </param>
+            <returns>
+            An <see cref="T:System.Collections.Generic.IList`1"/> of matched hardware.
+            </returns>
+        </member>
+        <member name="T:FpcCCore.Hardware.Interface.IModuleDetails">
+            <summary>
+            Module details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IModuleDetails.Coating">
+            <summary>
+            Coating type.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IModuleDetails.CoatingThicknessUm">
+            <summary>
+            Coating thickness in micrometers.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IModuleDetails.ProductVariant">
+            <summary>
+            Product variant.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IModuleDetails.DesignVersion">
+            <summary>
+            Design version.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.IModuleDetails.HasExternalChip">
+            <summary>
+            Has external chip.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.Interface.ISensorDetails">
+            <summary>
+            Sensor details.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.SensorHardwareId">
+            <summary>
+            Sensor hardware ID.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.SensorType">
+            <summary>
+            Sensor type.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.ImageWidth">
+            <summary>
+            Image width for the sensor.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.ImageHeight">
+            <summary>
+            Image height for the sensor.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.SubAreaWidth">
+            <summary>
+            Width of each finger-detect sub area.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.SubAreaHeight">
+            <summary>
+            Height of each finger-detect sub area.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.Interface.ISensorDetails.SubAreaPositions">
+            <summary>
+            Finger-detect sub area positions.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.KnownHardware">
+            <summary>
+            Information about known hardware.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.KnownHardware.Find(FpcCCore.Hardware.HardwareDescriptor,FpcCCore.Hardware.FindHardwareOption)">
+            <inheritdoc/>
+        </member>
+        <member name="T:FpcCCore.Hardware.HardwareDescriptor">
+            <summary>
+            Hardware descriptor. Partially or completely describes one or more hardware types.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.HardwareDescriptor.All">
+            <summary>
+            A descriptor that matches all hardware.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.#ctor(System.Nullable{FpcCCore.Hardware.SensorHardwareId},System.Nullable{FpcCCore.Hardware.CompanionHardwareId},System.Nullable{FpcCCore.fpc_companion_chip_type_t},System.Nullable{FpcCCore.fpc_coating_t},System.Nullable{System.UInt16},System.Nullable{System.Byte},System.Nullable{System.Byte},System.Nullable{System.Boolean})">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> from components that
+            partially or completely identifies hardware.
+            </summary>
+            <param name="sensorHardwareId">Sensor hardware ID (optional).</param>
+            <param name="companionHardwareId">Companion hardware ID (optional).</param>
+            <param name="companionChipType">Companion chip type (optional).</param>
+            <param name="coating">Coating (optional).</param>
+            <param name="coatingThicknessUm">Coating thickness (optional).</param>
+            <param name="productVariant">Product variant (optional).</param>
+            <param name="designVersion">Design version (optional).</param>
+            <param name="hasExternal">Has external chip (optional).</param>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.#ctor(System.Nullable{FpcCCore.sensor_type_t},System.Nullable{System.Byte},System.Nullable{System.Byte},System.Nullable{FpcCCore.fpc_companion_chip_type_t},System.Nullable{System.Byte},System.Nullable{System.Byte},System.Nullable{FpcCCore.fpc_coating_t},System.Nullable{System.UInt16},System.Nullable{System.Byte},System.Nullable{System.Byte},System.Nullable{System.Boolean})">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> from components that
+            partially or completely identifies hardware.
+            </summary>
+            <param name="sensorType">Sensor type (optional).</param>
+            <param name="sensorFab">Sensor fab (optional).</param>
+            <param name="sensorRevision">Sensor revision (optional).</param>
+            <param name="companionType">Companion type (optional).</param>
+            <param name="companionFab">Companion fab (optional).</param>
+            <param name="companionRevision">Companion revision (optional).</param>
+            <param name="coating">Coating (optional).</param>
+            <param name="coatingThicknessUm">Coating thickness (optional).</param>
+            <param name="productVariant">Product variant (optional).</param>
+            <param name="designVersion">Design version (optional).</param>
+            <param name="hasExternal">Has external chip (optional).</param>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.FromBytes(System.Byte[])">
+            <summary>
+            Create and initialize an <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> using an array of bytes.
+            </summary>
+            <param name="bytes">An array of 16 bytes containing a hardware descriptor.</param>
+            <returns>A <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/>.</returns>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.ToByteArray">
+            <summary>
+            Returns a copy of the <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> represented as a byte array.
+            </summary>
+            <returns>A byte array.</returns>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.SensorHardwareId">
+            <summary>
+            A <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorHardwareId"/> reconstructed from the <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorType"/>,
+            <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorFab"/> and <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorRevision"/>.
+            </summary>
+            <remarks>
+            This property may have an "incomplete" value if either <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorFab"/> or
+            <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorRevision"/> lack values. The corresponding digits in the hardware ID
+            will then be 0.
+            <para>
+            If <see cref="P:FpcCCore.Hardware.HardwareDescriptor.SensorType"/> has no value, this property will also not have a value.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.SensorType">
+            <summary>
+            Sensor type.
+            </summary>
+            <remarks>
+            This property may lack a value, in which case it works like a wildcard.
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.SensorFab">
+            <summary>
+            Sensor fab.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.SensorRevision">
+            <summary>
+            Sensor revision.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.CompanionHardwareId">
+            <summary>
+            Companion chip hardware ID.
+            </summary>
+            <remarks>
+            Only relevant for <see cref="F:FpcCCore.fpc_companion_chip_type_t.FPC2060"/> and
+            <see cref="F:FpcCCore.fpc_companion_chip_type_t.FPC2061"/>.
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.CompanionType">
+            <summary>
+            Companion chip type.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.CompanionFab">
+            <summary>
+            Companion chip fab.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.CompanionRevision">
+            <summary>
+            Companion chip revision.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.Coating">
+            <summary>
+            Coating type.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.CoatingThickness">
+            <summary>
+            Coating thickness in μm.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.ProductVariant">
+            <summary>
+            Product variant.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.DesignVersion">
+            <summary>
+            Design version.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDescriptor.HasExternalChip">
+            <summary>
+            "Has external chip" flag.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.op_Equality(FpcCCore.Hardware.HardwareDescriptor,FpcCCore.Hardware.HardwareDescriptor)">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.op_Inequality(FpcCCore.Hardware.HardwareDescriptor,FpcCCore.Hardware.HardwareDescriptor)">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.Equals(FpcCCore.Hardware.HardwareDescriptor)">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.Merge(FpcCCore.Hardware.HardwareDescriptor)">
+            <summary>
+            Create a <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> that is a merge of this
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> and another one.
+            </summary>
+            <param name="otherDescriptor">
+            The <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> that should be merged with this one.
+            </param>
+            <returns>
+            A new, merged <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/>.
+            </returns>
+            <remarks>
+            This function merges the descriptors field-by-field. The merge will fail if a field is
+            specified in both descriptors *and* the field values are not equal.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.Match(FpcCCore.Hardware.HardwareDescriptor)">
+            <summary>
+            Determine if two given hardware descriptors match.
+            </summary>
+            <param name="otherDescriptor">
+            The <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> that should be matched against this one.
+            </param>
+            <returns>
+            True if the descriptors match, otherwise not.
+            </returns>
+            <remarks>
+            This function compares the descriptors field-by-field. An unspecified field in either
+            descriptor is treated as a wildcard, and matches any value of that field in the other
+            descriptor.
+            <para>
+            The descriptors are considered to match if all fields match.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Hardware.HardwareDescriptor.ToFpcSensorInfo">
+            <summary>
+            Create an <see cref="T:FpcCCore.fpc_sensor_info_t"/> from the information in the
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/>.
+            </summary>
+            <returns>
+            An <see cref="T:FpcCCore.fpc_sensor_info_t"/>.
+            </returns>
+        </member>
+        <member name="T:FpcCCore.Hardware.SensorHardwareId">
+            <summary>
+            Sensor hardware identifier and its components.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Hardware.SensorHardwareId.#ctor(FpcCCore.sensor_type_t,System.Byte,System.Byte)">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.SensorHardwareId"/> using a sensor type, fab and
+            revision.
+            </summary>
+            <param name="sensorType">Sensor type.</param>
+            <param name="sensorFab">Sensor fab.</param>
+            <param name="sensorRevision">Sensor revision.</param>
+        </member>
+        <member name="M:FpcCCore.Hardware.SensorHardwareId.#ctor(System.UInt16)">
+            <summary>
+            Create and initialize a <see cref="T:FpcCCore.Hardware.SensorHardwareId"/> using a 16-bit raw value.
+            </summary>
+            <param name="hardwareId">Raw hardware ID.</param>
+        </member>
+        <member name="F:FpcCCore.Hardware.SensorHardwareId.HardwareId">
+            <summary>
+            Hardware ID.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.SensorHardwareId.SensorType">
+            <summary>
+            Sensor type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.SensorHardwareId.SensorFab">
+            <summary>
+            Sensor fab.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Hardware.SensorHardwareId.SensorRevision">
+            <summary>
+            Sensor revision.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Hardware.HardwareDetails">
+            <summary>
+            Details about a product.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.ProductType">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.Sensor">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.Companion">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.Module">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#SensorHardwareId">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#SensorType">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#ImageWidth">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#ImageHeight">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#SubAreaWidth">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#SubAreaHeight">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ISensorDetails#SubAreaPositions">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ICompanionDetails#CompanionHardwareId">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#ICompanionDetails#CompanionChipType">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#IModuleDetails#Coating">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#IModuleDetails#CoatingThicknessUm">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#IModuleDetails#ProductVariant">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#IModuleDetails#DesignVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Hardware.HardwareDetails.FpcCCore#Hardware#Interface#IModuleDetails#HasExternalChip">
+            <inheritdoc />
+        </member>
+        <member name="T:FpcCCore.dead_pixels_info_t">
+            <summary>
+            Describes dead pixels on a particular sensor.
+            </summary>
+            <remarks>
+            Interop structure matching dead_pixels_info_t in fpc_sensor_info.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.dead_pixels_info_t.num_dead_pixels">
+            <summary>
+            Number of dead pixels.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.dead_pixels_info_t.dead_pixels_index_list">
+            <summary>
+            Indices of the dead pixels (treating the pixel data as a linear array).
+            </summary>
+        </member>
+        <member name="F:FpcCCore.dead_pixels_info_t.list_max_size">
+            <summary>
+            Capacity of <see cref="F:FpcCCore.dead_pixels_info_t.dead_pixels_index_list"/>.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.dead_pixels_info_t.is_initialized">
+            <summary>
+            Indicates that this structure has been initialized with proper values.
+            (1 if initialized, 0 if not.)
+            </summary>
+        </member>
+        <member name="T:FpcCCore.fpc_coating_t">
+            <summary>
+            Coating type.
+            </summary>
+            <remarks>
+            Interop structure matching fpc_coating_t in fpc_sensor_info.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.NORMAL_COATING">
+            <summary>
+            Normal/spray coating.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING">
+            <summary>
+            Glass coating.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.THIN_MOLD_COATING">
+            <summary>
+            Thin mold coating.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING_210">
+            <summary>
+            DEPRECATED. Glass coating with 210 micron thickness.
+            </summary>
+            <remarks>
+            This value should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> which can represent both coating type and thickness
+            independently.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING_300">
+            <summary>
+            DEPRECATED. Glass coating with 300 micron thickness.
+            </summary>
+            <remarks>
+            This value should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> which can represent both coating type and thickness
+            independently.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING_400">
+            <summary>
+            DEPRECATED. Glass coating with 400 micron thickness.
+            </summary>
+            <remarks>
+            This value should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> which can represent both coating type and thickness
+            independently.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.CERAMIC_COATING">
+            <summary>
+            Ceramic/Zirconia coating.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.CERAMIC_COATING_120">
+            <summary>
+            Ceramic/Zirconia coating.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING_175">
+            <summary>
+            DEPRECATED. Glass coating with 175 micron thickness.
+            </summary>
+            <remarks>
+            This value should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> which can represent both coating type and thickness
+            independently.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.GLASS_COATING_250">
+            <summary>
+            DEPRECATED. Glass coating with 250 micron thickness.
+            </summary>
+            <remarks>
+            This value should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.HardwareDescriptor"/> which can represent both coating type and thickness
+            independently.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_coating_t.FPC_UNKNOWN_COATING">
+            <summary>
+            Unknown coating.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.sensor_type_t">
+            <summary>
+            Sensor type.
+            </summary>
+            <remarks>
+            Interop structure matching sensor_type_t in fpc_sensor_info.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1011">
+            <summary>
+            The sensor type is FPC1011.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1020">
+            <summary>
+            The sensor type is FPC1020.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1021">
+            <summary>
+            The sensor type is FPC1021.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1022">
+            <summary>
+            The sensor type is FPC1022.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1140">
+            <summary>
+            The sensor type is FPC1140.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1080">
+            <summary>
+            The sensor type is FPC1080.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1260">
+            <summary>
+            The sensor type is FPC1260.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1023">
+            <summary>
+            The sensor type is FPC1023.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1270">
+            <summary>
+            The sensor type is FPC1270.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1290">
+            <summary>
+            The sensor type is FPC1290.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_SENSOR_TYPE_1510">
+            <summary>
+            The sensor type is FPC1510.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.sensor_type_t.FPC_UNKNOWN_SENSOR">
+            <summary>
+            The sensor type is unknown.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.fpc_companion_chip_type_t">
+            <summary>
+            Companion chip type.
+            </summary>
+            <remarks>
+            Interop structure matching fpc_companion_chip_type_t in fpc_sensor_info.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_companion_chip_type_t.NONE">
+            <summary>
+            There is no companion chip.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_companion_chip_type_t.FPC2050">
+            <summary>
+            The companion chip type is FPC2050.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_companion_chip_type_t.FPC2060">
+            <summary>
+            The companion chip type is FPC2060.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_companion_chip_type_t.FPC2061">
+            <summary>
+            The companion chip type is FPC2061.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_companion_chip_type_t.FPC_UNKNOWN_COMPANION">
+            <summary>
+            The companion chip type is unknown.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.fpc_product_type_t">
+            <summary>
+            Product type.
+            </summary>
+            <remarks>
+            Interop structure matching fpc_product_type_t in fpc_sensor_info.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1080">
+            <summary>
+            The product type is FPC1080.
+            </summary>
+            <remarks>
+            This product type is no longer supported.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1020">
+            <summary>
+            The product type is FPC1020.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1021">
+            <summary>
+            The product type is FPC1021.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1025">
+            <summary>
+            The product type is FPC1025.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1225">
+            <summary>
+            The product type is FPC1225.
+            </summary>
+            <remarks>
+            This product type is no longer supported.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1022">
+            <summary>
+            The product type is FPC1022.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1035">
+            <summary>
+            The product type is FPC1035.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1235">
+            <summary>
+            The product type is FPC1235.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1140">
+            <summary>
+            The product type is FPC1140.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1145">
+            <summary>
+            The product type is FPC1145.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1245">
+            <summary>
+            The product type is FPC1245.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1265">
+            <summary>
+            The product type is FPC1265.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1268">
+            <summary>
+            The product type is FPC1268.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1028">
+            <summary>
+            The product type is FPC1028.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1075">
+            <summary>
+            The product type is FPC1075.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1320">
+            <summary>
+            The product type is FPC1320.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1321">
+            <summary>
+            The product type is FPC1321.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1263">
+            <summary>
+            The product type is FPC1263.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1262">
+            <summary>
+            The product type is FPC1262.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1266">
+            <summary>
+            The product type is FPC1266.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1264">
+            <summary>
+            The product type is FPC1264.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1272">
+            <summary>
+            The product type is FPC1272.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1228">
+            <summary>
+            The product type is FPC1228.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1267">
+            <summary>
+            The product type is FPC1267.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1291_S">
+            <summary>
+            The product type is FPC1291_S.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1291_G175">
+            <summary>
+            The product type is FPC1291_G175.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1291_G250">
+            <summary>
+            The product type is FPC1291_G250.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1291_Z120">
+            <summary>
+            The product type is FPC1291_Z120.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1228_G175">
+            <summary>
+            The product type is FPC1228_G175.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1228_Z">
+            <summary>
+            The product type is FPC1228_Z.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1272_G175">
+            <summary>
+            The product type is FPC1267_G175.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1272_Z">
+            <summary>
+            The product type is FPC1267_Z.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1261_S">
+            <summary>
+            The product type is FPC1261_S.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1229_G175">
+            <summary>
+            The product type is FPC1229_G175.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1511_S">
+            <summary>
+            The product type is FPC1511_S.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_FPC1024">
+            <summary>
+            The product type is FPC1024
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_product_type_t.PRODUCT_TYPE_UNKNOWN">
+            <summary>
+            The product type is unknown.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.fpc_sensor_info_t">
+            <summary>
+            Information about a particular product or sensor/coating/companion combination.
+            </summary>
+            <remarks>
+            Interop structure matching fpc_sensor_info_t in fpc_sensor_info.h.
+            <para>
+            This type should not be used in new code. Instead, prefer to use
+            <see cref="T:FpcCCore.Hardware.Interface.ISensorDetails"/> which can be found in an <see cref="T:FpcCCore.Hardware.Interface.IHardwareDetails"/>
+            looked up using <see cref="T:FpcCCore.Hardware.Interface.IKnownHardware"/>. This is also exposed for a connected sensor
+            by ISensorApi.SelectedHardwareDetails.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.image_width">
+            <summary>
+            Image width. (Not necessarily the same as sensor width.)
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.image_height">
+            <summary>
+            Image height. (Not necessarily the same as sensor height.)
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.sensor_type">
+            <summary>
+            Sensor type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.dead_pixels_info">
+            <summary>
+            Information about dead pixels for a particular (individual) sensor.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.coating_type">
+            <summary>
+            Coating type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.fpc_sensor_info_t.companion_chip_type">
+            <summary>
+            Companion chip type.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.GcPin">
+            <summary>
+            Helpers for creating instances of <see cref="T:FpcCCore.Interface.IGcPin"/>.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.GcPin.Create(System.Object)">
+            <summary>
+            Create a pinned GCHandle to an object.
+            </summary>
+            <param name="obj">
+            An object.
+            </param>
+            <returns>
+            An instance of <see cref="T:FpcCCore.Interface.IGcPin"/>.
+            </returns>
+        </member>
+        <member name="M:FpcCCore.GcPin.Create``1(System.ArraySegment{``0})">
+            <summary>
+            Create a pinned GCHandle to an array referenced by an <see cref="T:System.ArraySegment`1"/>.
+            </summary>
+            <typeparam name="T">
+            The element type.
+            </typeparam>
+            <param name="arraySegment">
+            An array segment.
+            </param>
+            <returns>
+            An instance of <see cref="T:FpcCCore.Interface.IArraySegmentGcPin`1"/>.
+            </returns>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcCsvImage">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcCsvImage.Pixels">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcCsvImage.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcCsvImage.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcCsvImage.PixelFormat">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcCsvImage.#ctor(System.Int32,System.Int32,FpcCCore.Imaging.FpcPixelFormat,System.Byte[])">
+            <summary>
+            Create and initialize a new CSV image
+            </summary>
+            <param name="width">Width of the image.</param>
+            <param name="height">Height of the image.</param>
+            <param name="pixelFormat">Pixel format of the image.</param>
+            <param name="pixels">byte array with image's pixel values</param>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcBitmap">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcBitmap.Pixels">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcBitmap.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcBitmap.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcBitmap.PixelFormat">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcBitmap.Stride">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcBitmap.#ctor(System.Int32,System.Int32,FpcCCore.Imaging.FpcPixelFormat)">
+            <summary>
+            Creates and initializes a new FpcBitmap.
+            </summary>
+            <param name="width">Width of the bitmap.</param>
+            <param name="height">Height of the bitmap.</param>
+            <param name="pixelFormat">Pixel format of the bitmap.</param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcBitmap.#ctor(FpcCCore.FpcImage*)">
+            <summary>
+            Creates and initializes a new <see cref="T:FpcCCore.Imaging.FpcBitmap"/> from an <see cref="T:FpcCCore.FpcImage"/>.
+            </summary>
+            <param name="fpcImage">
+            An <see cref="T:FpcCCore.FpcImage"/> to base the format and contents of the bitmap on.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcBitmap.#ctor(FpcCCore.FpcImage)">
+            <summary>
+            Creates and initializes a new <see cref="T:FpcCCore.Imaging.FpcBitmap"/> from an <see cref="T:FpcCCore.FpcImage"/>
+            pointer.
+            </summary>
+            <param name="fpcImage">
+            An <see cref="T:FpcCCore.FpcImage"/> to base the format and contents of the bitmap on.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcBitmap.#ctor(System.Int32,System.Int32,FpcCCore.Imaging.FpcPixelFormat,System.Array)">
+            <summary>
+            Creates and initializes a new <see cref="T:FpcCCore.Imaging.FpcBitmap"/> from an array of pixel values.
+            </summary>
+            <param name="width">Width of the bitmap.</param>
+            <param name="height">Height of the bitmap.</param>
+            <param name="pixelFormat">Pixel format of the bitmap.</param>
+            <param name="pixels">Array containing pixel data.</param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcBitmap.#ctor(System.Int32,System.Int32,FpcCCore.Imaging.FpcPixelFormat,System.Array,System.UInt16[])">
+            <summary>
+            Creates and initializes a new <see cref="T:FpcCCore.Imaging.FpcBitmap"/> from an array of pixel values and deadpixel info.
+            </summary>
+            <param name="width">Width of the bitmap.</param>
+            <param name="height">Height of the bitmap.</param>
+            <param name="pixelFormat">Pixel format of the bitmap.</param>
+            <param name="pixels">Array containing pixel data.</param>
+            <param name="deadPixelsIndexes">Native dead pixel info</param>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcColor">
+            <summary>
+            Platform independent color structure.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.White">
+            <summary>
+            White color.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.Red">
+            <summary>
+            Red color.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.A">
+            <summary>
+            Alpha value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.B">
+            <summary>
+            Blue value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.G">
+            <summary>
+            Green value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcColor.R">
+            <summary>
+            Red value.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Creates and initializes a new color using alpha, red, green and blue component values.
+            </summary>
+            <param name="a">Alpha value.</param>
+            <param name="r">Red value.</param>
+            <param name="g">Green value.</param>
+            <param name="b">Blue value.</param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Returns a new color value from alpha, red, green and blue component values.
+            </summary>
+            <param name="a">Alpha value.</param>
+            <param name="r">Red value.</param>
+            <param name="g">Green value.</param>
+            <param name="b">Blue value.</param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.Equals(FpcCCore.Imaging.FpcColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.ToArgb">
+            <summary>
+            Return the color as an int value.
+            </summary>
+            <returns>An integer representing the color.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.op_Equality(FpcCCore.Imaging.FpcColor,FpcCCore.Imaging.FpcColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcColor.op_Inequality(FpcCCore.Imaging.FpcColor,FpcCCore.Imaging.FpcColor)">
+            <inheritdoc/>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer">
+            <summary>
+            A buffer.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Type">
+            <summary>
+            Buffer type.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Size">
+            <summary>
+            The number of bytes used in the <see cref="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Data"/> array.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Data">
+            <summary>
+            Data array, of which not all might be used. See <see cref="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Size"/> for the number of
+            actually used bytes.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcBuffer.Clear">
+            <summary>
+            Clears the buffer.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcDeadPixelsBuffer">
+            <summary>
+            A buffer containing dead pixels data.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcDeadPixelsBuffer.ToDeadPixelsInfo">
+            <summary>
+            Create an <see cref="T:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo"/> with a snapshot of the dead pixels stored.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcDeadPixelsBuffer.ToDeadPixelsArray">
+            <summary>
+            Create an <see cref="T:ushort[]"/> with a snapshot of the dead pixels stored.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcDeadPixelsBuffer.ReplaceAll(FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo)">
+            <summary>
+            Replace existing dead pixels data with the contents of an <see cref="T:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo"/>.
+            </summary>
+            <param name="deadPixelsInfo">
+            The new contents.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcDeadPixelsBuffer.ReplaceAll(System.UInt16[])">
+            <summary>
+            Replace existing dead pixels data with the contents of an <see cref="T:ushort[]"/>.
+            </summary>
+            <param name="deadPixelsArray">
+            The new contents.
+            </param>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData">
+            <summary>
+            Image data.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.Reset(System.Byte[])">
+            <summary>
+            Resets all contents of the <see cref="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData"/> from an array of bytes.
+            </summary>
+            <param name="data">
+            Array of bytes containing FpcImageData. The data will be copied.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.InsertPnData(System.Byte[],FpcCCore.fpc_sensor_info_t,System.Byte[])">
+            <summary>
+            Insert PN data.
+            </summary>
+            <param name="pnData">
+            The PN data to insert.
+            </param>
+            <param name="sensorInfo">
+            Sensor information.
+            </param>
+            <param name="otpUniqueId">
+            Unique sensor id (8 bytes)
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.InsertPnData(System.Byte[],FpcCCore.Hardware.HardwareDescriptor,System.Byte[])">
+            <summary>
+            Insert PN data.
+            </summary>
+            <param name="pnData">
+            The PN data to insert.
+            </param>
+            <param name="hardwareDescriptor">
+            Hardware descriptor for the sensor.
+            </param>
+            <param name="otpUniqueId">
+            Unique sensor id (8 bytes)
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.GetMainPixelsBuffer">
+            <summary>
+            Returns the main pixels buffer, taking into account the CAC selected image.
+            </summary>
+            <returns>The main pixels buffer</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.GetMainPixelsBufferWithMetaData">
+            <summary>
+            Returns the main pixels buffer with metadata, taking into account the CAC selected image.
+            </summary>
+            <returns>The main pixels buffer with it's metadata</returns>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.Buffers">
+            <summary>
+            Existing buffers in this FpcImageData.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.CreateGcPin">
+            <summary>
+            Create an <see cref="T:FpcCCore.Interface.IGcPin"/> over the native fpc_image_data_t.
+            </summary>
+            <returns>An <see cref="T:FpcCCore.Interface.IGcPin"/>.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.ToArray">
+            <summary>
+            Returns all data from fpc_image_data
+            </summary>
+            <returns>
+            All <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> content in a byte array suitable for saving to storage.
+            </returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData.Clone">
+            <summary>
+            Create a clone of this <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/>.
+            </summary>
+            <returns>An <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> cloned from this one.</returns>
+            <remarks>
+            All data is copied and the two instances are independent.
+            </remarks>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer">
+            <summary>
+            A buffer containing meta data.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.Int32,System.Boolean)">
+            <summary>
+            Set an <see cref="T:System.Int32"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.UInt32,System.Boolean)">
+            <summary>
+            Set an <see cref="T:System.UInt32"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.Int16,System.Boolean)">
+            <summary>
+            Set a <see cref="T:System.Int16"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.UInt16,System.Boolean)">
+            <summary>
+            Set a <see cref="T:System.UInt16"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.SByte,System.Boolean)">
+            <summary>
+            Set an <see cref="T:System.SByte"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.Byte,System.Boolean)">
+            <summary>
+            Set a <see cref="T:System.Byte"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.Set(System.UInt32,System.Byte[],System.Boolean)">
+            <summary>
+            Set a <see cref="T:System.Byte"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="data">Value.</param>
+            <param name="replace">
+            Whether to replace an existing value with the same <paramref name="metaId"/>.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetInt32(System.UInt32)">
+            <summary>
+            Get the value of an <see cref="T:System.Int32"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetUInt32(System.UInt32)">
+            <summary>
+            Get the value of a <see cref="T:System.UInt32"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetInt16(System.UInt32)">
+            <summary>
+            Get the value of a <see cref="T:System.Int16"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetUInt16(System.UInt32)">
+            <summary>
+            Get the value of a <see cref="T:System.UInt16"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetInt8(System.UInt32)">
+            <summary>
+            Get the value of an <see cref="T:System.SByte"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetUInt8(System.UInt32)">
+            <summary>
+            Get the value of a <see cref="T:System.Byte"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.GetUInt8Array(System.UInt32,System.UInt32)">
+            <summary>
+            Get the value of a <see cref="T:System.Byte"/> array metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="dataSize">Length of the array.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer.TryGetUInt32(System.UInt32,System.UInt32@)">
+            <summary>
+            Try to get the value of a <see cref="T:System.UInt32"/> metadata item.
+            </summary>
+            <param name="metaId">Numeric ID for the metadata item.</param>
+            <param name="value">The value.</param>
+            <returns>True if the value existed in the buffer, otherwise false.</returns>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer">
+            <summary>
+            A buffer containing pixel data.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.Width">
+            <summary>
+            Width of the image.
+            </summary>
+            <remarks>
+            A pixels buffer may exist but not contain an image, in this case <see cref="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.Width"/>
+            is zero.
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.Height">
+            <summary>
+            Height of the image.
+            </summary>
+            <remarks>
+            A pixels buffer may exist but not contain an image, in this case <see cref="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.Height"/>
+            is zero.
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.PixelFormat">
+            <summary>
+            Pixel format of the image.
+            </summary>
+            <remarks>
+            A pixels buffer may exist but not contain an image, in this case
+            <see cref="P:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.PixelFormat"/> is <see cref="F:FpcCCore.Imaging.FpcPixelFormat.Unknown"/>.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Interface.IFpcPixelsBuffer.ToFpcBitmap">
+            <summary>
+            Creates an <see cref="T:FpcCCore.Imaging.Interface.IFpcBitmap"/> as a copy of the image in the buffer.
+            </summary>
+            <returns>
+            An <see cref="T:FpcCCore.Imaging.Interface.IFpcBitmap"/>, or null if there is no image in the buffer.
+            </returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Internal.FpcBuffer.#ctor(System.ArraySegment{System.Byte})">
+            <summary>
+            Create an FpcBuffer over a managed byte array.
+            </summary>
+            <param name="fpcBufferArraySegment">
+            Pointer to existing byte array with fpc_buffer_t data.
+            </param>
+            <remarks>
+            The managed array will be GC-pinned as necessary.
+            </remarks>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Internal.FpcBuffer.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Internal.FpcBuffer.Size">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.Internal.FpcBuffer.Data">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Internal.FpcBuffer.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.Internal.FpcPixelsBuffer.ToFpcBitmap">
+            <summary>
+            Create a new <see cref="T:FpcCCore.Imaging.Interface.IFpcBitmap" /> from the buffer.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">
+            If the buffer is not a pixel buffer.
+            </exception>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.FpcImageData">
+            <summary>
+            FpcImageData backed by a managed array.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.#ctor(System.IntPtr)">
+            <summary>
+            Creates an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> from a native pointer.
+            </summary>
+            <param name="intPtr">
+            Pointer to a native FpcImageData structure.
+            </param>
+            <remarks>
+            The image data will be copied into managed memory.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.#ctor(System.Byte[])">
+            <summary>
+            Creates an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> by loading from an existing array of bytes.
+            </summary>
+            <param name="data">
+            Array of bytes containing FpcImageData. The data will be copied.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.#ctor(System.ArraySegment{System.Byte})">
+            <summary>
+            Creates an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> by loading from an existing array of bytes.
+            </summary>
+            <param name="data">
+            Array of bytes containing FpcImageData. The data will be copied.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.#ctor(FpcCCore.Hardware.HardwareDescriptor,System.Boolean)">
+            <summary>
+            Creates an empty <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> with no buffers.
+            </summary>
+            <param name="hardwareDescriptor">
+            Hardware descriptor for the sensor.
+            </param>
+            <param name="useApns">
+            Whether or not to use APNS.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.#ctor(FpcCCore.fpc_sensor_info_t,System.Boolean)">
+            <summary>
+            Creates an empty <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> with no buffers.
+            </summary>
+            <param name="sensorInfo">
+            Sensor information.
+            </param>
+            <param name="useApns">
+            Whether or not to use APNS.
+            </param>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.Reset(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.Clone">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.InsertPnData(System.Byte[],FpcCCore.Hardware.HardwareDescriptor,System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.InsertPnData(System.Byte[],FpcCCore.fpc_sensor_info_t,System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.GetMainPixelsBuffer">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.GetMainPixelsBufferWithMetaData">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.FpcImageData.Buffers">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.GetArraySegmentForBuffer(System.UInt32,System.Func{System.IntPtr,System.UInt32,System.IntPtr})">
+            <summary>
+            Get an ArraySegment{byte} in the _fpcImageData for a specified buffer ID.
+            </summary>
+            <param name="bufferId">
+            Buffer ID.
+            </param>
+            <param name="getBufferFunc">
+            Function returning an IntPtr to the specified buffer ID.
+            </param>
+            <returns>An ArraySegment{byte}.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.ToArray">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageData.CreateGcPin">
+            <inheritdoc />
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.FpcImageDataException">
+            <summary>
+            An exception coming from an operation on an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> or other related types.
+            </summary>
+            <remarks>
+            This exception wraps an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus"/>.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcImageDataException.#ctor(FpcCCore.Imaging.FpcImageData.FpcImageDataStatus)">
+            <summary>
+            Create and initialize a new <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageDataException"/>.
+            </summary>
+            <param name="status">An <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus"/> indicating the error.</param>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.FpcImageDataException.Status">
+            <summary>
+            An <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus"/> indicating the error.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus">
+            <summary>
+            Indicates an error in an operation on an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcImageData"/> or related type.
+            </summary>
+            <remarks>
+            Interop enum that matches numerical error codes in fpc_image_data.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_OK">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_ERROR_GENERAL">
+            <summary>
+            General error.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_MISSING_BUFFER">
+            <summary>
+            A particular buffer that was expected is missing.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_MISSING_DATA">
+            <summary>
+            Expected data is missing.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_PN_VERSION_MISMATCH">
+            <summary>
+            Unhandled version of PN data.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_PN_SIZE_MISMATCH">
+            <summary>
+            Unexpected size of PN data.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_PN_META_ERROR">
+            <summary>
+            Error in metadata for the PN data.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_PARSE_ERROR">
+            <summary>
+            Failed to parse.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_INVALID_BUFFER_TYPE">
+            <summary>
+            The buffer type is invalid.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_CAPACITY_TOO_SMALL">
+            <summary>
+            The capacity of a buffer was smaller than expected.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_CAPACITY_MISMATCH">
+            <summary>
+            The capacity of a buffer wasn't what was expected.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_INVALID_VALUE">
+            <summary>
+            A value is invalid.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_DATA_BUFFER_EXISTS">
+            <summary>
+            Buffer already exists.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcImageDataStatus.FPC_IMAGE_PN_SENSOR_UID_MISMATCH">
+            <summary>
+            Unique ID for PN data does not match what is expected. PN data is tied to a specific
+            individual sensor.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataException">
+            <summary>
+            An exception coming from an operation on an <see cref="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer"/> or a related
+            type.
+            </summary>
+            <remarks>
+            This exception wraps an <see cref="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus"/>.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageData.FpcMetaDataException.#ctor(FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus)">
+            <summary>
+            Create and initialize a new <see cref="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataException"/>.
+            </summary>
+            <param name="status">An <see cref="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus"/> indicating the error.</param>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageData.FpcMetaDataException.Status">
+            <summary>
+            An <see cref="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus"/> indicating the error.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus">
+            <summary>
+            Indicates an error in an operation on an <see cref="T:FpcCCore.Imaging.FpcImageData.Interface.IFpcMetaDataBuffer"/> or related type.
+            </summary>
+            <remarks>
+            Interop enum that matches numerical error codes in fpc_metadata.h.
+            </remarks>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_OK">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_EXCEEDED_CAPACITY_ERROR">
+            <summary>
+            Failed to add metadata item, as the buffer capacity would be exceeded.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_NULL_BUFFER_POINTER_ERROR">
+            <summary>
+            The buffer pointer is null.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_BUFFER_EMPTY_ERROR">
+            <summary>
+            The buffer is empty.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_BUFFER_INVALID_ERROR">
+            <summary>
+            The buffer is invalid.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_ID_NOT_FOUND_ERROR">
+            <summary>
+            A metadata item with the specified ID was not found.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_API_USAGE_ERROR">
+            <summary>
+            The metadata item is not of the specified type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_INCORRECT_PAYLOAD_SIZE_ERROR">
+            <summary>
+            The metadata item is not of the specified type.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcImageData.FpcMetaDataStatus.FPC_METADATA_OUT_OF_MEMORY_ERROR">
+            <summary>
+            An out of memory condition occurred.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.GdprInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.GdprInfo.UtcDateTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:FpcCCore.Imaging.GdprInfo.UniqueUserId">
+            <inheritdoc/>
+        </member>
+        <member name="M:FpcCCore.Imaging.GdprInfo.#ctor(System.String,System.DateTime)">
+            <summary>
+            Creates and initializes a new GdprInfo with the given unique user id and date-time.
+            </summary>
+            <param name="uniqueUserId">Hashed unique user id.</param>
+            <param name="dateTime">Date time stamp.</param>
+        </member>
+        <member name="M:FpcCCore.Imaging.GdprInfo.#ctor(System.String)">
+            <summary>
+            Creates and initializes a new GdprInfo with the given unique user id and the current UTC date-time.
+            </summary>
+            <param name="uniqueUserId">Hashed unique user id.</param>
+        </member>
+        <member name="T:FpcCCore.Imaging.Interface.IFpcCsvImage">
+            <summary>
+            Portable csv image class.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcCsvImage.Pixels">
+            <summary>
+            Pixel data.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcCsvImage.Width">
+            <summary>
+            Width of the image, in pixels.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcCsvImage.Height">
+            <summary>
+            Height of the bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcCsvImage.PixelFormat">
+            <summary>
+            The format of each pixel.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.Interface.IGdprInfo">
+            <summary>
+            GdprInfo.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IGdprInfo.UtcDateTime">
+            <summary>
+            UTC date time stamp.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IGdprInfo.UniqueUserId">
+            <summary>
+            Hashed unique user id. It should be a 64-character string.
+            Valid characters are only digits 0..9, and letters a..f or A..F.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.Interface.IFpcBitmap">
+            <summary>
+            Portable bitmap class.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcBitmap.Pixels">
+            <summary>
+            Pixel data.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcBitmap.Width">
+            <summary>
+            Width of the bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcBitmap.Height">
+            <summary>
+            Height of the bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcBitmap.PixelFormat">
+            <summary>
+            The format of each pixel.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.Interface.IFpcBitmap.Stride">
+            <summary>
+            The length, in bytes, of a horizontal row in the bitmap.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.PixelBoostConfig">
+            <summary>
+            Metadata information about pixel boost configuration.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelBoostConfig.PixelBoostControl">
+            <summary>
+            Pixel boost control. (bit 2-3)
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelBoostConfig.PixelBoostGain">
+            <summary>
+            Pixel boost gain.(bit 0-1)
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.ImageCaptureSettings">
+            <summary>
+            Settings used when capturing the image.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.AdcShiftEnabled">
+            <summary>
+            The ADC Shift Enable/Disable.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.AdcShift">
+            <summary>
+            The ADC shift value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.AdcGain">
+            <summary>
+            The ADC gain value.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.PixelControl">
+            <summary>
+            The pixel control settings.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.PixelBoostConfig">
+            <summary>
+            The pixel boost configuration.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageCaptureSettings.AdcRefRange">
+            <summary>
+            The adcRefRange value.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.SensorInfo">
+            <summary>
+            Basic information about the sensor that captured the image.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.SensorInfo.HardwareId">
+            <summary>
+            The hardware ID of the sensor.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.SensorInfo.Revision">
+            <summary>
+            The hardware revision of the sensor. 
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.SensorInfo.SensorType">
+            <summary>
+            The type of the sensor. 
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.SensorInfo.Coating">
+            <summary>
+            The type of coating on the sensor.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.SensorInfo.Companion">
+            <summary>
+            The type of companion chip attached to the sensor. 
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.DeadPixelsInfo.#ctor">
+            <summary>
+            Create an initialize a <see cref="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo"/> with an empty list
+            of pixel locations.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.DeadPixelsInfo.#ctor(System.Collections.Generic.IList{FpcCCore.Imaging.Point})">
+            <summary>
+            Create an initialize a <see cref="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo"/> with the provided list
+            of pixel locations.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.MetaData.DeadPixelsInfo.Locations">
+            <summary>
+            The dead pixel locations.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.DeadPixelsInfo.Crop(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.ImageMetaData">
+            <summary>
+            Image metadata.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.ImageMetaData.#ctor">
+            <summary>
+            Creates and initializes an <see cref="T:FpcCCore.Imaging.MetaData.ImageMetaData"/> object with no properties.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.ImageMetaData.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates and initializes an <see cref="T:FpcCCore.Imaging.MetaData.ImageMetaData"/> object with the provided properties.
+            </summary>
+            <param name="properties">The properties to use.</param>
+        </member>
+        <member name="P:FpcCCore.Imaging.MetaData.ImageMetaData.Properties">
+            <inheritdoc />
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.ImageMetaDataProperties">
+            <summary>
+            Names of well-known image metadata properties.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageMetaDataProperties.DeadPixelsInfo">
+            <summary>
+            An <see cref="T:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo"/> describing dead pixels on the sensor.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageMetaDataProperties.SensorInfo">
+            <summary>
+            A <see cref="T:FpcCCore.Imaging.MetaData.SensorInfo"/> structure describing the sensor that 
+            captured the image.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageMetaDataProperties.ImageCaptureSettings">
+            <summary>
+            A <see cref="T:FpcCCore.Imaging.MetaData.ImageCaptureSettings"/> structure describing the settings used
+            when capturing the image.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.ImageMetaDataProperties.CacVersion">
+            <summary>
+            Integer specifying the version of CAC used when capturing the image. 
+            Currently supported values are 1 and 2.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo">
+            <summary>
+            Describes dead pixels in the image.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo.Locations">
+            <summary>
+            Locations of the dead pixels.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo.Crop(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Crop the area of dead pixels, retaining only locations that fall inside the 
+            specified area.
+            </summary>
+            <param name="left">Left edge of the crop area.</param>
+            <param name="top">Top edge of the crop area.</param>
+            <param name="width">Width of the crop area.</param>
+            <param name="height">Height of the crop area.</param>
+            <remarks>
+            This method translates all the dead pixel locations by subtracting left from X and top from Y.
+            It then then removes any locations that fall outside [0, width-1] and [0, height-1].
+            </remarks>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.Interface.IImageMetaData">
+            <summary>
+            Interface for image metadata.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Imaging.MetaData.Interface.IImageMetaData.Properties">
+            <summary>
+            A dictionary of named image metadata properties.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock">
+            <summary>
+            Allows native code to access a <see cref="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo"/> as a
+            <see cref="T:FpcCCore.dead_pixels_info_t"/>.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock.#ctor(FpcCCore.Imaging.MetaData.Interface.IDeadPixelsInfo,System.Int32)">
+            <summary>
+            Creates and initializes a <see cref="T:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock"/> allowing native access
+            to a <see cref="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo"/> assuming a specified bitmap width.
+            </summary>
+            <param name="deadPixelsInfo">The <see cref="T:FpcCCore.Imaging.MetaData.DeadPixelsInfo"/> to lock.</param>
+            <param name="bitmapWidth">The bitmap width to assume.</param>
+            <remarks>
+            This object must be disposed using <see cref="M:System.IDisposable.Dispose"/>. This copies back
+            any changes made in the native dead pixels info, and frees unmanaged resources.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock.Finalize">
+            <inheritdoc />
+        </member>
+        <member name="P:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock.NativeDeadPixelsInfo">
+            <summary>
+            The native <see cref="T:FpcCCore.dead_pixels_info_t"/>.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.MetaData.NativeDeadPixelsInfoLock.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:FpcCCore.Imaging.MetaData.PixelControl">
+            <summary>
+            Metadata information about how an image was captured.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelControl.PixelGain">
+            <summary>
+            Pixel gain.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelControl.EnableDacOffset">
+            <summary>
+            Whether DAC offset is enabled.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelControl.EnableDacOffsetRangeCompression">
+            <summary>
+            Whether DAC offset range compression is enabled.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelControl.PcsDacPwrSel">
+            <summary>
+            PCS DAC power supply selection
+            1: Use 3.3 Volt DAC supply
+            0: Use 1.8 Volt DAC supply
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.MetaData.PixelControl.DacOffset">
+            <summary>
+            DAC offset.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcImageLock">
+            <summary>
+            Lock that allows accessing the data of an IFpcBitmap as a native FpcImage.
+            </summary>
+            <remarks>
+            The object guarantees that the native data pointer remains valid until disposed.
+            </remarks>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageLock.#ctor(FpcCCore.Imaging.Interface.IFpcBitmap)">
+            <summary>
+            Create a new FpcImageLock over the specified <see cref="T:FpcCCore.Imaging.Interface.IFpcBitmap"/>.
+            </summary>
+            <param name="fpcBitmap">The <see cref="T:FpcCCore.Imaging.Interface.IFpcBitmap"/> to lock for native access.</param>
+        </member>
+        <member name="P:FpcCCore.Imaging.FpcImageLock.FpcImage">
+            <summary>
+            Returns a local FpcImage, suitable for taking the address of and passing to native code.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageLock.Finalize">
+            <inheritdoc />
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcImageLock.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcPixelFormat">
+            <summary>
+            Pixel format, describing the number and type of color channels stored in each pixel.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Unknown">
+            <summary>
+            Unknown format.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Gray8">
+            <summary>
+            Pixels are 8 bit gray values.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Gray16">
+            <summary>
+            Pixels are 16 bit gray values.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Bgra8">
+            <summary>
+            Pixels are 32 bit, divided into four channels of 8 bit components: blue, green, red and alpha.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Gray32F">
+            <summary>
+            Pixels are 32 bit floating point gray values.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.FpcPixelFormat.Mask">
+            <summary>
+            Pixels are 1 bit values. Image width must be multiple of 8.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Imaging.FpcPixelFormatExtensions">
+            <summary>
+            Extension methods for <see cref="T:FpcCCore.Imaging.FpcPixelFormat"/>.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcPixelFormatExtensions.GetBitsPerPixel(FpcCCore.Imaging.FpcPixelFormat)">
+            <summary>
+            Get the number of bits per pixel for the <see cref="T:FpcCCore.Imaging.FpcPixelFormat"/>.
+            </summary>
+            <param name="pixelFormat">The pixel format.</param>
+            <returns>The number of bits per pixel.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcPixelFormatExtensions.GetChannelCount(FpcCCore.Imaging.FpcPixelFormat)">
+            <summary>
+            Get the number of color channels for the <see cref="T:FpcCCore.Imaging.FpcPixelFormat"/>.
+            </summary>
+            <param name="pixelFormat">The pixel format.</param>
+            <returns>The number of color channels.</returns>
+        </member>
+        <member name="M:FpcCCore.Imaging.FpcPixelFormatExtensions.GetBytesPerPixel(FpcCCore.Imaging.FpcPixelFormat)">
+            <summary>
+            Get the number of bytes per pixel for the <see cref="T:FpcCCore.Imaging.FpcPixelFormat"/>.
+            </summary>
+            <param name="pixelFormat">The pixel format.</param>
+            <returns>The number of bytes per pixel.</returns>
+        </member>
+        <member name="T:FpcCCore.Imaging.Point">
+            <summary>
+            Represents a point in two-dimensional space, with integer coordinates.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.Point.X">
+            <summary>
+            The X coordinate along the horizontal axis.
+            </summary>
+        </member>
+        <member name="F:FpcCCore.Imaging.Point.Y">
+            <summary>
+            The Y coordinate along the vertical axis.
+            </summary>
+        </member>
+        <member name="M:FpcCCore.Imaging.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Create and initialize a new point.
+            </summary>
+            <param name="x">The X coordinate.</param>
+            <param name="y">The Y coordinate.</param>
+        </member>
+        <member name="T:FpcCCore.Interface.IArraySegmentGcPin`1">
+            <summary>
+            Holds a pinned GCHandle to an array referenced by a <see cref="T:System.ArraySegment`1"/>.
+            </summary>
+            <typeparam name="T">
+            The element type.
+            </typeparam>
+        </member>
+        <member name="P:FpcCCore.Interface.IArraySegmentGcPin`1.ArraySegment">
+            <summary>
+            The <see cref="T:System.ArraySegment`1"/> that this <see cref="T:FpcCCore.Interface.IArraySegmentGcPin`1"/>
+            was created for.
+            </summary>
+        </member>
+        <member name="T:FpcCCore.Interface.IGcPin">
+            <summary>
+            Holds a pinned GCHandle to an object.
+            </summary>
+        </member>
+        <member name="P:FpcCCore.Interface.IGcPin.UnsafePointer">
+            <summary>
+            An "unsafe" pointer to the object. This can be passed to native code
+            as long as this <see cref="T:FpcCCore.Interface.IGcPin"/> instance is not disposed or finalized.
+            </summary>
+        </member>
+    </members>
+</doc>

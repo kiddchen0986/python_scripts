@@ -1,0 +1,849 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ToolsCoreNet</name>
+    </assembly>
+    <members>
+        <member name="T:ToolsCore.CoreStatus">
+            <summary>
+            Core statuses.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.OK">
+            <summary>
+            The operation succeeded.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.FAILURE">
+            <summary>
+            The operation failed (reason not further specified).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.MALLOC_FAILED">
+            <summary>
+            Memory could not be allocated.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.DIVISION_BY_ZERO">
+            <summary>
+            Division by zero.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.NOT_IMPLEMENTED">
+            <summary>
+            Functionality is not implemented.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.NOT_SUPPORTED">
+            <summary>
+            Functionality is not supported.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.NOT_FOUND">
+            <summary>
+            Item was not found.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.STRING_FORMAT_INVALID">
+            <summary>
+            Invalid format in string.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.NULL">
+            <summary>
+            A NULL pointer was encountered.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.INDEX_OUT_OF_BOUNDS">
+            <summary>
+            An index was out of bounds.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.ARGUMENT_NULL">
+            <summary>
+            An argument was NULL.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.ARGUMENT_INVALID">
+            <summary>
+            An argument was invalid.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.ARGUMENT_OUT_OF_BOUNDS">
+            <summary>
+            An argument was out of bounds.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.CREATE_FOLDER_FAILED">
+            <summary>
+            Could not create folder.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.OPEN_FAILED">
+            <summary>
+            Could not open stream/file.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.CLOSE_FAILED">
+            <summary>
+            Could not close stream/file.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.SET_POSITION_FAILED">
+            <summary>
+            Could not set position in file/stream (seek).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.GET_POSITION_FAILED">
+            <summary>
+            Could not get position in file/stream (tell).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.READ_FAILED">
+            <summary>
+            Could not read from stream/file.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.WRITE_FAILED">
+            <summary>
+            Could not write to stream/file.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.GENERAL_IO_ERROR">
+            <summary>
+            General I/O error.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.OPERATION_ABORTED">
+            <summary>
+            An operation was aborted.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.OPERATION_TIMED_OUT">
+            <summary>
+            An operation timed out.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.OPERATION_NOT_ALLOWED">
+            <summary>
+            An operation was not allowed.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.BUFFER_SIZE_MISMATCH">
+            <summary>
+            The size of a buffer is not equal to the expected value.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.CoreStatus.BUFFER_SIZE_INSUFFICIENT">
+            <summary>
+            The size of a buffer is not sufficient.
+            </summary>
+        </member>
+        <member name="T:ToolsCore.Attributes.MappedExceptionAttribute">
+            <summary>
+            Controls the type of exception that will be thrown for an enum value by
+            <see cref="M:ToolsCore.ToolsStatus.ThrowIfFailed"/>.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Attributes.MappedExceptionAttribute.#ctor(System.Type)">
+            <summary>
+            Creates and initializes a <see cref="T:ToolsCore.Attributes.MappedExceptionAttribute"/>.
+            </summary>
+            <param name="type">The exception type to map.</param>
+        </member>
+        <member name="P:ToolsCore.Attributes.MappedExceptionAttribute.ExceptionType">
+            <summary>
+            Exception type.
+            </summary>
+        </member>
+        <member name="T:ToolsCore.Internal.ModuleInitializer">
+             <summary>
+             Module initializer (code run when the assembly is loaded).
+             </summary>
+             <remarks>
+             .NET has support for running code when an assembly is loaded. This is however only at the
+             IL level (and C++/CLI), not directly available in C#.
+            
+             We use the nuget package ModuleInit.Fody, which injects the following special method
+             calling our initializer. See https://github.com/Fody/ModuleInit
+            
+             <code>
+             static&lt;Module&gt;()
+             {
+                 ModuleInitializer.Initialize();
+             }
+             </code>
+             </remarks>
+        </member>
+        <member name="M:ToolsCore.Internal.ModuleInitializer.Initialize">
+            <summary>
+            Initialize the module (assembly).
+            </summary>
+        </member>
+        <member name="T:ToolsCore.Internal.ToolsStatusEnumConverter">
+            <summary>
+            Converts <see cref="T:ToolsCore.ToolsStatus"/> to/from underlying enum types.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Internal.ToolsStatusEnumConverter.ConvertToEnum(ToolsCore.ToolsStatus)">
+            <summary>
+            Convert a <see cref="T:ToolsCore.ToolsStatus"/> back to the enum value it originates from.
+            </summary>
+            <param name="toolsStatus">The <see cref="T:ToolsCore.ToolsStatus"/>.</param>
+            <returns>
+            An enum value, or a numeric value if not possible.
+            </returns>
+            <remarks>
+            Only certain enum types are supported.
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.Internal.ToolsStatusEnumConverter.ConvertFromEnum(System.Object)">
+            <summary>
+            Convert an enum value to a <see cref="T:ToolsCore.ToolsStatus"/>.
+            </summary>
+            <param name="enumValue">An enum value.</param>
+            <returns>
+            A <see cref="T:ToolsCore.ToolsStatus"/>.
+            </returns>
+            <remarks>
+            Only certain enum types are supported.
+            </remarks>
+        </member>
+        <member name="T:ToolsCore.Interop.GcPinnable`1">
+            <summary>
+            An object that can be pinned for native use as a pointer to struct, managing resources automatically.
+            </summary>
+            <typeparam name="TNativeStruct">The native struct type.</typeparam>
+            <remarks>
+            Lifetime is handled automatically. Objects of this class implement <see cref="T:System.IDisposable"/>.
+            After disposal the native resources returned by <see cref="M:ToolsCore.Interop.GcPinnable`1.Pin"/> have been freed and the pointers are invalid.
+            </remarks>
+        </member>
+        <member name="F:ToolsCore.Interop.GcPinnable`1._disposables">
+            <summary>
+            Objects that will be disposed when this object is disposed.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.Interop.GcPinnable`1._hGlobals">
+            <summary>
+            Global handles that that will be freed when this object is disposed.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.#ctor">
+            <summary>
+            Create and initialize a GcPinnable.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.Finalize">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.SetNativeStruct(`0)">
+            <summary>
+            Set the native struct that will be viewed through the native pointer.
+            </summary>
+            <param name="nativeStruct">Struct value.</param>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapStructureArray``1(``0[])">
+            <summary>
+            Wrap an array of structs.
+            </summary>
+            <typeparam name="T">Type of the wrapped structs.</typeparam>
+            <param name="array">The array of structs.</param>
+            <returns>A pointer to the native representation of the array of structs.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapStructure``1(``0)">
+            <summary>
+            Wrap a struct.
+            </summary>
+            <typeparam name="T">Type of the struct.</typeparam>
+            <param name="structure">Struct value.</param>
+            <returns>Pointer to a native representation of the struct.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapAnsiString(System.String)">
+            <summary>
+            Wrap an ANSI/ASCII string.
+            </summary>
+            <param name="str">String value.</param>
+            <returns>Pointer to an ANSI/ASCII string.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapImage(FpcCCore.Imaging.Interface.IFpcBitmap)">
+            <summary>
+            Wrap an IFpcBitmap as an fpc_image_t.
+            </summary>
+            <param name="fpcBitmap">Bitmap.</param>
+            <returns>Pointer to native fpc_image_t representing the bitmap.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapArray(System.Byte[])">
+            <summary>
+            Wrap a byte[].
+            </summary>
+            <param name="arr">Array of bytes.</param>
+            <returns>Pointer to a native representation of the memory.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapImageData(FpcCCore.Imaging.FpcImageData.Interface.IFpcImageData)">
+            <summary>
+            Wrap an IFpcImageData.
+            </summary>
+            <param name="fpcImageData">Image data.</param>
+            <returns>Pointer to fpc_image_data_t representation of the IFpcImageData. </returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.WrapToolsByteBuffer(System.Byte[])">
+            <summary>
+            Wrap an array of bytes as a tools_byte_buffer_t.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns>Pointer to a tools_byte_buffer_t with the array of bytes as content.</returns>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.Pin">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.Interop.GcPinnable`1.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:ToolsCore.Interop.Interface.IGcPinnable">
+            <summary>
+            Object that can be pinned, allowing a pointer to be passed to native code.
+            Intended for structs (with members that also need wrapping).
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.Interface.IGcPinnable.Pin">
+            <summary>
+            Pin the object.
+            </summary>
+            <returns>Pointer to the native representation.</returns>
+        </member>
+        <member name="T:ToolsCore.Interop.Interface.IGcPinnableProvider">
+            <summary>
+            Provides an <see cref="T:ToolsCore.Interop.Interface.IGcPinnable"/> on demand.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.Interface.IGcPinnableProvider.CreateGcPinnable">
+            <summary>
+            Create a pinnable version of the contents of this object.
+            </summary>
+            <returns>
+            An <see cref="T:ToolsCore.Interop.Interface.IGcPinnable"/>.
+            </returns>
+        </member>
+        <member name="T:ToolsCore.Interop.ToolsCoreNative">
+            <summary>
+            Native types.
+            </summary>
+        </member>
+        <member name="T:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t">
+            <summary>
+            A native byte buffer.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t.length">
+            <summary>
+            Length (used part) of the buffer, in bytes.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t.data">
+            <summary>
+            Pointer to the data.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t.capacity">
+            <summary>
+            Capacity (maximum length) of the buffer, in bytes.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t.ToArray">
+            <summary>
+            Get a byte array with a copy of the contents the buffer.
+            </summary>
+            <returns>An array of <see cref="F:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t.length"/> bytes.</returns>
+        </member>
+        <member name="F:ToolsCore.Interop.ToolsCoreNative.ToolsCoreDllName">
+            <summary>
+            Name of the tools_core.dll.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.Interop.ToolsCoreNative.tools_free(System.IntPtr)">
+            <summary>
+            Free a pointer to memory allocated with tools_malloc.
+            </summary>
+            <param name="memory">Pointer to memory.</param>
+        </member>
+        <member name="M:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_create(System.UInt32,System.IntPtr@)">
+            <summary>
+            Create tools byte buffer (native function wrapper)
+            </summary>
+            <param name="capacity">
+            Buffer capacity
+            </param>
+            <param name="buffer">
+            The buffer
+            </param>
+        </member>
+        <member name="M:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_create_from_data(System.IntPtr,System.UInt32,System.IntPtr@)">
+            <summary>
+            Create tools byte buffer with data (native function wrapper)
+            </summary>
+            <param name="data">
+            Buffer data
+            </param>
+            <param name="length">
+            Data length
+            </param>
+            <param name="buffer">
+            The buffer
+            </param>
+        </member>
+        <member name="T:ToolsCore.RegisterBatch">
+            <summary>
+            A batch of registers.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.#ctor">
+            <summary>
+            Create an empty register batch.
+            </summary>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.#ctor(System.String)">
+            <summary>
+            Create a register batch from a hex string.
+            </summary>
+            <param name="str"></param>
+            <remarks>
+            The format expected is a list of registers delimited by semicolons. Each register is a number of bytes,
+            beginning with the address byte. Bytes are two hexadecimal digits each, and are delimited by spaces.
+            Example:
+            <code>
+            "A0 1B 07; 8C 00 B1 06;"
+            </code>
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.#ctor(System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Byte}})">
+            <summary>
+            Create a register batch from an array of registers.
+            </summary>
+            <param name="registers">An array of registers, each register being a byte[].</param>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.ToByteArrays">
+            <summary>
+            Convert the register batch to an array of byte arrays.
+            </summary>
+            <returns>An array of byte arrays.</returns>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.CreateGcPinnable">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.AddRegister(System.Byte[])">
+            <summary>
+            Add a register.
+            </summary>
+            <param name="register">The register to add.</param>
+            <remarks>
+            This method is equivalent to <see cref="M:System.Collections.Generic.ICollection`1.Add(`0)"/>, but it takes a
+            'params' byte[] instead.
+            <para>
+            Example:
+            <code>
+            registerBatch.AddRegister(0xA0, 10, 5);
+            </code>
+            </para>
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.Unpack(System.Byte[])">
+             <summary>
+             Unpack a byte array containing a packed register batch.
+             </summary>
+             <param name="packedRegisterBatch">The packed register batch.</param>
+             <remarks>
+             This method will throw <see cref="T:System.NotSupportedException"/> if the register batch
+             is not initially empty.
+             <para>
+             The array should contain a sequence of registers (including the address byte), packed such that
+             each register is prefixed by its own length:
+            
+             n, byte 0, byte 1, ... byte n-1, m, byte 0, byte 1, ..., byte m-1
+             </para>
+             </remarks>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.Unpack(System.IntPtr)">
+             <summary>
+             Unpack a register batch from a native <see cref="T:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t"/>.
+             </summary>
+             <param name="registerBatchPtr">Pointer to a <see cref="T:ToolsCore.Interop.ToolsCoreNative.tools_byte_buffer_t"/>.</param>
+             <remarks>
+             The array should contain a sequence of registers (including the address byte), packed such that
+             each register is prefixed by its own length:
+            
+             n, byte 0, byte 1, ... byte n-1, m, byte 0, byte 1, ..., byte m-1
+             </remarks>
+        </member>
+        <member name="M:ToolsCore.RegisterBatch.Pack">
+             <summary>
+             Pack the register batch into a byte array.
+             </summary>
+             <returns>The contents of the register batch in packed format.</returns>
+             <remarks>
+             The array will contain a sequence of registers (including the address byte), packed such that
+             each register is prefixed by its own length:
+            
+             n, byte 0, byte 1, ... byte n-1, m, byte 0, byte 1, ..., byte m-1
+             </remarks>
+        </member>
+        <member name="T:ToolsCore.ToolsDebugEvent">
+            <summary>
+            Describes a debug event.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.ToolsStatus">
+            <summary>
+            The status.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.Message">
+            <summary>
+            Message.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.File">
+            <summary>
+            Source file where the error occurred.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.Line">
+            <summary>
+            Line in the source file where the error occurred.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.SourceId">
+            <summary>
+            Source ID for the error.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebugEvent.Function">
+            <summary>
+            Function where the error occurred.
+            </summary>
+        </member>
+        <member name="T:ToolsCore.ToolsStatus">
+            <summary>
+            Status of an operation or function call.
+            </summary>
+            <remarks>
+            This type is able to represent statuses from different subsystems. Examples:
+            FpcStatus, ce_status, fpc_error_code etc.
+            <para>
+            In addition to carrying such codes, the original enum value can be recovered if needed.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.#ctor(System.UInt32)">
+            <summary>
+            Creates and initializes a <see cref="T:ToolsCore.ToolsStatus"/> from a raw uint value.
+            </summary>
+            <param name="rawStatus">Raw uint toolsStatus.</param>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.FromEnum(System.Object)">
+            <summary>
+            Convert a different status enum type to a <see cref="T:ToolsCore.ToolsStatus"/>.
+            </summary>
+            <param name="enumValue">Enum value representing a status.</param>
+            <returns>
+            A new ToolsStatus.
+            </returns>
+            <remarks>
+            Only certain enum types are supported.
+            </remarks>
+        </member>
+        <member name="F:ToolsCore.ToolsStatus.RawStatus">
+            <summary>
+            The raw <see cref="T:System.UInt32"/> status value.
+            </summary>
+            <remarks>
+            This member is mainly for diagnostic use.
+            </remarks>
+        </member>
+        <member name="P:ToolsCore.ToolsStatus.Origin">
+            <summary>
+            Origin part of the status.
+            </summary>
+            <remarks>
+            This member is mainly for diagnostic use.
+            </remarks>
+        </member>
+        <member name="P:ToolsCore.ToolsStatus.Code">
+            <summary>
+            Code part of the status.
+            </summary>
+            <remarks>
+            This member is mainly for diagnostic use.
+            </remarks>
+        </member>
+        <member name="P:ToolsCore.ToolsStatus.Value">
+            <summary>
+            Status value.
+            </summary>
+            <remarks>
+            This value is converted to the enum type of the status.
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.ThrowIfFailed">
+            <summary>
+            Throw an exception for this <see cref="T:ToolsCore.ToolsStatus"/>.
+            </summary>
+            <remarks>
+            If <see cref="P:ToolsCore.ToolsStatus.Value"/> is <see cref="F:ToolsCore.CoreStatus.OK"/>, this method does nothing.
+            <para>
+            The type of exception will depend on the underlying status value. This method will
+            look for a <see cref="T:ToolsCore.Attributes.MappedExceptionAttribute"/> on the enum. This mapped exception
+            will also have a <see cref="T:ToolsCore.ToolsStatusException"/> as the innerexception.
+            </para>
+            <para>
+            If no such mapping attribute exists, a basic <see cref="T:ToolsCore.ToolsStatusException"/> is
+            thrown instead.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.op_Implicit(ToolsCore.CoreStatus)~ToolsCore.ToolsStatus">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.Replacing(ToolsCore.ToolsStatus,ToolsCore.ToolsStatus)">
+            <summary>
+            Return a filtered version of this status, where a certain status code is replaced with another status code.
+            </summary>
+            <param name="status">The status code to replace.</param>
+            <param name="replacementStatus">The replacement status code.</param>
+            <returns>A new status.</returns>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.Replacing(System.Tuple{ToolsCore.ToolsStatus,ToolsCore.ToolsStatus}[])">
+            <summary>
+            Return a filtered version of this status, where one or more status codes are replaced with other status codes.
+            </summary>
+            <param name="replacements">
+            One or more tuples, where the first element is the status code to replace and the second element is the
+            replacement status code.
+            </param>
+            <returns>A new status.</returns>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.Ignoring(ToolsCore.ToolsStatus[])">
+            <summary>
+            Return a filtered version of this status, where one or more status codes are replaced with <see cref="F:ToolsCore.CoreStatus.OK"/>.
+            </summary>
+            <param name="ignoredStatuses">One or more statuses to ignore.</param>
+            <returns>A new status.</returns>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.Equals(ToolsCore.ToolsStatus)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.op_Equality(ToolsCore.ToolsStatus,ToolsCore.ToolsStatus)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ToolsCore.ToolsStatus.op_Inequality(ToolsCore.ToolsStatus,ToolsCore.ToolsStatus)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ToolsCore.DebugEventCallback">
+            <summary>
+            Called when a debug event occurs.
+            </summary>
+            <param name="status">Status</param>
+            <param name="message">Error message</param>
+            <param name="sourceId">Source ID identifying where the error comes from</param>
+            <param name="file">File where the error occurred</param>
+            <param name="line">Line where the error occurred</param>
+            <param name="func">Function where the error occurred</param>
+        </member>
+        <member name="T:ToolsCore.ToolsDebug">
+            <summary>
+            Debugging support.
+            </summary>
+        </member>
+        <member name="E:ToolsCore.ToolsDebug.DebugEvent">
+            <summary>
+            Debug event handler
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsDebug.ThrowOnFirstDebugEvent">
+            <summary>
+            The first debug event that occurs should throw an exception.
+            </summary>
+            <remarks>
+            When true, the first debug event that occurs will throw an exception.
+            <para>
+            When false (the default), an exception will only be thrown when
+            <see cref="M:ToolsCore.ToolsStatus.ThrowIfFailed"/> is called.
+            </para>
+            <para>
+            CAUTION: Setting this property to true means that the native C code will NOT
+            have an opportunity to clean up, so should ONLY be used when debugging.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:ToolsCore.ToolsDebug.RaiseDebugEvent(ToolsCore.ToolsStatus,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Raise a debug event from managed code.
+            </summary>
+            <param name="toolsStatus">Status.</param>
+            <param name="message">Message string.</param>
+            <param name="file">Name of file.</param>
+            <param name="line">Line number in file</param>
+            <param name="func">Name of function.</param>
+            <returns>The same status passed in <paramref name="toolsStatus"/>.</returns>
+        </member>
+        <member name="M:ToolsCore.ToolsDebug.RaiseDebugEvent(System.Exception,System.String,System.Int32,System.String)">
+            <summary>
+            Raise a debug event from managed code.
+            </summary>
+            <param name="exception">Exception to translate into a <see cref="T:ToolsCore.ToolsStatus"/>.</param>
+            <param name="file">Name of file.</param>
+            <param name="line">Line number in file</param>
+            <param name="func">Name of function.</param>
+            <returns>A suitable <see cref="T:ToolsCore.ToolsStatus"/> for the exception.</returns>
+        </member>
+        <member name="M:ToolsCore.ToolsDebug.GetTrace">
+            <summary>
+            Get the debug event trace and clear it.
+            </summary>
+            <returns>Array of debug events in the order they occurred.</returns>
+        </member>
+        <member name="T:ToolsCore.ToolsStatusOrigin">
+            <summary>
+            Origin of a <see cref="T:ToolsCore.ToolsStatus"/>.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.Core">
+            <summary>
+            The origin of the ToolsStatus is Tools Core itself.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.LegacyCeStatus">
+            <summary>
+            The origin of the ToolsStatus is (Lib)CE (Legacy enum: ce_status).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.LegacyFpcStatus">
+            <summary>
+            The origin of the ToolsStatus is SensorAPI (Legacy enum: FpcStatus).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.LegacySnrStatus">
+            <summary>
+            The origin of the ToolsStatus is SNR (Legacy enum: snr_status).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.Test">
+            <summary>
+            The origin of the ToolsStatus is local to a test.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcHwStatus">
+            <summary>
+            The origin of the ToolsStatus is FpcCCore.Hardware.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.LegacyFpcErrorCode">
+            <summary>
+            The origin of the ToolsStatus is ProdTestLib (Legacy enum: fpc_error_code).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.Otp">
+            <summary>
+            The origin of the ToolsStatus is (Lib)OTP.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.CommonTestLibrary">
+            <summary>
+            The origin of the ToolsStatus is Common Test Library.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.SensorApi">
+            <summary>
+            The origin of the ToolsStatus is SensorAPI (newer versions using tools_status).
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcBio">
+            <summary>
+            The origin of the ToolsStatus is fpc_bio/fpc_bio_util.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.ToolsBio">
+            <summary>
+            The origin of the ToolsStatus is tools_bio.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.Cac2">
+            <summary>
+            The origin of the ToolsStatus is cac2.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcMetadata">
+            <summary>
+            The origin of the ToolsStatus is fpc_metadata.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.Reg">
+            <summary>
+            The origin of the ToolsStatus is tools_reg.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcFmi">
+            <summary>
+            The origin of the ToolsStatus is fpc fmi_status.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcErrorExternal">
+            <summary>
+            The status code comes from the new fpc_error and represents an external error.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.FpcErrorAccess">
+            <summary>
+            The status code comes from the new fpc_error and represents an internal error
+            in the access module.
+            </summary>
+        </member>
+        <member name="F:ToolsCore.ToolsStatusOrigin.ToolsHcpApi">
+            <summary>
+            The origin of the ToolsStatus is tools_hcp_api
+            </summary>
+        </member>
+        <member name="T:ToolsCore.ToolsStatusException">
+            <summary>
+            Exception that wraps a <see cref="P:ToolsCore.ToolsStatusException.ToolsStatus"/>.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsStatusException.ToolsStatus">
+            <summary>
+            The underlying status.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsStatusException.File">
+            <summary>
+            Source file where the error occurred.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsStatusException.Line">
+            <summary>
+            Line in the source file where the error occurred.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsStatusException.Function">
+            <summary>
+            Function where the error occurred.
+            </summary>
+        </member>
+        <member name="P:ToolsCore.ToolsStatusException.Trace">
+            <summary>
+            Describes a trace of debug events leading to this exception.
+            </summary>
+        </member>
+    </members>
+</doc>

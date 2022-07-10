@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Validate attached Mtc" Class="TestsModule.Tests.TestMtcValidateHardware" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.MtcSetupSettings">MtcSetupSettings_1291.xml</Parameter>
+        <Parameter Class="TestsModule.Data.MtcValidationHardwareSettings">MtcValidationHardwareSettings.xml</Parameter>
+    </Test>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+        <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+    </Test>
+    <!--<Test Name="Companion Hardware Id" Class="TestsModule.Tests.TestCompanionHwId">
+        <Parameter Class="TestsModule.Data.ApprovedCompanions">ApprovedCompanions1283.xml</Parameter>
+    </Test>-->
+
+    <!--<Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+        <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+    </Test>-->
+
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLibGradient">
+        <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+
+    <!--<Test Name="Manual Capture" Class="TestsModule.Tests.TestManualCapture">
+        <Parameter Class="TestsModule.Data.ManualCaptureSettings">ManualCaptureSettings.xml</Parameter>
+    </Test>-->
+
+    <!--<Test Name="Test Capture" Class="TestsModule.Tests.TestCaptureImage">
+        <Parameter Class="TestsModule.Data.ManualCaptureSettings">ManualCaptureSettings.xml</Parameter>
+    </Test>-->
+
+    <!--<Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+      <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings.xml</Parameter>
+    </Test>
+
+    <Test Name="Capacitance Test 2" Class="TestsModule.Tests.TestCapacitance2" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings.xml</Parameter>
+    </Test>-->
+
+    <!--<Test Name="Continuity" Class="TestsModule.Tests.TestMtcContinuity">
+        <Parameter Class="TestsModule.Data.MtcContinuitySettings">MtcContinuitySettings_1281.xml</Parameter>
+    </Test>-->
+    <Test Name="Current consumption" Class="TestsModule.Tests.TestMtcCurrentMeasurements">
+        <Parameter Class="TestsModule.Data.MtcSetupSettings">MtcSetupSettings_1291.xml</Parameter>
+        <Parameter Class="TestsModule.Data.MtcCurrentMeasurementsSettings">MtcCurrentMeasurementSettings_1291.xml</Parameter>
+    </Test>
+
+    <!--<Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+    </Test>-->
+
+    <!--<Test Name="Write Otp Wafer" Class="TestsModule.Tests.TestWriteOtpWafer">
+    <Parameter Class="TestsModule.Data.WriteOtpWaferSettings">WriteOtpWaferSettings.xml</Parameter>
+    </Test>
+    -->
+
+    <!--<Test Name="Write Otp Vendor" Class="TestsModule.Tests.TestWriteOtpVendor">
+    <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings_1282.xml</Parameter>
+    </Test>
+
+    <Test Name="Verify OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">VerifyOtpSettings.xml</Parameter>
+    <Parameter Class="TestsModule.Data.WriteOtpModuleSettings">WriteOtpModuleSettings1282.xml</Parameter>
+    <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings_1282.xml</Parameter>
+    </Test>-->
+
+</Sequence>

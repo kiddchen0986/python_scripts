@@ -1,0 +1,159 @@
+{
+  "TestReportItems": [
+    {
+      "Name": "Irq",
+      "Result": {
+        "TestName": "TestIrq",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 18,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-02-14T09:56:46.9253194+01:00",
+              "Items": {
+                "irqPin": "0x00"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Hardware Id",
+      "Result": {
+        "TestName": "TestHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 2,
+        "Warning": true,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-02-14T09:56:46.9473275+01:00",
+              "Items": {
+                "hwid": "0x0321"
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-02-14T09:56:46.9493289+01:00",
+              "Items": {
+                "product_approval_status": "NotApproved",
+                "matches_connected_sensor": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Companion Hardware Id",
+      "Result": {
+        "TestName": "TestCompanionHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 1,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-02-14T09:56:46.9588275+01:00",
+              "Items": {
+                "companion_hwid": 1042
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-02-14T09:56:46.9588275+01:00",
+              "Items": {
+                "is_unknown": 0,
+                "product_approval_status": "Approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Read OTP",
+      "Result": {
+        "TestName": "TestReadOtp",
+        "TestMethodConclusion": "Fail",
+        "TestTimeMilliseconds": 36,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-02-14T09:56:46.994836+01:00",
+              "Items": {
+                "OtpData": "81445037007012257F09208A0000000000000000012700214400000000000000",
+                "TotalBitErrors": 1,
+                "MaxBitErrorsInOneByte": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Module Quality",
+      "Result": {
+        "TestName": "TestModuleQuality",
+        "TestMethodConclusion": "Fail",
+        "TestTimeMilliseconds": 1105,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-02-14T09:56:47.0248394+01:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.ModuleQualitySettings, TestsModule",
+                  "CalibrationCrop": "10,10,10,10",
+                  "CaptureSettings": {
+                    "$type": "Integration.Sensor.Data.CaptureSettings, Integration.Sensor",
+                    "AdcShift": 17,
+                    "AdcGain": 0,
+                    "PixelGain": 0,
+                    "DacOffset": 20
+                  },
+                  "TimeOutWaitForFingerDetect": 10000,
+                  "StabilizeAfterForFingerDetect": 500,
+                  "AnalysisCrop": "4,4,4,4",
+                  "SnrLimit": 8.0,
+                  "LimitsPreset": 1,
+                  "DoApns": true
+                },
+                "results": {
+                  "$type": "TestsModule.Tests.TestModuleQuality+MeasurementResults, TestsModule",
+                  "MeasurementStatus": "Success",
+                  "AdcShift": -1,
+                  "AdcGain": -1,
+                  "PixelGain": -1,
+                  "DacOffset": -1,
+                  "Registers": "0C 00 00 00 00;10 00 00 00 00 00;14 00 1E;18 00;38 00;44 00 00;48 40 10 10 00;4C 04 FF FF 13;50 00 00;54 00 B0 00 40;5C 04;60 00;64 1E;68 01 44 29 24 09 39 34 19 14;6C 00;78 00 00;7C 00 00 00 00 00 00 00 00;80 83 4D 2C 0C 0C 3C 1C 00 00;84 40;88 00 00 00 00;8C 01 12;90 45 4B 2A 0A 0A 3A 1A 00 00;94 1C 09;98 03 EB 3F B8 0A 07 11 22 6A 5D;9C 00 45 40 02 2D 00;A0 10 01;A4 00;A8 B1 8F 52;AC 00 00 50;B0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00;C8 02 02 01 01 FF FF;CC 00 0A 05 FA F5;D0 00 0C;D4 00 00 00 00;D8 0A 0A 0A 0A 00 AA 20 14 20 20;DC 08 12 01 19 01 01 32;E0 0F 70 22;E4 0F 88 70;E8 0C 88;EC 01 40 60 0F FF;F4 00 00 00 00;FC 03 21;",
+                  "ZebraImages": "0321DP711212250F_20170214-095646-891_ZebraImages.fmi"
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-02-14T09:56:48.1310132+01:00",
+              "Items": {
+                "snr_db": "NaN",
+                "error": {
+                  "s": "SNR_ERROR_IN_RUBBER_DIMENSION_FREQ",
+                  "t": [
+                    "SNR_SUCCESS"
+                  ],
+                  "op": "Equal"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "SensorId": "0321DP711212250F",
+  "TotalTestTimeMilliseconds": 1214,
+  "Product": "PRODUCT_TYPE_FPC1268",
+  "ContainWarnings": true,
+  "Success": "Fail"
+}

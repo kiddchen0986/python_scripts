@@ -1,0 +1,73 @@
+
+:: Product: FPC Module Test Tool
+:: Version: 9.0.6253.27845
+:: Test started: 2017-02-14 09:56:46
+:: Sensor: FPC1268 Touch Sensor
+:: Sensor ID: 0321DP711212250F
+:: User: magnus.wihlborg
+:: Hostname: LAP-413
+:: Serial: MKYUPZYS
+
+
+-> Test Irq (TestIrq)
+IRQ = 0x00
+SoftReset Sensor...
+IRQ = 0x01
+, Interrupt reg = 0xFF
+Irq: Success (18ms)
+
+-> Test Hardware Id (TestHwId)
+Hardware Id: 0x0321
+*** Warning ***
+Product not approved for mass production
+Hardware Id: Success (2ms)
+
+-> Test Companion Hardware Id (TestCompanionHwId)
+Companion hardware id: 0x0412
+Companion Hardware Id: Success (1ms)
+
+-> Test Read OTP (TestReadOtp)
+
+OTP DATA:
+81445037007012257F09208A0000000000000000012700214400000000000000
+
+BIT ERROR INFORMATION
+Total Bit Errors: 1
+Max Bit Errors in one byte: 1
+
+WAFER SECTION: V1
+Package Section Written: NO
+Module Section Written: YES
+LOT ID: DP7112
+X Coordinate: 18
+Y Coordinate = 37
+ID: 15
+Clock Trim OscHi: 28
+Clock Trim OscLow: 9
+Date: 2016-04-10
+
+PACKAGE SECTION: Unsupported
+
+MODULE SECTION: V1
+Vendor: 19
+Test Result: Passed
+FPC Module Design Version: 0
+Date: 2016-10-04
+
+VENDOR SECTION
+Vendor Data: 00 00 00 00 00 00 00
+
+MODULE SECTION CHECK
+Module test done and section contains data
+Read OTP: Fail (36ms)
+
+-> Test Module Quality (TestModuleQuality)
+Waiting for "finger detect"
+Note: ignoring Capture Setting ADC Shift 17,ADC Gain 0
+Note: ignoring Capture Setting Pixel Gain 0,DAC Offset 20
+Image dimensions: 64x176
+Running analysis...
+snr: SNR_ERROR_IN_RUBBER_DIMENSION_FREQ
+Module Quality: Fail (1105ms)
+==> Module Test: Failed (Test time: 1214ms)
+Module have warnings

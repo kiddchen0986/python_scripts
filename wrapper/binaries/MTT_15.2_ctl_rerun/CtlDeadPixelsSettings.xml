@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CtlDeadPixelsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- ============================= TEST CRITERIA ============================= -->
+  <!-- Settings below are test criteria. Default criteria will automatically
+     be applied based on selected product type. To override any of the default
+     settings, un-comment and update the setting below -->
+
+  <!-- The upper limit of the number of dead pixels that are allowed -->
+  <!--<MaxPixelErrors>10</MaxPixelErrors>-->
+
+  <!-- Set this to true if you want to save the checkerboard image as a csv -->
+  <GenerateCsvFile>false</GenerateCsvFile>
+</CtlDeadPixelsSettings>

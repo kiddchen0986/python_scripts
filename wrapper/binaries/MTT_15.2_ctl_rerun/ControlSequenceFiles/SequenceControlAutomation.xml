@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SequenceControl>
+
+    <!--'FirstSetup' is never run. TBD if it should exist and from what context to run it...-->
+    <FirstSetup>
+    </FirstSetup>
+
+    <!--'Pre' is run before each test-->
+    <Pre>
+        <Test Name="ConnectToSensor" Class="TestsModule.Tests.TestConnectToSensor"/>
+    </Pre>
+
+    <!--'Post' is run after each successful test-->
+    <Post>
+        <Test Name="FixtureControl.ClearStamp" Class="TestsModule.Tests.TestFixtureControlClearStamp" />
+    </Post>
+
+    <!--'Error' is run after each unsuccessful test-->
+    <Error>
+        <Test Name="FixtureControl.ClearStamp" Class="TestsModule.Tests.TestFixtureControlClearStamp" />
+    </Error>
+
+    <!--'Cleanup' is run if the test sequence is terminated unexpectedly-->
+    <Cleanup>
+        <Test Name="FixtureControl.ClearStamp" Class="TestsModule.Tests.TestFixtureControlClearStamp" />
+    </Cleanup>
+
+</SequenceControl>

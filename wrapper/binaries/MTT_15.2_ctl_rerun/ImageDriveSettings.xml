@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageDriveSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- For boolean values (true/false) you have to use lower case letter -->
+  <!-- The setting OverrideDefaultCriteria details if the criteria value(s) below is/are to be used or not. If false, the default value(s) is/are used. -->
+  <OverrideDefaultCriteria>false</OverrideDefaultCriteria>
+  <!-- The upper limit of the number of pixel errors that are allowed -->
+  <PixelErrorsLimit>5</PixelErrorsLimit>
+
+  <MaxMedianDeviation>15</MaxMedianDeviation>
+</ImageDriveSettings>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sequence>
+  <Test Name="Processed Image" Class="TestsModule.Tests.TestProcessedImage">
+    <Parameter Class="TestsModule.Data.ProcessedImageSettings">ProcessedImageSettings.xml</Parameter>
+  </Test>
+</Sequence>

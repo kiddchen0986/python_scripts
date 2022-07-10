@@ -1,0 +1,161 @@
+{
+  "TestReportItems": [
+    {
+      "Name": "Module Quality",
+      "Result": {
+        "TestName": "TestModuleQuality",
+        "TestMethodConclusion": 2,
+        "TestTimeMilliseconds": 1954,
+        "Warning": false,
+        "Exception": null,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2016-07-11T14:16:07.7582606+02:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.ModuleQualitySettings, TestsModule",
+                  "StartAdcShift": 31,
+                  "StartPxlGain": 3,
+                  "AdcGain": 6,
+                  "TimeOutWaitForFingerDetect": 10000,
+                  "StabilizeAfterForFingerDetect": 100,
+                  "ScoreThreshold": 25,
+                  "CoverageThreshold": 100,
+                  "SaturationDefinitions": {
+                    "$type": "TestsModule.Data.SaturationDefinitions, TestsModule",
+                    "ImageWhiteSaturatedThreshold": 15,
+                    "BlackIsSaturatedPixel": 2,
+                    "WhiteIsSaturatedPixel": 253
+                  }
+                },
+                "results": {
+                  "$type": "TestsModule.Tests.TestModuleQuality+MeasurementResults, TestsModule",
+                  "MeasurementStatus": 0,
+                  "FirstImage": "20160711-141607-328_FirstImage.png",
+                  "SecondImage": "20160711-141607-328_SecondImage.png",
+                  "AdcShift": 28,
+                  "AdcGain": 6,
+                  "PixelGain": 3,
+                  "Registers": "10 00 00 00 00 00;14 00 1E;18 00;38 00;44 00;48 40 10 10 00;4C 00 FF 11;50 00 00;54 00 C0 00 38;5C 0B;60 00;64 0E;68 2F 2F 2F 2F 3F 3F 3F 3F;6C 27;78 00 00;7C 00 00 00 00;84 40;88 00 00 00 00;8C 12;90 30;94 0D 07;98 03 EB 3F B8 0A 07 11 22 6A 5D;9C 55 40 00 2D 24;A0 1C 06;A4 00;A8 0F 0A;D0 00 0C;D4 0F FF;D8 00 01 20 20;DC 19 01 00 23;FC 14 0B;"
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2016-07-11T14:16:09.7038971+02:00",
+              "Items": {
+                "snr_db": "NaN",
+                "error": {
+                  "s": "SNR_ERROR_NOISE_THERMAL_LP_X_ABOVE_MAX_LIMIT",
+                  "t": [
+                    "SNR_SUCCESS"
+                  ],
+                  "op": "Equal"
+                },
+                "results": {
+                  "$type": "ModuleEvaluationToolNet.SnrResults, ModuleEvaluationToolNet",
+                  "error": 6,
+                  "snr": "NaN",
+                  "signal_power": 287.5904,
+                  "contrast_strength": 1966.84839,
+                  "noiseFP": 8.251833,
+                  "noise_thermal": 23.8490982,
+                  "noise_thermal_lp_x": 5.447391,
+                  "noise_thermal_lp_y": 1.1252228,
+                  "saturation_fraction": 0.00120907743,
+                  "low_pass_fraction": 0.453585923,
+                  "bestAngle": 0.08290314,
+                  "disp_result": {
+                    "$type": "ModuleEvaluationToolNet.Structs.displacement_result, ModuleEvaluationToolNet",
+                    "displacement": 9.0,
+                    "error": 16.4790344,
+                    "fit_error": 0.0,
+                    "curvature": 0.0,
+                    "rel_disp_curvature": 3.26072526,
+                    "max_error": 30.622757
+                  },
+                  "img_diff": "20160711-141607-328_img_diff!56_192_4.raw",
+                  "img_diff_lp_x": "20160711-141607-328_img_diff_lp_x!56_192_4.raw",
+                  "img_diff_lp_y": "20160711-141607-328_img_diff_lp_y!56_192_4.raw",
+                  "imgNU": "20160711-141607-328_imgNU!56_192_4.raw",
+                  "imgU": "20160711-141607-328_imgU!56_192_4.raw",
+                  "imgUS": "20160711-141607-328_imgUS!56_192_4.raw",
+                  "imgNoiseFp": "20160711-141607-328_imgNoiseFp!56_192_4.raw",
+                  "img_disp_diff": "20160711-141607-328_img_disp_diff!47_183_4.raw",
+                  "imgOut": "20160711-141607-328_imgOut!56_192_4.raw"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Capacitance Test",
+      "Result": {
+        "TestName": "TestCapacitance",
+        "TestMethodConclusion": 2,
+        "TestTimeMilliseconds": 13168,
+        "Warning": false,
+        "Exception": null,
+        "TestLog": {
+          "Steps": {
+            "initialization": {
+              "DateTime": "2016-07-11T14:16:09.8510017+02:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.CapacitanceSettings, TestsModule",
+                  "UsePixelCalibration": true,
+                  "AutoTime": 10000,
+                  "MinSignalStrength": 0.4,
+                  "MaxSignalStrength": 1.0,
+                  "MaxUniformityLevel": 0.1,
+                  "MultiSamplingLevel": -1,
+                  "UseSettingsFromFile": false,
+                  "BlobConfig": {
+                    "$type": "ProdTestLibNet.Struct.fpc_blob_config_t, ProdTestLibNet",
+                    "blob_threshold": 3.5E-06,
+                    "max_number_of_blob_pixels": 7
+                  },
+                  "TimeOutWaitForFingerDetect": 10000
+                },
+                "pixel_calibration_profile": "D",
+                "finger_detect_time_ms": 10000,
+                "adc_shift": 12,
+                "pixel_gain": 2,
+                "signal_strength": {
+                  "d": 0.56,
+                  "t": [
+                    0.4,
+                    1.0
+                  ],
+                  "op": "BetweenInclusive"
+                },
+                "signal_strength_min5": 0.5,
+                "signal_strength_max5": 0.58,
+                "uniformity_level": {
+                  "d": 0.159,
+                  "t": [
+                    0.1
+                  ],
+                  "op": "LessThan"
+                },
+                "bad_pixels_removed_from_blob": 0,
+                "number_of_blob_pixels": {
+                  "d": 1122.0,
+                  "t": [
+                    7.0
+                  ],
+                  "op": "LessThanOrEqual"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "TotalTestTimeMilliseconds": 15452,
+  "ContainWarnings": false,
+  "Success": 2
+}

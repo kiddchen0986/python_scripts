@@ -53,44 +53,31 @@ sensor_map = {
 "1290": 11
 }
 
-PRODTESTLIB_MTT_VERSIONS = {8.1: "ModuleTestTool 8.1\\prodtestlib.dll",
-                            9.1: "MTT 9.1\\prodtestlib.dll",
-                            10.0: "MTT 10.0\\prodtestlib.dll",
-                            11.0: "MTT 11.0\\prodtestlib.dll",
-                            12.0: "MTT_12.0\\prodtestlib.dll"}
-
 class TestLib(object):
-    def __init__(self, test, version = 12.0):
-        self.hal_library_name = PRODTESTLIB_MTT_VERSIONS[version]
-
+    def __init__(self, test:str, version = 15.0):
         self._load_library(version)
 
-        assert self.hal_dll != None
+        assert self.c_dll != None
         
         if test == "DeadPixels":
-            self.init_gradient_checkerboard_test_based_on_test_level = self.hal_dll.init_gradient_checkerboard_test_based_on_test_level
-            self.gradient_checkerboard_test = self.hal_dll.gradient_checkerboard_test
-            self.checkerboard_test = self.hal_dll.checkerboard_test
-            self.init_checkerboard_test = self.hal_dll.init_checkerboard_test
+            self.init_gradient_checkerboard_test_based_on_test_level = self.c_dll.init_gradient_checkerboard_test_based_on_test_level
+            self.gradient_checkerboard_test = self.c_dll.gradient_checkerboard_test
+            self.checkerboard_test = self.c_dll.checkerboard_test
+            self.init_checkerboard_test = self.c_dll.init_checkerboard_test
         elif test == "ImageConstant":
-            self.init_image_constant_test = self.hal_dll.init_image_constant_test
-            self.image_constant_test = self.hal_dll.image_constant_test
-            self.free_image_constant_medians = self.hal_dll.free_image_constant_medians
+            self.init_image_constant_test = self.c_dll.init_image_constant_test
+            self.image_constant_test = self.c_dll.image_constant_test
+            self.free_image_constant_medians = self.c_dll.free_image_constant_medians
         elif test == "Blob":
-            self.init_blob_test = self.hal_dll.init_blob_test
-            self.calculate_blob = self.hal_dll.calculate_blob
+            self.init_blob_test = self.c_dll.init_blob_test
+            self.calculate_blob = self.c_dll.calculate_blob
 
     def __str__(self):
-        return self.hal_library_name + ": " + str(self.hal_dll)
+        return  str(self.c_dll)
 
     def _load_library(self, version):
         current_wdr = os.getcwd()
-        pattern = ".+?(?=python_scripts)"
-        search_object = re.match(pattern, current_wdr)
-        mtt_directory = os.path.join(search_object.group(0), "python_scripts", "wrapper", "binaries")
-        file_path = os.path.join(mtt_directory, PRODTESTLIB_MTT_VERSIONS[version])
-        directory, file = os.path.split(file_path)
-
-        os.chdir(directory)
-        self.hal_dll = c.CDLL(file_path)
+        mtt_directory = os.path.join(current_wdr, 'MTTLibs\\' + str(version))
+        os.chdir(mtt_directory)
+        self.c_dll = c.CDLL('prodtestlib.dll')
         os.chdir(current_wdr)

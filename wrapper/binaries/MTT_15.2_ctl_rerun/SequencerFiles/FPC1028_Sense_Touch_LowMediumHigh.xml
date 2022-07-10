@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Manual Sense Touch Test" Class="TestsModule.Tests.TestSenseTouchLowMediumHigh" >
+    <Parameter Class="TestsModule.Data.SenseTouchLowMediumHighSettings">SenseTouchLowMediumHighSettings.xml</Parameter>
+  </Test>
+</Sequence>

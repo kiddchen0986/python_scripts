@@ -6,6 +6,9 @@ class fpc_blob_config_t(c.Structure):
         ("max_number_of_blob_pixels", c.c_uint32),
     ]
 
+    def __str__(self):
+        return "blob_threshold: " + str(self.blob_threshold) + "\n" + "max_number_of_blob_pixels: " + str(self.max_number_of_blob_pixels)
+
 class fpc_blob_result_t(c.Structure):
     _fields_ = [
         ("number_of_blob_pixels", c.c_uint32),

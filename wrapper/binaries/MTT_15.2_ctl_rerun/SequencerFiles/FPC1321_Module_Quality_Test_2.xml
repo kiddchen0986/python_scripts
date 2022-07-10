@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestCtlDeadPixels">
+      <Parameter Class="TestsModule.Data.CtlDeadPixelsSettings">CtlDeadPixelsSettings.xml</Parameter>
+    </Test>
+
+    <Test Name="Module Quality Test 2" Class="TestsModule.Tests.TestModuleQuality2">
+        <Parameter Class="TestsModule.Data.ModuleQualitySettings2">ModuleQualitySettings2_1321.xml</Parameter>
+    </Test>
+</Sequence>

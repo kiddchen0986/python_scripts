@@ -16,6 +16,12 @@ class fpc_image_constant_config_t(c.Structure):
         ("max_median_deviation", c.c_uint32)
     ]
 
+    def __str__(self):
+        return "pixel_errors_upper_limit: " + str(self.pixel_errors_upper_limit) + "\n" + \
+                "median_lower_limit: " + str(self.median_lower_limit) + "\n" + \
+                "median_upper_limit: " + str(self.median_upper_limit) + "\n" + \
+                "max_median_deviation: " + str(self.max_median_deviation)
+
 class fpc_image_constant_result_t(c.Structure):
     _fields_ = [
         ("image_constant_medians", c.POINTER(c.c_uint8)),

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<WriteOtpModuleSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- ModuleVendor is a non-zero value representing the module vendor (7 bits, value 1-127) -->
+  <ModuleVendor>0</ModuleVendor>
+
+  <!-- For 1268 FpcModuleDesignVersion is 8 bits, value 0-255 -->
+  <!-- For non-1268 FpcModuleDesignVersion is 5 bits, value 0-31 -->
+  <FpcModuleDesignVersion>0</FpcModuleDesignVersion>
+
+  <!-- FPC Product variant is 5 bits, value 0-31 -->
+  <!-- This field is not valid for 1268 -->
+  <FpcProductVariant>2</FpcProductVariant>
+
+  <!-- External sensor available, 1 bit: 1 = Available, 0 = Not available -->
+  <!-- This field is not valid for 1268 -->
+  <ExternalSensorAvailable>0</ExternalSensorAvailable>
+
+  <!-- If set to true, WriteOtpModule() will fail if the Module section of the OTP is already written -->
+  <!-- If set to false, WriteOtpModule() will pass if the Module section of the OTP is already written -->
+  <!-- Default value is false -->
+  <FailAtRetest>false</FailAtRetest>
+
+  <!-- If set to true, WriteOtpModule() will fail if the SIP/Package section of the OTP isn't written (empty)-->
+  <!-- Default value is false -->
+  <FailIfSipPackageSectionIsEmpty>false</FailIfSipPackageSectionIsEmpty>
+
+</WriteOtpModuleSettings>

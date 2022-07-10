@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Wafer Screening" Class="TestsModule.Tests.TestWaferScreening" BreakSequenceIfFail="true">
+    <Parameter Class="TestsModule.Data.WaferScreeningSettings">WaferScreeningSettings.xml</Parameter>
+  </Test>
+  <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+  <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId">
+    <Parameter Class="TestsModule.Data.BlackListHwId">BlackListHwId.xml</Parameter>
+  </Test>
+  <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+  </Test>
+  <Test Name="Dead Pixel" Class="TestsModule.Tests.TestCtlDeadPixels">
+    <Parameter Class="TestsModule.Data.CtlDeadPixelsSettings">CtlDeadPixelsSettings.xml</Parameter>
+  </Test>
+  <Test Name="Analog Finger Detect calibration with rubberstamp" Class="TestsModule.Tests.TestAfdCalibrationWithRubberstamp">
+    <Parameter Class="TestsModule.Data.AfdCalibrationWithRubberstampSettings">AfdCalibrationWithRubberstampSettings.xml</Parameter>
+  </Test>
+  <Test Name="Module Quality" Class="TestsModule.Tests.TestModuleQuality">
+    <Parameter Class="TestsModule.Data.ModuleQualitySettings">ModuleQualitySettingsNormal.xml</Parameter>
+  </Test>
+</Sequence>

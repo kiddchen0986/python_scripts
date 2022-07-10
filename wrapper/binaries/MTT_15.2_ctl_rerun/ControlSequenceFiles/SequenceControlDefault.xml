@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SequenceControl>
+    <FirstSetup>
+    </FirstSetup>
+    <Pre>
+        <Test Name="ConnectToSensor" Class="TestsModule.Tests.TestConnectToSensor"/>
+    </Pre>
+    <Post>
+    </Post>
+    <Cleanup>
+    </Cleanup>
+    <Error>
+    </Error>
+</SequenceControl>

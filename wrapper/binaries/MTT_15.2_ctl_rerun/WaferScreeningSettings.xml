@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WaferScreeningSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Set to true, if it is desired to run this test -->
+  <EnableScreening>false</EnableScreening>
+  <BlockedWaferDataList>
+    <!-- WaferData may consist of any of the following data -->
+    <!-- Wafer Lot Id: 6 characters, e.g. G1PR37 -->
+    <!-- Wafer Lot Id + Wafer Id [1-25]: 8 characters, e.g. G1PR3714 -->
+    <!-- Wafer Lot Id + Wafer Id + X & Y-Coordinates: 12 characters, e.g. G1PR37140516 -->
+    <!-- Add the Wafer Data below that needs to be screened out -->
+    <BlockedWaferData>G1PR27</BlockedWaferData>
+    <BlockedWaferData>G1PR28</BlockedWaferData>
+    <BlockedWaferData>G1PR29</BlockedWaferData>
+    <BlockedWaferData>G1PR33</BlockedWaferData>
+    <BlockedWaferData>G1PR34</BlockedWaferData>
+    <BlockedWaferData>G1PR36</BlockedWaferData>
+    <BlockedWaferData>G1PR37</BlockedWaferData>
+    <BlockedWaferData>G1PR46</BlockedWaferData>
+    <BlockedWaferData>G1PR47</BlockedWaferData>
+    <BlockedWaferData>G1PR48</BlockedWaferData>
+    <BlockedWaferData>G1PR55</BlockedWaferData>
+    <BlockedWaferData>G1PR56</BlockedWaferData>
+    <BlockedWaferData>G1PR80</BlockedWaferData>
+    <BlockedWaferData>G1PR82</BlockedWaferData>
+    <BlockedWaferData>G1PP99</BlockedWaferData>
+  </BlockedWaferDataList>
+</WaferScreeningSettings>

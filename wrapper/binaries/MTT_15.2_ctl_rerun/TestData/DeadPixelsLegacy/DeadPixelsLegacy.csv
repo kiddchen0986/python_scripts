@@ -1,0 +1,14 @@
+;Input;;;;Expected Result;;;;;;;;
+Description;Checkerboard Image Name;Inverted Checkerboard Image Name;Test Level;Product;Cb Pixel Errors;Cb Sub Area  Errors;Cb Type 1 Median;Cb Type 2 Median;Icb Pixel Errors;Icb Sub Area Errors;Icb Type 1 Median;Icb Type 2 Median;MethodConclusion
+1021 OK Sanity;1021_checkerboard_OK.png;1021_checkerboard_inv_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1021;0;0;201;100;0;0;47;176;Success
+1022 OK Sanity;1022_checkerboard_OK.png;1022_checkerboard_inv_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1022;0;0;221;87;0;0;101;204;Success
+1140 OK Sanity;1140_checkerboard_OK.png;1140_checkerboard_inv_OK.png;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1140;0;0;199;100;0;0;49;175;Success
+1021 5 pixel errors OK;1021_5_pixel_errors_DummyCheckerboard.csv;1021_5_pixel_errors_DummyInvertedCheckerboard.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1021;0;0;201;99;5;0;45;175;Success
+1021 11 pixel errors Failed;1021_11_pixel_errors_DummyCheckerboard1021.csv;1021_11_pixel_errors_DummyInvertedCheckerboard1021.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1021;11;0;201;99;0;0;45;175;Fail
+1021 1 FD fail;1021_1_FD_Err_DummyCheckerboard1021.csv;1021_1_FD_Err_DummyInvertedCheckerboard1021.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1021;1;1;201;99;0;0;45;175;Fail
+1022 5 pixel errors;1022_5_pixel_errors_DummyCheckerboard1022.csv;1022_5_pixel_errors_DummyInvertedCheckerboard1022.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1022;5;0;235;99;0;0;100;205;Success
+1022 11 pixel fail;1022_11_pixel_errors_DummyCheckerboard1022.csv;1022_11_pixel_errors_DummyInvertedCheckerboard1022.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1022;0;0;235;99;11;0;100;205;Fail
+1022 1 FD Fail;1022_1_FD_DummyCheckerboard1022.csv;1022_1_FD_DummyInvertedCheckerboard1022.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1022;1;1;235;99;0;0;100;205;Fail
+1140 1 FD Fail;1140_1_FD_DummyCheckerboard1140.csv;1140_1_FD_DummyInvertedCheckerboard1140.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1140;1;1;199;100;0;0;47;174;Fail
+1140 5 pixel errors Success;1140_5_pixel_errors_DummyCheckerboard1140.csv;1140_5_pixel_errors_DummyInvertedCheckerboard1140.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1140;0;0;199;100;5;0;47;174;Success
+1140 11 pixel errors Fail;1140_11_pixel_errors_DummyCheckerboard1140.csv;1140_11_pixel_errors_DummyInvertedCheckerboard1140.csv;FPC_TEST_LEVEL_MTS;PRODUCT_TYPE_FPC1140;0;0;199;100;11;0;47;174;Fail

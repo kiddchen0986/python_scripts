@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sequence>
+  <Test Name="Image Constant" Class="TestsModule.Tests.TestImageConstant">
+    <Parameter Class="TestsModule.Data.ImageConstantSettings">ImageConstantSettings.xml</Parameter>
+  </Test>
+</Sequence>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ManualSenseTouchSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Input to read sense touch value from (0 or 1) -->
+    <InputIndex>0</InputIndex>
+    <!-- Number of times to read the sense touch value before exit  -->
+    <NumberOfReads>400</NumberOfReads>
+</ManualSenseTouchSettings>

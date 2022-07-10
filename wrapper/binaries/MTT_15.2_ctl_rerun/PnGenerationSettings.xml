@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PnGenerationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StabilisationTime>500</StabilisationTime>
+  <WaitTimeOut>10000</WaitTimeOut>
+</PnGenerationSettings>

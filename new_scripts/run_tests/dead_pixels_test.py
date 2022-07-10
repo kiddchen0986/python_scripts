@@ -2,7 +2,9 @@ import argparse
 from TestClass.DeadPixels import *
 from TestClass.ImageConstant import *
 from util import read_image
-
+import sys
+sys.path.append('..')
+from analyze_image.analyze_checkerboard_image import analyze_checkerboard_image
 
 def SetupConfig(testLib, product, hwid):
     cb_config = fpc_checkerboard_config_t()
@@ -62,7 +64,7 @@ def DeadPixelsGradient(testLib, image, select_test, cb_config):
     dead_pixels_list = dead_pixels_info_t()
     dead_pixels_list.list_max_size = cb_config.pixel_count
     dead_pixels_list.is_initialized = 1
-    w = 10
+
     dead_pixels_list.dead_pixels_index_list = (c.c_uint16 * cb_config.pixel_count)(0)
 
     status = testLib.gradient_checkerboard_test(image,
@@ -94,6 +96,9 @@ def DeadPixels(testLib, image, select_test, cb_config):
                                        c.byref(dead_pixels_list))
 
     print("pixel_errors", result.pixel_errors)
+    for i in range(result.pixel_errors):
+        print("\tpixel error index:", dead_pixels_list[i])
+
     print("sub_area_errors", result.sub_area_errors)
     print("type1_median", result.type1_median)
     print("type2_median", result.type2_median)
@@ -116,6 +121,7 @@ if __name__ == "__main__":
     parser.add_argument("select_test", help="image type, CB or ICB", type=str)
     parser.add_argument("test_level", help="test limit level, MTS or ITS", type=str)
     parser.add_argument("hwid", help="hardware id, like 0x321", type=str)
+    parser.add_argument('-show', help='Show CB histogram images', type=bool, default=True)
 
     args = parser.parse_args()
 
@@ -135,7 +141,7 @@ if __name__ == "__main__":
     else:
         raise Exception("Only support CB or ICB")
 
-    testLib = TestLib("DeadPixels")
+    testLib = TestLib("DeadPixels", 15.1)
 
     status = -1
 
@@ -159,7 +165,6 @@ if __name__ == "__main__":
             raise Exception("Cannot find correct test config")
         status = DeadPixelsGradient(testLib, image, int(select_test), cb_config)
 
-    #if status == 0:
-    #    print("PASS")
-    #else:
-    #    print("FAIL")
+    if args.show:
+        print('\n--------------Show checkerboard histogram-----------------')
+        analyze_checkerboard_image(args.image)
