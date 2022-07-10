@@ -1,1 +1,0 @@
-See https://fpc-confluence.fingerprint.local/confluence/display/RT/python_scripts+-+Mission+Statement for information.
