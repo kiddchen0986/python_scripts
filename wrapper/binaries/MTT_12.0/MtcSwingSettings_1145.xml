@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcSwingSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the MTC Swing test. -->
+
+    <!-- *** 1145 *** -->
+
+    <!-- The Xml element SwingToMeasure describes one or more swing setups that's going to be measured -->
+    <!-- SwingVoltageThreshold   - The trigger voltage that the swing signal must surpass to be counted -->
+    <!-- LowerLimit              - The lower number of swing pulses that is allowed -->
+    <!-- UpperLimit              - The upper number of swing pulses that is allowed -->
+
+    <SwingToMeasure SwingVoltageThreshold="1.2" LowerLimit="300" UpperLimit="1000" />
+    <SwingToMeasure SwingVoltageThreshold="1.9" LowerLimit="0" UpperLimit="0" />
+
+</MtcSwingSettings>

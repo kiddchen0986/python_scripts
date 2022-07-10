@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcContinuitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the MTC Continuity. -->
+    <!-- *** 1268 *** -->
+
+    <!-- The Xml element Route describes one or continuity routes to measure -->
+    <!-- SignalPad               - The signal pad** that is to be measured -->
+    <!-- ReferencePad            - The pad** that is to be used as reference for the signal pad -->
+    <!-- Direction               - The current direction*** (from signal pad -> reference pad : Positive ; reference pad -> signal pad Negative) -->
+    <!-- UpperLimit              - The upper voltage limit -->
+    <!-- LowerLimit              - The lower voltage limit-->
+
+    <!-- **  Pad names can be one of the following GND, VDDD, VDDIO, VDDTX -->
+    <!-- *** Direction could be either Positive or Negative -->
+
+    <Route FriendlyName ="GND → VDDD" SignalPad="GND" ReferencePad="VDDD" Direction="Positive" LowerLimit="0.2" UpperLimit="0.9"/>
+    <Route FriendlyName ="GND → VDDIO" SignalPad="GND" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.9"/>
+
+</MtcContinuitySettings>

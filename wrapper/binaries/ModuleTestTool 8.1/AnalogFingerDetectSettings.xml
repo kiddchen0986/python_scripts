@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnalogFingerDetectSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--
+    The minimum run level to test.
+  -->
+  <MinRunLevel>5</MinRunLevel>
+
+  <!--
+    The maximum run level to test.
+  -->
+  <MinRunLevel>25</MinRunLevel>
+  
+  <!--
+    The minimum level for calibration to complete.
+    If the level is below this value for any of the plates, calibration won't continue.
+  -->
+  <CalibrationLevel>27</CalibrationLevel>
+  
+  <!--
+    How long calibration should be tried before timing out.
+  -->
+  <CalibrationTimeoutSeconds>10</CalibrationTimeoutSeconds>
+  
+  <!-- 
+    This is a bitfield specifying which analog plates to include in the test. 
+    Including plates 0,1,2,3 gives the value 0x0F == 15. 
+  -->
+  <AnalogPlateMask>15</AnalogPlateMask>
+
+</AnalogFingerDetectSettings>

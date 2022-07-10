@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<RubberstampCalibrationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- threshold value for analog finger detect plates to be considered having enough contact with the stamp (1-31) -->
+  <AfdPlateThreshold>26</AfdPlateThreshold>
+
+  <!-- how long each analog finger detect plate value must be above AfdPlateThreshold for the test to pass -->
+  <AfdPlateTimeToHoldSeconds>3</AfdPlateTimeToHoldSeconds>
+
+  <!-- how much time to spend calibrating before the calibration fails, in seconds. -->
+  <TimeoutSeconds>60</TimeoutSeconds>
+
+  <!-- how long to wait after stamp removed before doing the analog finger detect calibration, in milliseconds -->
+  <DelayBeforeAfdCalibrationMs>200</DelayBeforeAfdCalibrationMs>
+
+</RubberstampCalibrationSettings>

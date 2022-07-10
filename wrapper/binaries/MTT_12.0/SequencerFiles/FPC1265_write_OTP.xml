@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <!-- To enable OTP-writing uncomment the files below. VDDOTP must be connected to stable voltage
+         and GND_SENS must be connected to GND. These signals can not be enable for any other tests.
+         Make sure to configure the .xml according to your setting
+    -->
+  <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+  </Test>
+  <Test Name="Write Otp Module" Class="TestsModule.Tests.TestWriteOtpModule">
+    <Parameter Class="TestsModule.Data.WriteOtpModuleSettings">WriteOtpModuleSettings1265.xml</Parameter>
+  </Test>
+  <Test Name="Write Otp Vendor" Class="TestsModule.Tests.TestWriteOtpVendor">
+    <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings.xml</Parameter>
+  </Test>
+  <Test Name="Verify OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">VerifyOtpSettings.xml</Parameter>
+    <Parameter Class="TestsModule.Data.WriteOtpModuleSettings">WriteOtpModuleSettings1265.xml</Parameter>
+    <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings.xml</Parameter>
+  </Test>
+</Sequence>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<WriteOtpVendorSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Specify the Vendor Data bytes as space separated hexadecimal values (i.e. 00 A1 FF ...) -->
+  <!-- Amount of bytes specified must match the amount of space reserved for the vendor area -->
+  <VendorData>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</VendorData>
+
+  <!-- If set to true, the WriteOtpVendor test will fail immediately if the Vendor section of the OTP is already written -->
+  <!-- If set to false, the WriteOtpVendor test will execute normally, provided the Vendor section of the OTP is already written -->
+  <!-- Default value is false -->
+  <FailAtRetest>false</FailAtRetest>
+
+  <!-- If set to false, the WriteOtpVendor test will require the module section to be present -->
+  <!-- If set to true, the WriteOtpVendor test will continue even if the module section is missing -->
+  <!-- Default value is false -->
+  <IgnoreModuleSectionMissing>false</IgnoreModuleSectionMissing>
+</WriteOtpVendorSettings>

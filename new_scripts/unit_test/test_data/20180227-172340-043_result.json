@@ -1,0 +1,460 @@
+{
+  "TestLevel": "FPC_TEST_LEVEL_MTS",
+  "Identity": {
+    "UniqueModuleId": "0E12G6G736051614",
+    "LogFileSavingSetting": "Full",
+    "UniqueModuleIdSetting": "UmiFromSensorId",
+    "SensorId": "0E12G6G736051614",
+    "SensorIdReadStatus": "FPC_SUCCESS"
+  },
+  "TestReportItems": [
+    {
+      "Name": "ConnectToSensor",
+      "Result": {
+        "TestName": "TestConnectToSensor",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 50,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "Irq",
+      "Result": {
+        "TestName": "TestIrq",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 15,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:40.109681+08:00",
+              "Items": {
+                "irqPin": "0x00"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Hardware Id",
+      "Result": {
+        "TestName": "TestHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 1,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:40.1246819+08:00",
+              "Items": {
+                "hwid": "0x0E12"
+              }
+            },
+            "analysis": {
+              "DateTime": "2018-02-27T17:23:40.1246819+08:00",
+              "Items": {
+                "matches_connected_sensor": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Afd Cal",
+      "Result": {
+        "TestName": "TestAfdCal",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 154,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:40.126682+08:00",
+              "Items": {
+                "settings": {
+                  "$type": "CtlNet.Tests.AfdCal.Internal.AfdCalTestSettings, CtlNet",
+                  "Version": 0
+                },
+                "results": {
+                  "$type": "System.Dynamic.ExpandoObject, System.Core",
+                  "afd_cal_0_0": 304.666656,
+                  "afd_cal_1_0": 310.333344,
+                  "afd_cal_2_0": 326.666656,
+                  "afd_cal_3_0": 323.333344,
+                  "afd_cal_0_1": 137.0,
+                  "afd_cal_1_1": 140.0,
+                  "afd_cal_2_1": 158.0,
+                  "afd_cal_3_1": 159.333328,
+                  "afd_cal_0_2": 144.333328,
+                  "afd_cal_1_2": 147.0,
+                  "afd_cal_2_2": 165.0,
+                  "afd_cal_3_2": 165.0,
+                  "afd_cal_0_3": 141.666672,
+                  "afd_cal_1_3": 145.0,
+                  "afd_cal_2_3": 163.666672,
+                  "afd_cal_3_3": 164.333328,
+                  "afd_cal_0_4": 143.666672,
+                  "afd_cal_1_4": 146.666672,
+                  "afd_cal_2_4": 165.666672,
+                  "afd_cal_3_4": 166.0
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2018-02-27T17:23:40.2746904+08:00",
+              "Items": {
+                "results": {
+                  "$type": "System.Dynamic.ExpandoObject, System.Core",
+                  "afd_cal_0_0_lower": 230.0,
+                  "afd_cal_0_0_upper": 450.0,
+                  "afd_cal_1_0_lower": 230.0,
+                  "afd_cal_1_0_upper": 450.0,
+                  "afd_cal_2_0_lower": 230.0,
+                  "afd_cal_2_0_upper": 450.0,
+                  "afd_cal_3_0_lower": 230.0,
+                  "afd_cal_3_0_upper": 450.0,
+                  "afd_cal_0_1_lower": 90.0,
+                  "afd_cal_0_1_upper": 230.0,
+                  "afd_cal_1_1_lower": 90.0,
+                  "afd_cal_1_1_upper": 230.0,
+                  "afd_cal_2_1_lower": 90.0,
+                  "afd_cal_2_1_upper": 230.0,
+                  "afd_cal_3_1_lower": 90.0,
+                  "afd_cal_3_1_upper": 230.0,
+                  "afd_cal_0_2_lower": 90.0,
+                  "afd_cal_0_2_upper": 230.0,
+                  "afd_cal_1_2_lower": 90.0,
+                  "afd_cal_1_2_upper": 230.0,
+                  "afd_cal_2_2_lower": 90.0,
+                  "afd_cal_2_2_upper": 230.0,
+                  "afd_cal_3_2_lower": 90.0,
+                  "afd_cal_3_2_upper": 230.0,
+                  "afd_cal_0_3_lower": 90.0,
+                  "afd_cal_0_3_upper": 230.0,
+                  "afd_cal_1_3_lower": 90.0,
+                  "afd_cal_1_3_upper": 230.0,
+                  "afd_cal_2_3_lower": 90.0,
+                  "afd_cal_2_3_upper": 230.0,
+                  "afd_cal_3_3_lower": 90.0,
+                  "afd_cal_3_3_upper": 230.0,
+                  "afd_cal_0_4_lower": 90.0,
+                  "afd_cal_0_4_upper": 230.0,
+                  "afd_cal_1_4_lower": 90.0,
+                  "afd_cal_1_4_upper": 230.0,
+                  "afd_cal_2_4_lower": 90.0,
+                  "afd_cal_2_4_upper": 230.0,
+                  "afd_cal_3_4_lower": 90.0,
+                  "afd_cal_3_4_upper": 230.0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Read OTP",
+      "Result": {
+        "TestName": "TestReadOtp",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 12,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:40.2906914+08:00",
+              "Items": {
+                "OtpMemoryMainData": "02 16 D1 DB B3 6C 05 16 A7 89 24 25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                "OtpMemoryBackupData": "02 16 D1 DB B3 6C 05 16 A7 89 24 25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                "OtpLogicalData": "02 16 D1 DB B3 6C 05 16 A7 89 24 25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                "TotalBitErrors": 0,
+                "MaxBitErrorsInOneByte": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Power State",
+      "Result": {
+        "TestName": "TestPowerState",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 4483,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "CTL Defective Pixels",
+      "Result": {
+        "TestName": "TestCtlDefectivePixels",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 242,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:44.7919488+08:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.CtlDefectivePixelsSettings, TestsModule",
+                  "OverrideDefaultCriteria": false,
+                  "MaxDefectivePixels": 10,
+                  "MaxLoggedDefectivePixelsLocations": 15,
+                  "DefectivePixelsTestVariant": "Extended",
+                  "DeadPixelErrorUpperLimit": 11,
+                  "DeadPixelMaxDeviation": 15,
+                  "ResetPixelLowerLimitMedian": 55,
+                  "ResetPixelHigherLimitMedian": 55,
+                  "ResetErrorUpperLimit": 5,
+                  "ImageConstantMaxPixelErrors": 11,
+                  "ImageConstantMinMedian": 128,
+                  "ImageConstantMaxMedian": 185,
+                  "ImageConstantMaxMedianDeviation": 15
+                },
+                "results": {
+                  "$type": "TestsModule.Data.MeasurementResults.MeasurementResultsCtlDefectivePixels, TestsModule",
+                  "CheckerboardImage": "20180227-172340-043_CheckerboardImage.png",
+                  "InvertedCheckerboardImage": "20180227-172340-043_InvertedCheckerboardImage.png",
+                  "ImageConstantImage": "20180227-172340-043_ImageConstantImage.png",
+                  "SwingingCheckerboardImage": "20180227-172340-043_SwingingCheckerboardImage.png",
+                  "SwingingInvertedCheckerboardImage": "20180227-172340-043_SwingingInvertedCheckerboardImage.png",
+                  "ImageDriveImages": [
+                    "20180227-172340-043_ImageDriveImages.png",
+                    "20180227-172340-043_ImageDriveImages[0][0].png",
+                    "20180227-172340-043_ImageDriveImages[1][1].png"
+                  ]
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2018-02-27T17:23:45.0069611+08:00",
+              "Items": {
+                "results": {
+                  "$type": "TestsModule.Data.AnalysisResults.AnalysisResultsCtlDefectivePixel, TestsModule",
+                  "CheckerboardResult": {
+                    "$type": "ProdTestLibNet.Struct.fpc_gradient_checkerboard_result_t, ProdTestLibNet",
+                    "pixel_errors": 0,
+                    "sub_area_errors": 0,
+                    "type1_deviation_max": 7,
+                    "type2_deviation_max": 1,
+                    "type1_min_histogram_median": 54,
+                    "type2_min_histogram_median": 205,
+                    "type1_max_histogram_median": 54,
+                    "type2_max_histogram_median": 207,
+                    "result": 0,
+                    "pass": true
+                  },
+                  "InvertedCheckerboardResult": {
+                    "$type": "ProdTestLibNet.Struct.fpc_gradient_checkerboard_result_t, ProdTestLibNet",
+                    "pixel_errors": 0,
+                    "sub_area_errors": 0,
+                    "type1_deviation_max": 1,
+                    "type2_deviation_max": 7,
+                    "type1_min_histogram_median": 54,
+                    "type2_min_histogram_median": 205,
+                    "type1_max_histogram_median": 54,
+                    "type2_max_histogram_median": 207,
+                    "result": 0,
+                    "pass": true
+                  },
+                  "SwingingCheckerboardResult": {
+                    "$type": "ProdTestLibNet.Struct.fpc_gradient_checkerboard_result_t, ProdTestLibNet",
+                    "pixel_errors": 0,
+                    "sub_area_errors": 0,
+                    "type1_deviation_max": 5,
+                    "type2_deviation_max": 5,
+                    "type1_min_histogram_median": 132,
+                    "type2_min_histogram_median": 98,
+                    "type1_max_histogram_median": 133,
+                    "type2_max_histogram_median": 98,
+                    "result": 0,
+                    "pass": true
+                  },
+                  "SwingingInvertedCheckerboardResult": {
+                    "$type": "ProdTestLibNet.Struct.fpc_gradient_checkerboard_result_t, ProdTestLibNet",
+                    "pixel_errors": 0,
+                    "sub_area_errors": 0,
+                    "type1_deviation_max": 5,
+                    "type2_deviation_max": 5,
+                    "type1_min_histogram_median": 132,
+                    "type2_min_histogram_median": 98,
+                    "type1_max_histogram_median": 133,
+                    "type2_max_histogram_median": 98,
+                    "result": 0,
+                    "pass": true
+                  },
+                  "ImageConstantResult": {
+                    "$type": "CtlNet.Tests.DefectivePixels.Internal.ImageConstantAnalysisResult, CtlNet",
+                    "ImageConstantMedians": {
+                      "$type": "System.Byte[], mscorlib",
+                      "$value": "eXl5eXp6eno="
+                    },
+                    "NumberOfMedians": 8,
+                    "PixelErrors": 0,
+                    "SubAreaErrors": 0,
+                    "Status": {
+                      "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                      "RawStatus": 0,
+                      "Origin": "Core",
+                      "Value": "OK"
+                    },
+                    "ElapsedTime": "00:00:00"
+                  },
+                  "ImageDriveResult": {
+                    "$type": "CtlNet.Tests.DefectivePixels.Internal.ImageDriveAnalysisResult, CtlNet",
+                    "PixelErrors": 0,
+                    "SubAreaErrors": 0,
+                    "GlobalPixelErrors": 0,
+                    "MedianRow_1": 109,
+                    "MedianRow_2": 88,
+                    "MedianRowMiddle": 91,
+                    "MedianRowNextToLast": 96,
+                    "MedianRowLast": 73,
+                    "MedianRow_1_Inv": 181,
+                    "MedianRowLastInv": 175,
+                    "MedianRow_1_DevMax": 1,
+                    "MedianRow_2_DevMax": 1,
+                    "MedianRowMiddleDevMax": 3,
+                    "MedianRowNextToLastDevMax": 1,
+                    "MedianRowLastDevMax": 2,
+                    "MedianRow_1_InvDevMax": 3,
+                    "MedianRowLastInvDevMax": 3,
+                    "Status": {
+                      "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                      "RawStatus": 0,
+                      "Origin": "Core",
+                      "Value": "OK"
+                    },
+                    "ElapsedTime": "00:00:00"
+                  },
+                  "DefectivePixelsCount": 0,
+                  "DefectivePixelsLocations": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "HWCapacitance Test",
+      "Result": {
+        "TestName": "TestHWCapacitance",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 1296,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "Wait For Finger Up",
+      "Result": {
+        "TestName": "TestWaitForFingerUp",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 2256,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "HWSNRunderglass Test",
+      "Result": {
+        "TestName": "TestHWSNRunderglass",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 4180,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "Module Quality Test 2",
+      "Result": {
+        "TestName": "TestModuleQuality2",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 1231,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2018-02-27T17:23:52.7774056+08:00",
+              "Items": {
+                "results": {
+                  "$type": "TestsModule.Tests.TestModuleQuality2+MeasurementResults, TestsModule",
+                  "MeasurementStatus": {
+                    "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                    "RawStatus": 0,
+                    "Origin": "Core",
+                    "Value": "OK"
+                  },
+                  "ZebraImages": "20180227-172340-043_ZebraImages.fmi"
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2018-02-27T17:23:54.0054758+08:00",
+              "Items": {
+                "status": "OK (0x00000000)",
+                "result": {
+                  "$type": "TestsModule.Data.AnalysisResults.AnalysisResultsCtlMqt2, TestsModule",
+                  "Snr": {
+                    "$type": "CtlNet.Tests.ModuleQuality.Internal.ModuleQualityTestSnrAnalysisResult, CtlNet",
+                    "Status": {
+                      "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                      "RawStatus": 0,
+                      "Origin": "Core",
+                      "Value": "OK"
+                    },
+                    "SnrDb": 13.9339218
+                  },
+                  "Blob": {
+                    "$type": "CtlNet.Tests.ModuleQuality.Internal.ModuleQualityTestBlobAnalysisResult, CtlNet",
+                    "Status": {
+                      "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                      "RawStatus": 0,
+                      "Origin": "Core",
+                      "Value": "OK"
+                    },
+                    "BlobCount": 0,
+                    "BlobImage": "20180227-172340-043_BlobImage.png"
+                  },
+                  "Uniformity": {
+                    "$type": "TestsModule.Data.AnalysisResults.AnalysisResultsCtlMqt2Uniformity, TestsModule",
+                    "Status": {
+                      "$type": "ToolsCore.ToolsStatus, ToolsCoreNet",
+                      "RawStatus": 0,
+                      "Origin": "Core",
+                      "Value": "OK"
+                    },
+                    "Udr": 0.6562527,
+                    "UdrTestValues": "67278D3D0080C13E2CD66D41",
+                    "UniformityImage": "20180227-172340-043_UniformityImage!60_128_4.raw",
+                    "CapacitanceImage": "20180227-172340-043_CapacitanceImage.png"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "TotalTestTimeMilliseconds": 16033,
+  "Product": "PRODUCT_TYPE_FPC1291_G175",
+  "ContainWarnings": false,
+  "Success": "Success"
+}

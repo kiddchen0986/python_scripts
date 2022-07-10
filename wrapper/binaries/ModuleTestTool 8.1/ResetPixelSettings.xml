@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResetPixelSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- For boolean values (true/false) you have to use lower case letter -->
+  <UseSettingsFromFile>false</UseSettingsFromFile>
+  <!-- If set to true, will use a image with name ResetPixelDummyImage_<sensor name>.png -->
+  <ResetPixelConfig>
+    <lower_limit_from_median>55</lower_limit_from_median>
+    <higer_limit_from_median>55</higer_limit_from_median>
+    <reset_error_upper_limit>5</reset_error_upper_limit>
+  </ResetPixelConfig>
+</ResetPixelSettings>

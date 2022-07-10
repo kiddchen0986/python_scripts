@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WaitForFingerUpSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!--
+        If the stamp/finger is kept on the sensor, the test will time out after this many seconds. 
+        The value may be fractional in increments of 0.1 (100 ms), allowing a timeout of less than 1 second.
+        Negative or zero value disables the timeout.
+    -->
+    <TimeoutSeconds>20.2</TimeoutSeconds>
+
+    <!-- 
+        If true, the test fails when the timeout has been reached, otherwise the test succeeds.
+    -->
+    <FailOnTimeout>true</FailOnTimeout>
+
+    <!-- 
+        After the test completes, wait for this many seconds.
+        The value may be fractional, allowing to delay for less than 1 second.
+        Negative or zero value disables the delay.
+    -->
+    <PostDelaySeconds>0.5</PostDelaySeconds>
+
+</WaitForFingerUpSettings>

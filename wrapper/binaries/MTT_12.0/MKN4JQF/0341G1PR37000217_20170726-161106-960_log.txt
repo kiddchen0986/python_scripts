@@ -1,0 +1,86 @@
+
+:: Product: FPC Module Test Tool
+:: Version: 12.0.6403.18859
+:: Test started: 2017-07-26 16:11:06
+:: Sensor: UNKNOWN Touch Sensor
+:: Unique Module ID: 0341G1PR37000217
+:: Unique Module Id Setting: UmiFromSensorId
+:: Sensor ID: 0341G1PR37000217
+:: User: hugo.hjerten
+:: Hostname: LAP-478
+:: Serial: MKN4JQF
+
+
+-> Test ConnectToSensor (TestConnectToSensor)
+:: Sensor: FPC1267 Touch Sensor
+:: Sensor ID: 0341G1PR37000217
+ConnectToSensor: Success (117ms)
+
+-> Test Irq (TestIrq)
+IRQ = 0x00
+SoftReset Sensor...
+IRQ = 0x01
+, Interrupt reg = 0xFF
+Irq: Success (19ms)
+
+-> Test Hardware Id (TestHwId)
+Hardware Id: 0x0341
+Hardware Id: Success (2ms)
+
+-> Test Companion Hardware Id (TestCompanionHwId)
+Companion hardware id: 0x0413
+Companion Hardware Id: Success (3ms)
+
+-> Test Read OTP (TestReadOtp)
+
+OTP DATA:
+02 16 34 29 33 6E 00 02 BF 09 21 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+BIT ERROR INFORMATION
+No bit errors were detected
+
+WAFER SECTION: Version Version2
+Package Section Written: NO
+Module Section Written: NO
+LOT ID: G1PR37
+X Coordinate: 0
+Y Coordinate = 2
+ID: 23
+Clock Trim OscHi: -4
+Clock Trim OscLow: 9
+Date: 2016-12-09
+
+PACKAGE SECTION: Unsupported version None
+
+MODULE SECTION: Unsupported version None
+
+VENDOR SECTION
+Vendor Data: 00 00 00 00 00 00 00
+
+MODULE SECTION CHECK
+Module section written correctly
+Read OTP: Success (46ms)
+
+-> Test Dead Pixel (TestDeadPixelsProdTestLibGradient)
+Make sure nothing is in contact with the sensor area
+Capture Checker board...
+Max deviation: <= 15
+Type1 median, min 48 max 48 (Limit: > 38 and < 55)
+Type2 median, min 225 max 226 (Limit: > 205 and < 239)
+Number of dead pixels: 0 (limit: < 11 )
+
+Capture Inverted Checker board...
+Max deviation: <= 15
+Type1 median, min 47 max 48 (Limit: > 38 and < 55)
+Type2 median, min 226 max 227 (Limit: > 205 and < 239)
+Number of dead pixels: 0 (limit: < 11 )
+
+Dead Pixel: Success (100ms)
+
+-> Test Capacitance Test 2 (TestCapacitance2)
+Make sure nothing is in contact with the sensor area
+Make sure stamp is in contact with sensor
+Waiting for rubberstamp
+Capacitance Test 2: Exception (10183ms)
+Finger detect timeout, finger detect not triggered
+==> Module Test: Failed (Test time: 10404ms)

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageQualitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- For boolean values (true/false) you have to use lower case letter -->
+    <DelayCaptureAfterFingerDetect>500</DelayCaptureAfterFingerDetect>
+    <!-- Setting timeout to 0 = infinite-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+    <OverrideThresholdSettings>false</OverrideThresholdSettings>
+    <mThreshold>0.8</mThreshold>
+    <mLRRThreshold>0.012</mLRRThreshold>
+</ImageQualitySettings>

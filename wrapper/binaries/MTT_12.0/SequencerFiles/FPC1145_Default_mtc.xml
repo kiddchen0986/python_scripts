@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Validate attached Mtc" Class="TestsModule.Tests.TestMtcValidateHardware" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.MtcValidationHardwareSettings">MtcValidationHardwareSettings.xml</Parameter>
+    </Test>
+    <Test Name="Continuity" Class="TestsModule.Tests.TestMtcContinuity">
+        <Parameter Class="TestsModule.Data.MtcContinuitySettings">MtcContinuitySettings_1145.xml</Parameter>
+    </Test>
+    <Test Name="Current consumption" Class="TestsModule.Tests.TestMtcCurrentMeasurements">
+        <Parameter Class="TestsModule.Data.MtcCurrentMeasurementsSettings">MtcCurrentMeasurementSettings_1145.xml</Parameter>
+    </Test>
+    <Test Name="Swing" Class="TestsModule.Tests.TestMtcSwing">
+        <Parameter Class="TestsModule.Data.MtcSwingSettings">MtcSwingSettings_1145.xml</Parameter>
+    </Test>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" BreakSequenceIfFail="true" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLib">
+        <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Reset Pixel" Class="TestsModule.Tests.TestResetPixels">
+        <Parameter Class="TestsModule.Data.ResetPixelsSettings">ResetPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Image Quality" Class="TestsModule.Tests.TestImageQuality">
+        <Parameter Class="TestsModule.Data.ImageQualitySettings">ImageQualitySettings.xml</Parameter>
+    </Test>
+</Sequence>

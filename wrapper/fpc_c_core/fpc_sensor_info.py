@@ -1,0 +1,111 @@
+"""Structs and constants used from fpc_sensor_info.h file in prodtestlib.dll"""
+
+from enum import Enum
+import ctypes as c
+import numpy as np
+
+
+class DeadPixelsInfo(c.Structure):
+    """Python structure equivalent of dead_pixels_info_t in prodtestlib.dll"""
+    DEAD_PIXEL_LIST_MAX_SIZE = 5000
+    ptr = c.POINTER(c.c_uint16)
+
+    _fields_ = [
+        ("num_dead_pixels", c.c_uint16),
+        ("dead_pixels_index_list", ptr),
+
+        ("list_max_size", c.c_uint16),
+        # Indicates if the struct have been initialized
+        ("is_initialized", c.c_uint32)
+    ]
+
+    def __init__(self):
+        # The arrays found in this struct have their corresponding size.
+        # IMPORTANT: the name is the same as the array with the suffix '_SIZE'.
+        # This is used in io_csv.retrieve_std_values_from_struct
+        self.dead_pixels_index_list_SIZE = self.DEAD_PIXEL_LIST_MAX_SIZE
+
+        # Initialize like normal
+        super(DeadPixelsInfo, self).__init__()
+
+        self.dead_pixels_list = np.zeros(self.DEAD_PIXEL_LIST_MAX_SIZE, dtype=np.uint16)
+        self.num_dead_pixels = 0
+        self.dead_pixels_index_list = self.dead_pixels_list.ctypes.data_as(self.ptr)
+        self.list_max_size = self.DEAD_PIXEL_LIST_MAX_SIZE
+        self.is_initialized = True
+
+
+FPC_COMPANION_CHIP_NONE = 0
+FPC_COMPANION_CHIP_FPC2050 = 1
+FPC_COMPANION_CHIP_FPC2060 = 2
+FPC_COMPANION_CHIP_MAX = FPC_COMPANION_CHIP_FPC2060
+FPC_COMPANION_CHIP_UNKNOWN = 0xFF
+
+
+class CompanionChipType(Enum):
+    NONE = FPC_COMPANION_CHIP_NONE
+    FPC2050 = FPC_COMPANION_CHIP_FPC2050
+    FPC2060 = FPC_COMPANION_CHIP_FPC2060
+
+    # New companions here
+    FPC_UNKNOWN_COMPANION = FPC_COMPANION_CHIP_UNKNOWN
+
+
+FPC_PRODUCT_TYPE1080 = 0
+FPC_PRODUCT_TYPE1020 = 1
+FPC_PRODUCT_TYPE1021 = 2
+FPC_PRODUCT_TYPE1025 = 3
+FPC_PRODUCT_TYPE1225 = 4
+FPC_PRODUCT_TYPE1022 = 5
+FPC_PRODUCT_TYPE1035 = 6
+FPC_PRODUCT_TYPE1235 = 7
+FPC_PRODUCT_TYPE1140 = 8
+FPC_PRODUCT_TYPE1145 = 9
+FPC_PRODUCT_TYPE1245 = 10
+FPC_PRODUCT_TYPE1150 = 11
+FPC_PRODUCT_TYPE1155 = 12
+FPC_PRODUCT_TYPE1260 = 13
+FPC_PRODUCT_TYPE1265 = 14
+FPC_PRODUCT_TYPE1268 = 15
+FPC_PRODUCT_TYPE1028 = 16
+FPC_PRODUCT_TYPE1075 = 17
+FPC_PRODUCT_TYPE1320 = 18
+FPC_PRODUCT_TYPE1321 = 19
+FPC_PRODUCT_TYPE1263 = 20
+FPC_PRODUCT_TYPE1262 = 21
+FPC_PRODUCT_TYPE1266 = 22
+FPC_PRODUCT_TYPE1264 = 23
+FPC_PRODUCT_TYPE1272 = 24
+FPC_PRODUCT_TYPE1228 = 25
+FPC_PRODUCT_TYPE1267 = 26
+
+
+class ProductType(Enum):
+    """Product_type enum"""
+    PRODUCT_TYPE_FPC1080 = FPC_PRODUCT_TYPE1080
+    PRODUCT_TYPE_FPC1020 = FPC_PRODUCT_TYPE1020
+    PRODUCT_TYPE_FPC1021 = FPC_PRODUCT_TYPE1021
+    PRODUCT_TYPE_FPC1025 = FPC_PRODUCT_TYPE1025
+    PRODUCT_TYPE_FPC1225 = FPC_PRODUCT_TYPE1225
+    PRODUCT_TYPE_FPC1022 = FPC_PRODUCT_TYPE1022
+    PRODUCT_TYPE_FPC1035 = FPC_PRODUCT_TYPE1035
+    PRODUCT_TYPE_FPC1235 = FPC_PRODUCT_TYPE1235
+    PRODUCT_TYPE_FPC1140 = FPC_PRODUCT_TYPE1140
+    PRODUCT_TYPE_FPC1145 = FPC_PRODUCT_TYPE1145
+    PRODUCT_TYPE_FPC1245 = FPC_PRODUCT_TYPE1245
+    PRODUCT_TYPE_FPC1150 = FPC_PRODUCT_TYPE1150
+    PRODUCT_TYPE_FPC1155 = FPC_PRODUCT_TYPE1155
+    PRODUCT_TYPE_FPC1265 = FPC_PRODUCT_TYPE1265
+    PRODUCT_TYPE_FPC1268 = FPC_PRODUCT_TYPE1268
+    PRODUCT_TYPE_FPC1028 = FPC_PRODUCT_TYPE1028
+    PRODUCT_TYPE_FPC1075 = FPC_PRODUCT_TYPE1075
+    PRODUCT_TYPE_FPC1320 = FPC_PRODUCT_TYPE1320
+    PRODUCT_TYPE_FPC1321 = FPC_PRODUCT_TYPE1321
+    PRODUCT_TYPE_FPC1263 = FPC_PRODUCT_TYPE1263
+    PRODUCT_TYPE_FPC1262 = FPC_PRODUCT_TYPE1262
+    PRODUCT_TYPE_FPC1266 = FPC_PRODUCT_TYPE1266
+    PRODUCT_TYPE_FPC1264 = FPC_PRODUCT_TYPE1264
+    PRODUCT_TYPE_FPC1272 = FPC_PRODUCT_TYPE1272
+    PRODUCT_TYPE_FPC1228 = FPC_PRODUCT_TYPE1228
+    PRODUCT_TYPE_FPC1267 = FPC_PRODUCT_TYPE1267
+    PRODUCT_TYPE_UNKNOWN = 0xff

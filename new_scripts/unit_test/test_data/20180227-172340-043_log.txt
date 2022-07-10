@@ -1,0 +1,160 @@
+
+-> Test ConnectToSensor (TestConnectToSensor)
+:: Sensor: FPC1291_G175 Touch Sensor
+:: Sensor ID: 0E12G6G736051614
+ConnectToSensor: Success (50ms)
+
+-> Test Irq (TestIrq)
+IRQ = 0x00
+SoftReset Sensor...
+IRQ = 0x01
+, Interrupt reg = 0xFF
+Irq: Success (15ms)
+
+-> Test Hardware Id (TestHwId)
+Hardware Id: 0x0E12
+Hardware Id: Success (1ms)
+
+-> Test Afd Cal (TestAfdCal)
+Make sure nothing is in contact with the sensor area
+Afd Cal: Success (154ms)
+
+-> Test Read OTP (TestReadOtp)
+
+Logical OTP Data (32 bytes)
+02 16 D1 DB B3 6C 05 16 A7 89 24 25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+BIT ERROR INFORMATION
+No bit errors were detected
+
+WAFER SECTION: Version Version2
+Package Section Written: NO
+Module Section Written: NO
+LOT ID: G6G736
+X Coordinate: 5
+Y Coordinate = 22
+ID: 20
+Clock Trim OscHi: -2
+Clock Trim OscLow: 9
+Date: 2018-01-05
+
+PACKAGE SECTION: Unsupported version None
+
+MODULE SECTION: Unsupported version None
+
+VENDOR SECTION
+HW Code: 0
+Line Code: 
+Color Code: 0
+Style Code: 0
+FPCB Factory Code: 0
+Version Code: 1
+Vendor Data: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Read OTP: Success (12ms)
+
+-> Test Power State (TestPowerState)
+Check idle state
+Idle Current (404.268)pass than 6000
+Check deep sleep state
+Deep Sleep Current (1.089)pass than 8
+Wait Current (4196.704)pass than 20000
+Capture Current (6762.54)pass than 8000
+Power State: Success (4483ms)
+
+-> Test CTL Defective Pixels (TestCtlDefectivePixels)
+Make sure nothing is in contact with the sensor area
+Checkerboard result...
+  Max deviation: <= 15
+  Type1 median, min 54 max 54 (Limit: > 18 and < 82)
+  Type2 median, min 205 max 207 (Limit: > 183 and < 247)
+  Number of dead pixels: 0 (Limit: < 11)
+Inverted checkerboard result...
+  Max deviation: <= 15
+  Type1 median, min 54 max 54 (Limit: > 18 and < 82)
+  Type2 median, min 205 max 207 (Limit: > 183 and < 247)
+  Number of dead pixels: 0 (Limit: < 11)
+Image constant result...
+  Image constant medians: 121,121,121,121,122,122,122,122
+  Number of image constant pixel errors: 0 (Limit: < 11)
+Swinging checkerboard result...
+  Max deviation: <= 15
+  Type1 median, min 132 max 133 (Limit: > 125 and < 144)
+  Type2 median, min 98 max 98 (Limit: > 82 and < 107)
+  Number of dead pixels: 0 (Limit: < 11)
+Swinging inverted checkerboard result...
+  Max deviation: <= 15
+  Type1 median, min 132 max 133 (Limit: > 123 and < 144)
+  Type2 median, min 98 max 98 (Limit: > 82 and < 107)
+  Number of dead pixels: 0 (Limit: < 11)
+Image drive result...
+  Median Row 1: 109
+  Median Row 2: 88
+  Median Row Middle: 91
+  Median Row Next To Last: 96
+  Median Row Last: 73
+  Median Row Last Inv: 175
+  Median Row 1 Inv: 181
+  Number of pixel errors:  0 (Limit: < 11)
+Number of defective pixels: 0
+Locations of defective pixels:  (Display only the first: 15 locations)
+CTL Defective Pixels: Success (242ms)
+
+-> Test HWCapacitance Test (TestHWCapacitance)
+Put finger on sensor
+0 Uniformity whole 0 block 0
+HWCapacitance Test: Success (1296ms)
+
+-> Test Wait For Finger Up (TestWaitForFingerUp)
+Lift the the rubber stamp from the sensor.
+Post-delay 0.5 seconds.
+Wait For Finger Up: Success (2256ms)
+
+-> Test HWSNRunderglass Test (TestHWSNRunderglass)
+Please put down the rubberstamp!
+SignalThreahold = 11
+NoiseThreahold = 5
+signalnew = 16.3849
+noisenew = 0.2357395
+SnrResultnew = 69.50426
+activeArea = 92.09196
+Signalnew bigger than threshold 11
+HWSNRunderglass Test: Success (4180ms)
+
+-> Test Module Quality Test 2 (TestModuleQuality2)
+Put stamp on sensor...
+Make sure stamp is in contact with sensor
+Image dimensions: 60x128
+SNR(dB): 13.93392
+Blob count: 0
+UDR: 0.6562527
+Udr test value: 67278D3D0080C13E2CD66D41
+Module Quality Test 2: Success (1231ms)
+
+-> Test Write Otp Module (TestWriteOtpModule)
+OPEN VDD FOR MOUDLE written!
+Writing OTP...
+--- WRITTEN MODULE SECTION ---
+Version = 3
+Module House = 48
+Test Result = Passed
+FPC Product = 1
+Coating type = Glass
+Coating thickness = 35
+Sidebuttons available = True
+External force sensor available available = True
+Production Date = 2018-02-27
+
+Write Otp Module: Success (1257ms)
+
+-> Test Write Otp Vendor (TestWriteOtpVendor)
+OPEN VDD FOR VENDOR written!
+Writing OTP...
+--- WRITTEN VENDOR SECTION ---
+Vendor data = 68 41 10 12 00 00 00 00 00 00 00 00 00
+Write Otp Vendor: Success (841ms)
+
+-> Test Check Otp (TestCheckOTP)
+vendor otp data: 68 41 10 12
+qrCode data: 68 41 10 12
+Check Otp: Success (30ms)
+==> Module Test: Success (Test time: 16033ms)

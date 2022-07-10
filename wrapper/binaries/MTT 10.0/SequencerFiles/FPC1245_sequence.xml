@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" BreakSequenceIfFail="true" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLib">
+        <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Reset Pixel" Class="TestsModule.Tests.TestResetPixels">
+        <Parameter Class="TestsModule.Data.ResetPixelsSettings">ResetPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+        <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings1235_1245.xml</Parameter>
+        <Parameter Class="TestsModule.Data.ResetPixelsSettings">ResetPixelsSettings.xml</Parameter>
+    </Test>
+</Sequence>

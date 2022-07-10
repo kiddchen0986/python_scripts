@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ImageScoringSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <AdcGain>4</AdcGain>
+    <!-- Timeout for finger detect in ms-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+    <!-- Time to stabilize finger after finger detect in ms -->
+    <StabilizeAfterForFingerDetect>100</StabilizeAfterForFingerDetect>
+    <!-- Score should be equal or higher than this value -->
+    <ScoreThreshold>25</ScoreThreshold>
+    <!-- Coverage should be equal or higher than this value -->
+    <CoverageThreshold>100</CoverageThreshold>
+
+    <!-- These settings define the criterias for considering a image or pixel as saturated -->
+    <SaturationDefinitions>
+        <ImageWhiteSaturatedThreshold>15</ImageWhiteSaturatedThreshold>
+        <BlackIsSaturatedPixel>2</BlackIsSaturatedPixel>
+        <WhiteIsSaturatedPixel>253</WhiteIsSaturatedPixel>
+    </SaturationDefinitions>
+</ImageScoringSettings>

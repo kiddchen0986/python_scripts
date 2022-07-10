@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+  <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+  <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+  <Test Name="Companion Hardware Id" Class="TestsModule.Tests.TestCompanionHwId">
+    <Parameter Class="TestsModule.Data.ApprovedCompanions">ApprovedCompanions126x.xml</Parameter>
+  </Test>
+  <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+  </Test>
+  <Test Name="Module Quality" Class="TestsModule.Tests.TestModuleQuality">
+    <Parameter Class="TestsModule.Data.ModuleQualitySettings">ModuleQualitySettings_1267.xml</Parameter>
+  </Test>
+</Sequence>

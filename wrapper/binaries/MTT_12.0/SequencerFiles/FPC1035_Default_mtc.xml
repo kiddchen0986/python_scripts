@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Validate attached Mtc" Class="TestsModule.Tests.TestMtcValidateHardware" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.MtcValidationHardwareSettings">MtcValidationHardwareSettings.xml</Parameter>
+    </Test>
+    <Test Name="Continuity" Class="TestsModule.Tests.TestMtcContinuity">
+        <Parameter Class="TestsModule.Data.MtcContinuitySettings">MtcContinuitySettings_1035.xml</Parameter>
+    </Test>
+    <Test Name="Current consumption" Class="TestsModule.Tests.TestMtcCurrentMeasurements">
+        <Parameter Class="TestsModule.Data.MtcCurrentMeasurementsSettings">MtcCurrentMeasurementSettings_1035.xml</Parameter>
+    </Test>
+    <Test Name="Swing" Class="TestsModule.Tests.TestMtcSwing">
+        <Parameter Class="TestsModule.Data.MtcSwingSettings">MtcSwingSettings_1035.xml</Parameter>
+    </Test>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" BreakSequenceIfFail="true" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsBuiltIn">
+        <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Reset Pixel" Class="TestsModule.Tests.TestResetPixels">
+        <Parameter Class="TestsModule.Data.ResetPixelsSettings">ResetPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Analog Finger Detect calibration with rubberstamp" Class="TestsModule.Tests.TestAfdCalibrationWithRubberstamp">
+        <Parameter Class="TestsModule.Data.AfdCalibrationWithRubberstampSettings">AfdCalibrationWithRubberstampSettings1035-1235.xml</Parameter>
+    </Test>
+    <Test Name="Analog Finger Detect with rubberstamp" Class="TestsModule.Tests.TestAnalogFingerDetectWithRubberstamp">
+        <Parameter Class="TestsModule.Data.AfdCalibrationSettings">AfdCalibrationSettingsRev1.xml</Parameter>
+    </Test>
+    <!--
+        Because the Analog Finger Detect test uses a different stamp than the Image Quality test,
+        wait for the first stamp to be lifted here. -->
+    <!--<Test Name="Wait For Finger Up" Class="TestsModule.Tests.TestWaitForFingerUp">
+        <Parameter Class="TestsModule.Data.WaitForFingerUpSettings">WaitForFingerUpSettings.xml</Parameter>
+    </Test>-->
+    <Test Name="Image Quality" Class="TestsModule.Tests.TestImageQuality">
+        <Parameter Class="TestsModule.Data.ImageQualitySettings">ImageQualitySettings.xml</Parameter>
+    </Test>
+</Sequence>

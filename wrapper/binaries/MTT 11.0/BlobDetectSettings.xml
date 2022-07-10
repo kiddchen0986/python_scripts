@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BlobDetectSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DoApns>true</DoApns>
+  <SnrPreset>1</SnrPreset>
+  <WaitTimeOut>10000</WaitTimeOut>
+  <Crop>0,0,0,0</Crop>
+
+  <BlobConfig>
+    <blob_threshold>2.0e-6</blob_threshold>
+    <max_number_of_blob_pixels>7</max_number_of_blob_pixels>
+  </BlobConfig>
+</BlobDetectSettings>

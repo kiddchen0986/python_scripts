@@ -1,0 +1,16 @@
+mtt_parser/mtt_tools/__pycache__
+mtt_parser/sand
+mtt_parser/utils
+mtt_parser/output.csv
+mtt_parser/test_logs
+mtt_parser/docs/source/conf.py~
+mtt_parser/docs/source/index.rst~
+mtt_parser/docs/source/mtt_tools.rst~
+__pycache__
+.idea
+temp/
+playground/
+docs_doxygen/
+i-o_files/results/
+docs
+i-o_files/results/

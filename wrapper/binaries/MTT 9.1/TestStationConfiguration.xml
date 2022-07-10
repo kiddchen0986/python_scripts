@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestStationConfigurationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Write OTP Settings -->
+    <!-- Option to use FT232/ACBUS2 (FPC5832 Yellow LED) as VDD_OTP and FT232/ACBUS0 (FPC5832 Green LED) as GND_SENS -->
+    <OtpConfiguration>
+        <VddOtpControl>false</VddOtpControl>
+        <GndSensControl>false</GndSensControl>
+    </OtpConfiguration>
+</TestStationConfigurationSettings>

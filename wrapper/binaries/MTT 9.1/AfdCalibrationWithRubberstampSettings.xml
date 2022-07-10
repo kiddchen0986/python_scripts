@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AfdCalibrationWithRubberstampSettings>
+    <!-- Delay in miliseconds between rubberstamp detection and test execution -->
+    <Delay>500</Delay>
+</AfdCalibrationWithRubberstampSettings>

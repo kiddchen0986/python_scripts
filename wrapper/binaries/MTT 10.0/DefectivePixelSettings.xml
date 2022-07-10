@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DefectivePixelSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- how many unique dead pixels should be printed in the log files-->
+  <MaxNumberOfPrintedDeadPixels>15</MaxNumberOfPrintedDeadPixels>
+
+  <DeadPixelsSettings>
+    <!-- For boolean values (true/false) you have to use lower case letter -->
+    <!-- The setting OverrideDefaultCriteria details if the criteria value(s) below is/are to be used or not. If false, the default value(s) is/are used. -->
+    <OverrideDefaultCriteria>false</OverrideDefaultCriteria>
+    <!-- The upper limit of the number of dead pixels that are allowed -->
+    <PixelErrorsLimit>10</PixelErrorsLimit>
+    <MaxDeviation>25</MaxDeviation>
+  </DeadPixelsSettings>
+
+  <ResetPixelsSettings>
+    <UseSettingsFromFile>false</UseSettingsFromFile>
+    <ResetPixelConfig>
+      <lower_limit_from_median>55</lower_limit_from_median>
+      <higer_limit_from_median>55</higer_limit_from_median>
+      <reset_error_upper_limit>5</reset_error_upper_limit>
+    </ResetPixelConfig>
+  </ResetPixelsSettings>
+
+  <ImageConstantSettings>
+    <OverrideDefaultCriteria>false</OverrideDefaultCriteria>
+    <!-- The upper limit of the number of pixel errors that are allowed -->
+    <ImageConstantPixelErrorsLimit>11</ImageConstantPixelErrorsLimit>
+    <!-- Acceptance criterias for median lower and upper limit -->
+    <ImageConstantMedianLowerLimit>202</ImageConstantMedianLowerLimit>
+    <ImageConstantMedianUpperLimit>220</ImageConstantMedianUpperLimit>
+  </ImageConstantSettings>
+
+  <IgnoreResult>true</IgnoreResult>
+</DefectivePixelSettings>

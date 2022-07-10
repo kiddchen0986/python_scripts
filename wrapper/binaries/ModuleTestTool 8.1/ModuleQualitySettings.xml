@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModuleQualitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!--
+        Specifies how much to crop the image for calibration (does not affect analysis).
+    -->
+    <CalibrationCrop>3,0,3,3</CalibrationCrop>
+    <CaptureSettings>
+        <AdcShift>17</AdcShift>
+        <AdcGain>0</AdcGain>
+        <PixelGain>0</PixelGain>
+        <DacOffset>20</DacOffset>
+    </CaptureSettings>
+    <!-- Timeout for finger detect in ms-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+    <!-- Time to stabilize finger after finger detect in ms -->
+    <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+
+    <!--
+        Specifies how much to crop the image for analysis.
+    -->
+    <AnalysisCrop>3,0,3,3</AnalysisCrop>
+    <SnrLimit>-5</SnrLimit>
+</ModuleQualitySettings>

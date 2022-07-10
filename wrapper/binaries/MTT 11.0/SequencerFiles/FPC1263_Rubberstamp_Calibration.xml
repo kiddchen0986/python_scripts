@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="RubberstampCalibration" Class="TestsModule.Tests.TestRubberstampCalibration">
+        <Parameter Class="TestsModule.Data.RubberstampCalibrationSettings">RubberstampCalibrationSettings.xml</Parameter>
+    </Test>
+</Sequence>

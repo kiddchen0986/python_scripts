@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessedImageSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AutoTime>10000</AutoTime>
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+  <DelayCaptureAfterFingerDetect>500</DelayCaptureAfterFingerDetect>
+  <NumberOfCapturedImages>40</NumberOfCapturedImages>
+  <!-- Capture settings for image calibration -->
+  <CaptureSettings>
+    <AdcShift>17</AdcShift>
+    <AdcGain>0</AdcGain>
+    <PixelGain>0</PixelGain>
+    <DacOffset>20</DacOffset>
+  </CaptureSettings>
+
+  <CalibrationCrop>0,0,0,0</CalibrationCrop>
+</ProcessedImageSettings>

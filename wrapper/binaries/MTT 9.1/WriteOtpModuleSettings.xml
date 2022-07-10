@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WriteOtpModuleSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- For boolean values (true/false) you have to use lower case letter -->
+    <LayoutFormatVersion>1</LayoutFormatVersion>
+    <!-- Select a non-zero value from ModuleHouse.cs -->
+    <ModuleHouse>0</ModuleHouse>
+    <!-- FpcModuleDesignVersion - Reserved for FPC | keep this to default 0 -->
+    <FpcModuleDesignVersion>0</FpcModuleDesignVersion>
+    <!-- If set to true, WriteOtpModule() will fail if the Vendor section of the OTP is already written -->
+    <!-- If set to false, WriteOtpModule() will pass if the Vendor section of the OTP is already written -->
+    <!-- Default value is false -->
+    <FailAtRetest>false</FailAtRetest>
+    <!-- If set to true, WriteOtpModule() will fail if the SIP/Package section of the OTP isn't written (empty)-->
+    <!-- Default value is false -->
+    <FailIfSipPackageSectionIsEmpty>false</FailIfSipPackageSectionIsEmpty>
+</WriteOtpModuleSettings>

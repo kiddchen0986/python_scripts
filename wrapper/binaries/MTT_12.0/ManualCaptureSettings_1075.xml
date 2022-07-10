@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ManualCaptureSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Setting timeout in ms, set to 0 = infinite-->
+    <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+    <StabilizeDelayAfterForFingerDetect>500</StabilizeDelayAfterForFingerDetect>
+    <!-- UseSpecificCaptureSettings
+        true  - Use static settings from this file
+        false - Use default static settings [default] 
+    -->
+    <UseSpecificCaptureSettings>true</UseSpecificCaptureSettings>
+    <CaptureSettings>
+        <AdcShift>14</AdcShift>
+        <AdcGain>0</AdcGain>
+        <PixelGain>6</PixelGain>
+        <DacOffset>18</DacOffset>
+    </CaptureSettings>
+</ManualCaptureSettings>

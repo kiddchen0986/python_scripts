@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Validate attached Mtc" Class="TestsModule.Tests.TestMtcValidateHardware" BreakSequenceIfFail="true">
+        <Parameter Class="TestsModule.Data.MtcValidationHardwareSettings">MtcValidationHardwareSettings.xml</Parameter>
+    </Test>
+    <Test Name="Continuity" Class="TestsModule.Tests.TestMtcContinuity">
+        <Parameter Class="TestsModule.Data.MtcContinuitySettings">MtcContinuitySettings_1268.xml</Parameter>
+    </Test>
+    <Test Name="Current consumption" Class="TestsModule.Tests.TestMtcCurrentMeasurements">
+        <Parameter Class="TestsModule.Data.MtcCurrentMeasurementsSettings">MtcCurrentMeasurementSettings_1268.xml</Parameter>
+    </Test>
+    <Test Name="Swing" Class="TestsModule.Tests.TestMtcSwing">
+        <Parameter Class="TestsModule.Data.MtcSwingSettings">MtcSwingSettings_1268.xml</Parameter>
+    </Test>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+    <Test Name="Companion Hardware Id" Class="TestsModule.Tests.TestCompanionHwId">
+    <Parameter Class="TestsModule.Data.ApprovedCompanions">ApprovedCompanions1268.xml</Parameter>
+    </Test>
+    <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+    <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+    </Test>
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLibGradient">
+    <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+    <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings1268.xml</Parameter>
+    </Test>
+    <Test Name="PN generation" Class="TestsModule.Tests.TestPnGeneration">
+    <Parameter Class="TestsModule.Data.PnGenerationSettings">PnGenerationSettings.xml</Parameter>
+    </Test>
+    <Test Name="Analog Finger Detect calibration with rubberstamp" Class="TestsModule.Tests.TestAfdCalibrationWithRubberstamp">
+    <Parameter Class="TestsModule.Data.AfdCalibrationWithRubberstampSettings">AfdCalibrationWithRubberstampSettings.xml</Parameter>
+    </Test>
+</Sequence>

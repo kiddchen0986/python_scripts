@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModuleQualitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Timeout for finger detect in ms-->
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+  <!-- Time to stabilize finger after finger detect in ms -->
+  <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+
+  <!--
+        Specifies how much to crop the image for analysis.
+    -->
+  <AnalysisCrop>4,4,4,4</AnalysisCrop>
+  <SnrLimit>8</SnrLimit>
+  <!-- 0 is default value, other values are used in specific cases -->
+  <LimitsPreset>1</LimitsPreset>
+
+  <DoApns>false</DoApns>
+</ModuleQualitySettings>

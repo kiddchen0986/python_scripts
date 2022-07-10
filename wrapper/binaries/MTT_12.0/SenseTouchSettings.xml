@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SenseTouchSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Adc shift -->
+  <AdcShift>6</AdcShift>
+  <!-- Adc gain -->
+  <AdcGain>1</AdcGain>
+  <!-- Sets if the values should be interpreted inverted (value = 255 - original_value) -->
+  <InvertedValue>true</InvertedValue>
+  <!-- Deleay in milliseconds after finger detect before samples are collected-->
+  <StabilizeAfterForFingerDetect>500</StabilizeAfterForFingerDetect>
+  <!-- The minimum accepted value for Level-0, No Force 0% -->
+  <Level0IntervalMoreThan>-1</Level0IntervalMoreThan>
+  <!-- The maximum accepted value for Level-0, No Force 0% -->
+  <Level0IntervalLessThan>20</Level0IntervalLessThan>
+  <!-- The number of samples collected for Level-0, No Force 0% -->
+  <Level0NbrOfSamples>16</Level0NbrOfSamples>
+  <!-- The minimum accepted value for Level-1, Force 80% of maximum -->
+  <Level1IntervalMoreThan>160</Level1IntervalMoreThan>
+  <!-- The maximum accepted value for Level-1, Force 80% of maximum -->
+  <Level1IntervalLessThan>250</Level1IntervalLessThan>
+  <!-- The number of samples collected for Level-1, Force 80% of maximum -->
+  <Level1NbrOfSamples>16</Level1NbrOfSamples>
+</SenseTouchSettings>

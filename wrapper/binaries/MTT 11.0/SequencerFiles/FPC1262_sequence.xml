@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sequence>
+    <Test Name="Irq" Class="TestsModule.Tests.TestIrq" />
+    <Test Name="Hardware Id" Class="TestsModule.Tests.TestHwId" />
+    <Test Name="Read OTP" Class="TestsModule.Tests.TestReadOtp">
+      <Parameter Class="TestsModule.Data.ReadOtpSettings">ReadOtpSettings.xml</Parameter>
+    </Test>
+    <Test Name="Dead Pixel" Class="TestsModule.Tests.TestDeadPixelsProdTestLibGradient">
+        <Parameter Class="TestsModule.Data.DeadPixelsSettings">DeadPixelsSettings.xml</Parameter>
+    </Test>
+    <Test Name="Capacitance Test" Class="TestsModule.Tests.TestCapacitance">
+        <Parameter Class="TestsModule.Data.CapacitanceSettings">CapacitanceSettings1262.xml</Parameter>
+    </Test>
+    <!-- Wait for finger up is only needed if you need to change rubberstamp-->
+    <!--<Test Name="Wait For Finger Up" Class="TestsModule.Tests.TestWaitForFingerUp">
+        <Parameter Class="TestsModule.Data.WaitForFingerUpSettings">WaitForFingerUpSettings.xml</Parameter>
+    </Test>-->
+    <Test Name="Analog Finger Detect calibration with rubberstamp" Class="TestsModule.Tests.TestAfdCalibrationWithRubberstamp">
+        <Parameter Class="TestsModule.Data.AfdCalibrationWithRubberstampSettings">AfdCalibrationWithRubberstampSettings.xml</Parameter>
+    </Test>
+    <!-- To enable OTP-writing uncomment the files below. VDDOTP must be connected to stable 3.3V
+         and GND_SENS must be connected to GND. These signals can not be enable for any other tests.
+         Make sure to configure the .xml according to your setting
+    -->
+    <!--<Test Name="Write Otp Module" Class="TestsModule.Tests.TestWriteOtpModule">
+        <Parameter Class="TestsModule.Data.WriteOtpModuleSettings">WriteOtpModuleSettings.xml</Parameter>
+    </Test>
+    <Test Name="Write Otp Vendor" Class="TestsModule.Tests.TestWriteOtpVendor">
+        <Parameter Class="TestsModule.Data.WriteOtpVendorSettings">WriteOtpVendorSettings.xml</Parameter>
+    </Test>-->
+ </Sequence>

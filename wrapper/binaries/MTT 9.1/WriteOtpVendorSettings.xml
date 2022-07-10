@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WriteOtpVendorSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Specify the 7 Vendor Data bytes as decimal values -->
+    <VendorData0>0</VendorData0>
+    <!-- 0-255 -->
+    <VendorData1>0</VendorData1>
+    <!-- 0-255 -->
+    <VendorData2>0</VendorData2>
+    <!-- 0-255 -->
+    <VendorData3>0</VendorData3>
+    <!-- 0-255 -->
+    <VendorData4>0</VendorData4>
+    <!-- 0-255 -->
+    <VendorData5>0</VendorData5>
+    <!-- 0-255 -->
+    <VendorData6>0</VendorData6>
+    <!-- 0-255 -->
+    <!-- If set to true, WriteOtpVendor() will fail immediately if the Vendor section of the OTP is already written -->
+    <!-- If set to false, WriteOtpVendor() will execute normally, provided the Vendor section of the OTP is already written -->
+    <!-- Default value is false -->
+    <FailAtRetest>false</FailAtRetest>
+</WriteOtpVendorSettings>

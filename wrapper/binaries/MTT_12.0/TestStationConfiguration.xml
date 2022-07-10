@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestStationConfigurationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Identification>
+    <UniqueModuleIdSetting>UmiFromSensorId</UniqueModuleIdSetting>
+    <UserInputFilter>.*</UserInputFilter>
+  </Identification>
+  <OtpConfiguration>
+    <VddOtpControl>false</VddOtpControl>
+    <GndSensControl>false</GndSensControl>
+  </OtpConfiguration>
+  <ControlSequences SelectedSequence="Manual">
+    <ControlSequence Name="Manual" Path="ControlSequenceFiles\SequenceControlDefault.xml" />
+    <ControlSequence Name="Automation" Path="ControlSequenceFiles\SequenceControlAutomation.xml" FixtureControlDllPath="" />
+  </ControlSequences>
+  <TestReportFolder>$(ProgramDir)\$(DeviceUniqueId)</TestReportFolder>
+</TestStationConfigurationSettings>

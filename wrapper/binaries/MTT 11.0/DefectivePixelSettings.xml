@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DefectivePixelSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- how many unique dead pixels should be printed in the log files-->
+  <MaxNumberOfPrintedDeadPixels>15</MaxNumberOfPrintedDeadPixels>
+
+  <!-- For boolean values (true/false) you have to use lower case letter -->
+  <!-- The setting OverrideDefaultCriteria details if the criteria value(s) below is/are to be used or not. If false, the default value(s) is/are used. -->
+  <OverrideDefaultCriteria>false</OverrideDefaultCriteria>
+
+  <!--Dead pixel test settings-->
+  <!-- The upper limit of the number of dead pixels that are allowed -->
+  <DeadPixelErrorUpperLimit>10</DeadPixelErrorUpperLimit>
+  <DeadPixelMaxDeviation>25</DeadPixelMaxDeviation>
+
+  <!--Reset pixel test settings-->
+  <ResetPixelLowerLimitMedian>55</ResetPixelLowerLimitMedian>
+  <ResetPixelHigherLimitMedian>55</ResetPixelHigherLimitMedian>
+  <ResetErrorUpperLimit>5</ResetErrorUpperLimit>
+
+  <!--Image constant test settings-->
+  <!-- The upper limit of the number of pixel errors that are allowed -->
+  <ImageConstantPixelErrorsLimit>11</ImageConstantPixelErrorsLimit>
+  <!-- Acceptance criterias for median lower and upper limit -->
+  <ImageConstantMedianLowerLimit>202</ImageConstantMedianLowerLimit>
+  <ImageConstantMedianUpperLimit>220</ImageConstantMedianUpperLimit>
+</DefectivePixelSettings>

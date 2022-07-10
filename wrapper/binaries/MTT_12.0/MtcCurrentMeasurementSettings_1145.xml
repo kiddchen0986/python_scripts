@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcCurrentMeasurementsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the MTC current measurements. -->
+    <!-- *** 1145 *** -->
+
+    <!-- The Xml element CurrentsToMeasure describes one or more currents that's going to be measured -->
+    <!-- Current                 - The name of the current such as IDDD, IDDIO etc. -->
+    <!-- NumberOfSamples         - The number of sample you want to take during one measurement -->
+    <!-- DelayedStart            - The number of milliseconds to wait before taking measurement action.-->
+    <!-- UseAverage                If an average should be used. If not, the peak value is used -->
+    <!-- AdditionIndex           - The index of additive measurements. If AdditionIndex is zero (0), the function is not used -->
+    <!-- MinMaxDiffLowerLimit    - The lowest difference allowed between max and min measurement points. Not used if UseAverage is enabled and/or both upper and lower values are zero -->
+    <!-- MinMaxDiffUpperLimit    - The highest difference allowed between max and min measurement points. Not used if UseAverage is enabled and/or both upper and lower values are zero -->
+    <!-- LowerLimit              - Minimum allowed value (in mA) for this current. If both upper and lower values are set to zero (or not set at all) no range checking will be done-->
+    <!-- UpperLimit              - Max allowed value (in mA) for this current. If both upper and lower values are set to zero (or not set at all) no range checking will be done-->
+    <!-- MeasurementMode         - The sensor measurement mode - Active, DeepSleep -->
+
+    <CurrentsToMeasure Current="IDDD" NumberOfSamples="30" AdditionIndex="0"
+                       DelayedStart="0" UseAverage="false"
+                       LowerLimit="0.2" UpperLimit="7"
+                       MinMaxDiffLowerLimit="1.5" MinMaxDiffUpperLimit="20"
+                       MeasurementMode="Active"/>
+
+    <CurrentsToMeasure Current="IDDD" NumberOfSamples="500" AdditionIndex="1" MeasTimeOffset="0" UseAverage="true" MeasurementMode="DeepSleep"/>
+    <CurrentsToMeasure Current="IDDIO" NumberOfSamples="500" AdditionIndex="1" MeasTimeOffset="0" UseAverage="true" MeasurementMode="DeepSleep"/>
+
+    <!-- The Xml element Limits describes one or more limits -->
+    <!-- Index              - The index of the limit. This should correspond to the additive AdditionIndex above -->
+    <!-- UpperLimit         - The maximum current allowed (in mA) -->
+    <Limits Index="1" UpperLimit="0.0065"></Limits>
+
+
+
+    <!-- The items below are mostly for trouble shooting since they store data to disc-->
+    <!-- If the samples should be stored to a csv file. There will be a csv file for each current listed above -->
+    <StoreSamplesToFile>false</StoreSamplesToFile>
+    <!-- The path and a prefixfilename to be used for measurement results. Please note that no extension should be given
+         to the prefix. The extension (along with extended information) will be appended automatically to a complete filename.
+         If the folder path does not exist, it will be created ! -->
+    <SamplePathAndFile>C:\FpcDebug\1145\MeasResult</SamplePathAndFile>
+
+</MtcCurrentMeasurementsSettings>

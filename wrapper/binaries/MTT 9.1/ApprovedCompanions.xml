@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApprovedCompanions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- A list of hardware id companion id, if not in the list the test will fail -->
+    <ApprovedCompanion>
+        <HardwareId>0412</HardwareId>
+    </ApprovedCompanion>
+</ApprovedCompanions>

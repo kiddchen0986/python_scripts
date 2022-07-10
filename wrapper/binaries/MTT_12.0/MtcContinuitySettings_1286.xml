@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MtcContinuitySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- This is the settings file for the MTC Continuity. -->
+    <!-- *** 1286 (Braga) *** -->
+
+    <!-- The Xml element Route describes one or continuity routes to measure -->
+    <!-- SignalPad               - The signal pad** that is to be measured -->
+    <!-- ReferencePad            - The pad** that is to be used as reference for the signal pad -->
+    <!-- Direction               - The current direction*** (from signal pad -> reference pad : Positive ; reference pad -> signal pad Negative) -->
+    <!-- UpperLimit              - The upper voltage limit -->
+    <!-- LowerLimit              - The lower voltage limit-->
+
+    <!-- **  Pad names can be one of the following GND, VDDD, VDDIO, VDDTX -->
+    <!-- *** Direction could be either Positive or Negative -->
+
+
+    <Route FriendlyName ="SPICLK ← GND" SignalPad="SPICLK" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="SPICLK → VDDIO" SignalPad="SPICLK" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="CS_N ← GND" SignalPad="CS_N" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="CS_N → VDDIO" SignalPad="CS_N" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="MOSI ← GND" SignalPad="MOSI" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="MOSI → VDDIO" SignalPad="MOSI" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="RST_N ← GND" SignalPad="RST_N" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="RST_N ← VDDIO" SignalPad="RST_N" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="MISO ← GND" SignalPad="MISO" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="MISO → VDDIO" SignalPad="MISO" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="IRQ ← GND" SignalPad="IRQ" ReferencePad="GND" Direction="Negative" LowerLimit="-0.8" UpperLimit="-0.2"/>
+    <Route FriendlyName ="IRQ → VDDIO" SignalPad="IRQ" ReferencePad="VDDIO" Direction="Positive" LowerLimit="0.2" UpperLimit="0.6"/>
+
+    <Route FriendlyName ="VDDD ← GND" SignalPad="VDDD" ReferencePad="GND" Direction="Negative" LowerLimit="-0.5" UpperLimit="-0.1"/>
+
+    <Route FriendlyName ="VDDIO ← GND" SignalPad="VDDIO" ReferencePad="GND" Direction="Negative" LowerLimit="-0.5" UpperLimit="-0.1"/>
+
+</MtcContinuitySettings>

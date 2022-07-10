@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CapacitanceSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- Setting this to true will enable pixel bias calibration if product supports it -->
+  <UsePixelCalibration>true</UsePixelCalibration>
+  <!-- For boolean values (true/false) you have to use lower case letters -->
+  <AutoTime>10000</AutoTime>
+  <!-- Time in milliseconds -->
+  <EnableSignalStrength>false</EnableSignalStrength>
+  <MinSignalStrength>0.0</MinSignalStrength>
+  <MaxSignalStrength>10.0</MaxSignalStrength>
+  <MaxUniformityLevel>0.15</MaxUniformityLevel>
+  <MultiSamplingLevel>-1</MultiSamplingLevel>
+  <!-- -1 = will use default sampling level -->
+  <UseSettingsFromFile>false</UseSettingsFromFile>
+  <!-- If this set to true, the number below will be used instead of default-->
+  <BlobConfig>
+    <blob_threshold>3.5e-6</blob_threshold>
+    <max_number_of_blob_pixels>7</max_number_of_blob_pixels>
+  </BlobConfig>
+  <!-- Setting this to true, will not fail test based on blob test outcome -->
+  <SuppressBlobTestResult>false</SuppressBlobTestResult>
+  <!-- Setting timeout to 0 = infinite-->
+  <TimeOutWaitForFingerDetect>10000</TimeOutWaitForFingerDetect>
+  <!-- Enable/Disable cropping -->
+  <CropImage>false</CropImage>
+  <!-- How much of the image should be cropped top, bottom, left, right -->
+  <CropMargin>0,0,0,0</CropMargin>
+
+  <TimeoutSeconds>20.2</TimeoutSeconds>
+  <FailOnTimeout>true</FailOnTimeout>
+  <PostDelaySeconds>0.5</PostDelaySeconds>
+  <StabilizeAfterForFingerDetect>1000</StabilizeAfterForFingerDetect>
+</CapacitanceSettings>

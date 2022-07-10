@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<AfdCalibrationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- The minimum run level to test.  -->
+    <MinValue>15</MinValue>
+    <!-- The maximum run level to test.  -->
+    <MaxValue>22</MaxValue>
+    <!-- The maximum intensity that finger detect should run -->
+    <MaxIntensity>25</MaxIntensity>
+    <!-- Requirement for Analog Finger Detect -->
+    <AfdDataRequirement>15</AfdDataRequirement>
+    <TimeoutSeconds>20.2</TimeoutSeconds>
+</AfdCalibrationSettings>

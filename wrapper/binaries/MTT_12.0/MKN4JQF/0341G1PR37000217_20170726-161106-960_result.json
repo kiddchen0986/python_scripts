@@ -1,0 +1,228 @@
+{
+  "Identity": {
+    "UniqueModuleId": "0341G1PR37000217",
+    "UniqueModuleIdSetting": "UmiFromSensorId",
+    "SensorId": "0341G1PR37000217",
+    "SensorIdReadStatus": "FPC_SUCCESS"
+  },
+  "TestReportItems": [
+    {
+      "Name": "ConnectToSensor",
+      "Result": {
+        "TestName": "TestConnectToSensor",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 117,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {}
+        }
+      }
+    },
+    {
+      "Name": "Irq",
+      "Result": {
+        "TestName": "TestIrq",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 19,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-07-26T16:11:07.1090089+02:00",
+              "Items": {
+                "irqPin": "0x00"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Hardware Id",
+      "Result": {
+        "TestName": "TestHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 2,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-07-26T16:11:07.1290511+02:00",
+              "Items": {
+                "hwid": "0x0341"
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-07-26T16:11:07.1305552+02:00",
+              "Items": {
+                "matches_connected_sensor": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Companion Hardware Id",
+      "Result": {
+        "TestName": "TestCompanionHwId",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 3,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-07-26T16:11:07.1554765+02:00",
+              "Items": {
+                "companion_hwid": 1043
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-07-26T16:11:07.1559779+02:00",
+              "Items": {
+                "is_unknown": 0,
+                "product_approval_status": "Approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Read OTP",
+      "Result": {
+        "TestName": "TestReadOtp",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 46,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-07-26T16:11:07.1766048+02:00",
+              "Items": {
+                "OtpData": "02 16 34 29 33 6E 00 02 BF 09 21 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                "TotalBitErrors": 0,
+                "MaxBitErrorsInOneByte": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Dead Pixel",
+      "Result": {
+        "TestName": "TestDeadPixelsProdTestLibGradient",
+        "TestMethodConclusion": "Success",
+        "TestTimeMilliseconds": 100,
+        "Warning": false,
+        "TestLog": {
+          "Steps": {
+            "measurement": {
+              "DateTime": "2017-07-26T16:11:07.2175481+02:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.DeadPixelsSettings, TestsModule",
+                  "OverrideDefaultCriteria": false,
+                  "PixelErrorsLimit": 10,
+                  "MaxDeviation": 25
+                },
+                "results": {
+                  "$type": "TestsModule.Tests.TestDeadPixels+MeasurementResults, TestsModule",
+                  "CheckerboardImage": "0341G1PR37000217_20170726-161106-960_CheckerboardImage.png",
+                  "InvertedCheckerboardImage": "0341G1PR37000217_20170726-161106-960_InvertedCheckerboardImage.png"
+                }
+              }
+            },
+            "analysis": {
+              "DateTime": "2017-07-26T16:11:07.2715985+02:00",
+              "Items": {
+                "cb_type1_min_histogram_median": 48,
+                "cb_type1_max_histogram_median": 48,
+                "cb_type2_min_histogram_median": 225,
+                "cb_type2_max_histogram_median": 226,
+                "cb_pixel_errors": 0,
+                "cb_sub_area_errors": 0,
+                "icb_type1_min_histogram_median": 47,
+                "icb_type1_max_histogram_median": 48,
+                "icb_type2_min_histogram_median": 226,
+                "icb_type2_max_histogram_median": 227,
+                "icb_pixel_errors": 0,
+                "icb_sub_area_errors": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Capacitance Test 2",
+      "Result": {
+        "TestName": "TestCapacitance2",
+        "TestMethodConclusion": "Exception",
+        "TestTimeMilliseconds": 10183,
+        "Warning": false,
+        "Exception": {
+          "ClassName": "SensorApiNet.Exception.SensorApiException",
+          "Message": "ThrowIfFailed: WaitAndCaptureImage (FPC_FINGERDETECT_TIMEOUT)",
+          "Data": null,
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": "   at Sequencer.Models.TestRunner.ThrowIfAnyTestHaveException(ITestReport testReport, Exception possibleException)\r\n   at Sequencer.Models.TestRunner.RunTestSequence(ITestReport testReport, TestItems testItems)\r\n   at Sequencer.Models.Sequencer.RunControlSequence(SequenceType sequenceType, ITestReport testReport)\r\n   at Sequencer.Models.Sequencer.RunSequence()",
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": "8\nThrowIfAnyTestHaveException\nSequencer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nSequencer.Models.TestRunner\nVoid ThrowIfAnyTestHaveException(Sequencer.Models.Interface.ITestReport, System.Exception)",
+          "HResult": -2146233088,
+          "Source": "Sequencer",
+          "WatsonBuckets": null
+        },
+        "TestLog": {
+          "Steps": {
+            "initialization": {
+              "DateTime": "2017-07-26T16:11:07.4251334+02:00",
+              "Items": {
+                "settings": {
+                  "$type": "TestsModule.Data.CapacitanceSettings, TestsModule",
+                  "UsePixelCalibration": true,
+                  "AutoTime": 10000,
+                  "EnableSignalStrength": true,
+                  "MinSignalStrength": 0.3,
+                  "MaxSignalStrength": 1.7,
+                  "MaxUniformityLevel": 0.15,
+                  "MultiSamplingLevel": -1,
+                  "UseSettingsFromFile": false,
+                  "BlobConfig": {
+                    "$type": "ProdTestLibNet.Struct.fpc_blob_config_t, ProdTestLibNet",
+                    "blob_threshold": 3.5E-06,
+                    "max_number_of_blob_pixels": 7
+                  },
+                  "SuppressBlobTestResult": false,
+                  "TimeOutWaitForFingerDetect": 10000,
+                  "CropImage": true,
+                  "CropMargin": "3,0,3,3",
+                  "TimeoutSeconds": 20.2,
+                  "FailOnTimeout": true,
+                  "PostDelaySeconds": 0.5,
+                  "StabilizeAfterForFingerDetect": 1000
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "Analog Finger Detect calibration with rubberstamp",
+      "Result": {
+        "TestName": "",
+        "TestMethodConclusion": "NotRun",
+        "TestTimeMilliseconds": 0,
+        "Warning": false
+      }
+    }
+  ],
+  "TotalTestTimeMilliseconds": 10404,
+  "Product": "PRODUCT_TYPE_FPC1267",
+  "ContainWarnings": false,
+  "Success": "Fail"
+}
