@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<style>
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[text], button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* Navigation link styles */
+.nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.nav a:visited, a:link {
+  color: #607D8B;
+}
+.nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+.nav a.active {
+  color: #039be5;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.devices {
+  margin: 0 0 2em 0;
+  padding: 0;
+  width: 100%;
+}
+.devices {
+  cursor: pointer;
+  position: relative;
+  border-collapse: collapse;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.devices .text {
+  position: relative;
+  top: -3px;
+
+}
+.devices td {
+  font-size: small;
+  margin: 2em;
+  padding: 1em;
+  line-height: 1em;
+  position: relative;
+  text-align: left;
+}
+
+.offline {
+  color: whitesmoke;
+  font-weight: 900;
+  background-color: #FF5722;
+}
+.disabled {
+  color: black;
+  font-weight: 500;
+  background-color: #D3D3D3;
+}
+.working {
+  color: black;
+  font-weight: bold;
+  background-color: #03A9F4;
+}
+.ready { 
+  color: black;
+  font-weight: 500;
+  background-color: #9CCC65;
+}
+button.warning {
+  border: 2px solid black;
+  color: black;
+  font-weight: 900;
+  background-color: #DC143C;
+}
+button.warning:hover {
+  background-color: #B22222;
+}
+table td.fit, 
+table th.fit {
+    white-space: nowrap;
+    width: 1%;
+    text-align: right;
+}
+</style>
+
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+	<h1>Automation dashboard</h1>
+  <table class="devices">
+  <tr>
+    <th>IP</th>
+    <th>Hardware</th> 
+    <th>Sensor</th>
+    <th>Status</th>
+    <th>Information</th>
+    <th class="fit"></th>
+  </tr>
+  <tr ng-repeat="x in names" class="{{x.state}}">
+    <td>{{ x.ip }}</td>
+    <td>{{ x.hardware }}</td>
+    <td>{{ x.sensor }}</td>
+    <td>{{ x.state }}</td>
+    <td>
+    <table class="information" ng-if="x.meta != {}" >
+      <tr ng-repeat="(k,m) in x.meta">
+        <th ng-if="!isUrl(m)">{{k}}</th><td ng-if="!isUrl(m)">{{m}}</td>
+        <th colspan="2" class="nav" ng-if="isUrl(m) && !isUrl(k)"><a ng-href="{{m}}">{{k}}</a></td>
+        <th colspan="2" ng-if="isUrl(m) && isUrl(k)"><a ng-href="{{m}}"><img ng-src="{{k}}"/></a></td>
+      </tr>
+    </table>
+    </td>
+    <td class="fit"><button ng-if="x.state != 'disabled'" ng-click="disableDevice()">Disable</button><button ng-if="x.state == 'disabled'" ng-click="enableDevice()">Enable</button> <button class="warning" ng-click="removeDevice()">X</button></td></tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+    app.controller('customersCtrl', function ($scope, $http) {
+        $scope.serverUrl = "##SERVERURL##"
+        
+        $scope.refreshDevices = function() {
+            $http.get($scope.serverUrl +'/nodes')
+                .then(function (response) { $scope.names = response.data; });
+        };
+        $scope.freeDevice = function () {
+            $http.delete($scope.serverUrl +'/'+ this.x.ip)
+			.then($scope.refreshDevices);
+        };
+        $scope.disableDevice = function () {
+            $http.delete($scope.serverUrl +'/'+ this.x.ip + '?disable')
+			.then($scope.refreshDevices);
+        };
+        $scope.enableDevice = function () {
+            $http.delete($scope.serverUrl +'/'+ this.x.ip + '?enable')
+			.then($scope.refreshDevices);
+        };
+        $scope.removeDevice = function () {
+            $http.delete($scope.serverUrl +'/'+ this.x.ip + '?remove')
+			.then($scope.refreshDevices);
+        };
+        $scope.isUrl = function(value) {
+          return value.indexOf("://") != -1
+        };
+        setInterval($scope.refreshDevices, 10000);
+        $scope.refreshDevices();
+
+    });
+    
+</script>
+
+</body>
+</html>
