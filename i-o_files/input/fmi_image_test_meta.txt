@@ -1,0 +1,60 @@
+
+Meta common
+meta0 = 401
+meta1 = 4
+meta2 = 2147483648
+meta3 = 400
+meta4 = 4
+meta5 = 6
+
+Meta fallback
+meta0 = 210
+meta1 = 4
+meta2 = 1367
+meta3 = 211
+meta4 = 4
+meta5 = 1
+meta6 = 213
+meta7 = 4
+meta8 = 16
+meta9 = 214
+meta10 = 4
+meta11 = 2311
+meta12 = 215
+meta13 = 4
+meta14 = 5
+meta15 = 218
+meta16 = 4
+meta17 = 4
+meta18 = 217
+meta19 = 4
+meta20 = 221
+meta21 = 600
+meta22 = 4
+meta23 = 2
+
+Meta CAC or 0
+meta0 = 210
+meta1 = 4
+meta2 = 1367
+meta3 = 211
+meta4 = 4
+meta5 = 1
+meta6 = 213
+meta7 = 4
+meta8 = 16
+meta9 = 214
+meta10 = 4
+meta11 = 2311
+meta12 = 215
+meta13 = 4
+meta14 = 5
+meta15 = 218
+meta16 = 4
+meta17 = 4
+meta18 = 217
+meta19 = 4
+meta20 = 221
+meta21 = 600
+meta22 = 4
+meta23 = 2
